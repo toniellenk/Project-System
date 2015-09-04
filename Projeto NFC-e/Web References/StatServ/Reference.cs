@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Projeto_NFC_e.sefaznfe {
+namespace Projeto_NFC_e.StatServ {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -38,7 +38,7 @@ namespace Projeto_NFC_e.sefaznfe {
         /// <remarks/>
         public NfeStatusServico2() {
             this.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12;
-            this.Url = global::Projeto_NFC_e.Properties.Settings.Default.Projeto_NFC_e_sefaznfe_NfeStatusServico2;
+            this.Url = global::Projeto_NFC_e.Properties.Settings.Default.Projeto_NFC_e_StatServ_NfeStatusServico2;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

@@ -42,7 +42,9 @@ namespace Projeto_NFC_e
 
         {
             WSmt StatusServ = new WSmt();
+            StatusServ.MontarXmlStatServ();
             XmlEnv.Text = StatusServ.XmlEnv();
+            StatusServ.WsStatServ();
             RetSefaz.Text = StatusServ.XmlRet();
             
         }
@@ -80,7 +82,11 @@ namespace Projeto_NFC_e
 
         private void ButConsNfc_Click(object sender, EventArgs e)
         {
-
+            WSmt ConsNfe = new WSmt();
+            ConsNfe.MontarXmlConsSit(TxtChave.Text);
+            ConsNfe.WsConsNfe();
+            XmlEnv.Text = ConsNfe.XmlEnv();
+            RetSefaz.Text = ConsNfe.XmlRet();
         }
 
         private void XmlEnv_Click_1(object sender, EventArgs e)

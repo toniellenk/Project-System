@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicial));
             this.ButStatSefaz = new System.Windows.Forms.Button();
             this.ButLimp = new System.Windows.Forms.Button();
             this.RetSefaz = new System.Windows.Forms.Label();
@@ -158,7 +157,6 @@
             this.Controls.Add(this.ButLimp);
             this.Controls.Add(this.ButStatSefaz);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInicial";
             this.Text = "NFCe - Nota Fiscal do Consumidor";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -59,7 +59,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\sefaznfe\Reference.cs">
+    <Compile Include="Web References\ConsNfe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\StatServ\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -87,8 +92,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\sefaznfe\NfeStatusServico2.wsdl" />
-    <None Include="Web References\sefaznfe\Reference.map">
+    <None Include="Web References\ConsNfe\NfeConsulta2.wsdl" />
+    <None Include="Web References\ConsNfe\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\StatServ\NfeStatusServico2.wsdl" />
+    <None Include="Web References\StatServ\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -105,16 +115,27 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeStatusServico2%3fwsdl">
+    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta2%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\sefaznfe\</RelPath>
-      <UpdateFromURL>https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeStatusServico2%3fwsdl</UpdateFromURL>
+      <RelPath>Web References\ConsNfe\</RelPath>
+      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta2%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Projeto_NFC_e_sefaznfe_NfeStatusServico2</CachedSettingsPropName>
+      <CachedSettingsPropName>Projeto_NFC_e_ConsNfe_NfeConsulta2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StatServ\</RelPath>
+      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Projeto_NFC_e_StatServ_NfeStatusServico2</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

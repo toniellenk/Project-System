@@ -57,7 +57,7 @@
   </wsdl:binding>
   <wsdl:service name="NfeStatusServico2">
     <wsdl:port name="NfeStatusServico2Soap12" binding="tns:NfeStatusServico2Soap12">
-      <soap12:address location="https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeStatusServico2" />
+      <soap12:address location="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Security.Cryptography.X509Certificates;
-using Projeto_NFC_e.sefaznfe;
 
 namespace Projeto_NFC_e
 {
     class WSmt
     {
-         private XmlNode XmlEnvio;
-       private sefaznfe.NfeStatusServico2 wsSer = new sefaznfe.NfeStatusServico2();
-         public WSmt()
-        {
+       private XmlNode XmlEnvio;
+       private string XmlRetorno;
+             
+        public void MontarXmlStatServ(){    
             string WSstats = null;
+            XmlEnvio = null;
             WSstats = "<consStatServ xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
             WSstats += "<tpAmb>1</tpAmb>";
             WSstats += "<cUF>51</cUF>";
@@ -30,18 +30,31 @@ namespace Projeto_NFC_e
             XmlArq.PreserveWhitespace = true;
             XmlArq.LoadXml(WSstats);
             XmlEnvio = XmlArq.DocumentElement;
+        }
+        
+        public void MontarXmlConsSit(string ChaveNfe){    
+            string WSstats = null;
+            XmlEnvio = null;
+            WSstats = "<conSitNFe xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
+            WSstats += "<tpAmb>1</tpAmb>";
+            WSstats += "<cUF>51</cUF>";
+            WSstats += "<xServ>CONSULTAR</xServ>";
+            WSstats += "<chNFe>"+ChaveNfe+"</chNFe>";
+            WSstats += "</conSitNFe>";
 
-            sefaznfe.nfeCabecMsg wsCab = new sefaznfe.nfeCabecMsg();
-
-
+            System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
+            XmlArq.PreserveWhitespace = true;
+            XmlArq.LoadXml(WSstats);
+            XmlEnvio = XmlArq.DocumentElement;
+        }
+         
+        public void  WsConsNfe()
+        {
+            ConsNfe.NfeConsulta2 wsSer = new ConsNfe.NfeConsulta2();
+            ConsNfe.nfeCabecMsg wsCab = new ConsNfe.nfeCabecMsg();
             wsCab.cUF = "51";
             wsCab.versaoDados = "3.10";
             wsSer.nfeCabecMsgValue = wsCab;
-        }
-
-         public void AssinarWS()
-        
-        {
 
             X509Certificate2Collection lcerts;
             X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
@@ -57,12 +70,47 @@ namespace Projeto_NFC_e
                 if (cert.SerialNumber == NumSerie)
                 {
                     wsSer.ClientCertificates.Add(cert);
+                    XmlRetorno = wsSer.nfeConsultaNF2(XmlEnvio).OuterXml;
+                }
+                else
+                {
+                    MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
+                }
+            }         
+            lStore.Close();
+        }
+        
+         public void WsStatServ()
+        
+        {
+
+            StatServ.NfeStatusServico2 wsSer = new StatServ.NfeStatusServico2();
+            StatServ.nfeCabecMsg wsCab = new StatServ.nfeCabecMsg();
+            wsCab.cUF = "51";
+            wsCab.versaoDados = "3.10";
+            wsSer.nfeCabecMsgValue = wsCab;
+
+
+            X509Certificate2Collection lcerts;
+            X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+
+            // Abre o Store
+            lStore.Open(OpenFlags.OpenExistingOnly);
+
+            // Lista os certificados
+            lcerts = lStore.Certificates;
+            string NumSerie = "4FC5BEEB6E9DCB48";
+            foreach (X509Certificate2 cert in lcerts)
+            {
+                if (cert.SerialNumber == NumSerie)
+                {
+                    wsSer.ClientCertificates.Add(cert);
+                    XmlRetorno = wsSer.nfeStatusServicoNF2(XmlEnvio).OuterXml;
                     
                 }
                 else
                 {
-                    MessageBox.Show("O Número de Série " + cert.SerialNumber + " não foi encontrado.");
-
+                    MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
 
                 }
             }
@@ -75,12 +123,12 @@ namespace Projeto_NFC_e
         {
             return XmlEnvio.OuterXml;
         }
+
         public string XmlRet()
         {
-            AssinarWS();
-            return wsSer.nfeStatusServicoNF2(XmlEnvio).OuterXml;
+             return XmlRetorno;
         }
 
     }
-}
 
+}
