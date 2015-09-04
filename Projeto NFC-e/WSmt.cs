@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Security.Cryptography.X509Certificates;
+using Projeto_NFC_e.sefaznfe;
 
 namespace Projeto_NFC_e
 {
     class WSmt
     {
          private XmlNode XmlEnvio;
-         private sefaznfe.NfeStatusServico2 wsSer = new sefaznfe.NfeStatusServico2();
+       private sefaznfe.NfeStatusServico2 wsSer = new sefaznfe.NfeStatusServico2();
          public WSmt()
         {
             string WSstats = null;
@@ -36,6 +37,11 @@ namespace Projeto_NFC_e
             wsCab.cUF = "51";
             wsCab.versaoDados = "3.10";
             wsSer.nfeCabecMsgValue = wsCab;
+        }
+
+         public void AssinarWS()
+        
+        {
 
             X509Certificate2Collection lcerts;
             X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
@@ -48,19 +54,21 @@ namespace Projeto_NFC_e
             string NumSerie = "4FC5BEEB6E9DCB48";
             foreach (X509Certificate2 cert in lcerts)
             {
-                if (NumSerie == cert.SerialNumber)
+                if (cert.SerialNumber == NumSerie)
                 {
-
                     wsSer.ClientCertificates.Add(cert);
+                    
                 }
                 else
                 {
                     MessageBox.Show("O Número de Série " + cert.SerialNumber + " não foi encontrado.");
 
+
                 }
             }
 
-            lStore.Close();
+            lStore.Close();      
+        
         }
 
         public string XmlEnv()
@@ -69,6 +77,7 @@ namespace Projeto_NFC_e
         }
         public string XmlRet()
         {
+            AssinarWS();
             return wsSer.nfeStatusServicoNF2(XmlEnvio).OuterXml;
         }
 
