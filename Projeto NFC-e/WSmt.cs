@@ -16,7 +16,7 @@ namespace Projeto_NFC_e
     {
        private XmlNode XmlEnvio;
        private string XmlRetorno;
-             
+                    
         public void MontarXmlStatServ(){    
             string WSstats = null;
             XmlEnvio = null;
@@ -35,9 +35,10 @@ namespace Projeto_NFC_e
         public void MontarXmlConsSit(string ChaveNfe){    
             string WSstats = null;
             XmlEnvio = null;
-            WSstats = "<conSitNFe xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
+            WSstats = "<?xml version=" +'"'+ "1.0"+'"'+" encoding=" +'"'+ "UTF-8"+ '"' + "?>";
+            WSstats += "<conSitNFe xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
             WSstats += "<tpAmb>1</tpAmb>";
-            WSstats += "<cUF>51</cUF>";
+          //  WSstats += "<cUF>51</cUF>";
             WSstats += "<xServ>CONSULTAR</xServ>";
             WSstats += "<chNFe>"+ChaveNfe+"</chNFe>";
             WSstats += "</conSitNFe>";
@@ -45,16 +46,18 @@ namespace Projeto_NFC_e
             System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
             XmlArq.PreserveWhitespace = true;
             XmlArq.LoadXml(WSstats);
+            XmlArq.Save("C:/teste.xml");
             XmlEnvio = XmlArq.DocumentElement;
         }
          
-        public void  WsConsNfe()
+        public void WsConsNfe()
         {
             ConsNfe.NfeConsulta2 wsSer = new ConsNfe.NfeConsulta2();
             ConsNfe.nfeCabecMsg wsCab = new ConsNfe.nfeCabecMsg();
             wsCab.cUF = "51";
             wsCab.versaoDados = "3.10";
             wsSer.nfeCabecMsgValue = wsCab;
+
 
             X509Certificate2Collection lcerts;
             X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
@@ -83,7 +86,6 @@ namespace Projeto_NFC_e
          public void WsStatServ()
         
         {
-
             StatServ.NfeStatusServico2 wsSer = new StatServ.NfeStatusServico2();
             StatServ.nfeCabecMsg wsCab = new StatServ.nfeCabecMsg();
             wsCab.cUF = "51";
@@ -106,12 +108,11 @@ namespace Projeto_NFC_e
                 {
                     wsSer.ClientCertificates.Add(cert);
                     XmlRetorno = wsSer.nfeStatusServicoNF2(XmlEnvio).OuterXml;
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
-
                 }
             }
 
@@ -128,7 +129,6 @@ namespace Projeto_NFC_e
         {
              return XmlRetorno;
         }
-
     }
 
 }
