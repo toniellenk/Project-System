@@ -83,7 +83,8 @@ namespace Projeto_NFC_e
         private void ButConsNfc_Click(object sender, EventArgs e)
         {
             WSmt ConsNfe = new WSmt();
-            ConsNfe.MontarXmlConsSit(TxtChave.Text);
+            ConsNfe.MontarXmlConsSit("51150973715146000197650650000030801125830025");
+           // ConsNfe.MontarXmlConsSit(TxtChave.Text);
             ConsNfe.WsConsNfe();
             XmlEnv.Text = ConsNfe.XmlEnv();
             RetSefaz.Text = ConsNfe.XmlRet();

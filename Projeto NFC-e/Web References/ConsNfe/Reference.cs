@@ -101,7 +101,6 @@ namespace Projeto_NFC_e.ConsNfe {
         
         /// <remarks/>
         public void nfeConsultaNF2Async(System.Xml.XmlNode nfeDadosMsg, object userState) {
-
             if ((this.nfeConsultaNF2OperationCompleted == null)) {
                 this.nfeConsultaNF2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnnfeConsultaNF2OperationCompleted);
             }

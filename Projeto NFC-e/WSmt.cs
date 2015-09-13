@@ -20,7 +20,8 @@ namespace Projeto_NFC_e
         public void MontarXmlStatServ(){    
             string WSstats = null;
             XmlEnvio = null;
-            WSstats = "<consStatServ xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
+            WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+            WSstats += "<consStatServ xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\" >"; 
             WSstats += "<tpAmb>1</tpAmb>";
             WSstats += "<cUF>51</cUF>";
             WSstats += "<xServ>STATUS</xServ>";
@@ -35,13 +36,12 @@ namespace Projeto_NFC_e
         public void MontarXmlConsSit(string ChaveNfe){    
             string WSstats = null;
             XmlEnvio = null;
-            WSstats = "<?xml version=" +'"'+ "1.0"+'"'+" encoding=" +'"'+ "UTF-8"+ '"' + "?>";
-            WSstats += "<conSitNFe xmlns=" + '"' + "http://www.portalfiscal.inf.br/nfe" + '"' + " versao=" + '"' + "3.10" + '"' + ">";
+            WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+            WSstats += "<consSitNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\">";
             WSstats += "<tpAmb>1</tpAmb>";
-          //  WSstats += "<cUF>51</cUF>";
             WSstats += "<xServ>CONSULTAR</xServ>";
             WSstats += "<chNFe>"+ChaveNfe+"</chNFe>";
-            WSstats += "</conSitNFe>";
+            WSstats += "</consSitNFe>";
 
             System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
             XmlArq.PreserveWhitespace = true;
@@ -54,6 +54,7 @@ namespace Projeto_NFC_e
         {
             ConsNfe.NfeConsulta2 wsSer = new ConsNfe.NfeConsulta2();
             ConsNfe.nfeCabecMsg wsCab = new ConsNfe.nfeCabecMsg();
+
             wsCab.cUF = "51";
             wsCab.versaoDados = "3.10";
             wsSer.nfeCabecMsgValue = wsCab;
@@ -67,13 +68,15 @@ namespace Projeto_NFC_e
 
             // Lista os certificados
             lcerts = lStore.Certificates;
-            string NumSerie = "4FC5BEEB6E9DCB48";
+            string NumSerie = "79B1801522204BB8";
             foreach (X509Certificate2 cert in lcerts)
             {
                 if (cert.SerialNumber == NumSerie)
                 {
                     wsSer.ClientCertificates.Add(cert);
+                    wsSer.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12;
                     XmlRetorno = wsSer.nfeConsultaNF2(XmlEnvio).OuterXml;
+
                 }
                 else
                 {
@@ -101,7 +104,7 @@ namespace Projeto_NFC_e
 
             // Lista os certificados
             lcerts = lStore.Certificates;
-            string NumSerie = "4FC5BEEB6E9DCB48";
+            string NumSerie = "79B1801522204BB8";
             foreach (X509Certificate2 cert in lcerts)
             {
                 if (cert.SerialNumber == NumSerie)

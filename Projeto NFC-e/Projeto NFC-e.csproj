@@ -115,10 +115,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta2%3fwsdl">
+    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ConsNfe\</RelPath>
-      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta2%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
