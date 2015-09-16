@@ -84,7 +84,7 @@ namespace Projeto_NFC_e
                     }
             else
                 {
-                    MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
+                    MessageBox.Show("O Certificado com o Número de Série " + NumSerie + " não foi encontrado.");
                 }
                      
             lStore.Close();
