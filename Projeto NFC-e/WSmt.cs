@@ -68,21 +68,25 @@ namespace Projeto_NFC_e
 
             // Lista os certificados
             lcerts = lStore.Certificates;
+            bool LocCert = false;
             string NumSerie = "79B1801522204BB8";
             foreach (X509Certificate2 cert in lcerts)
             {
                 if (cert.SerialNumber == NumSerie)
                 {
+                    LocCert = true;
+                }
+            }    
+            if  LocCert {
                     wsSer.ClientCertificates.Add(cert);
                     wsSer.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12;
                     XmlRetorno = wsSer.nfeConsultaNF2(XmlEnvio).OuterXml;
-
-                }
-                else
+                    }
+            else
                 {
                     MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
                 }
-            }         
+                     
             lStore.Close();
         }
         
