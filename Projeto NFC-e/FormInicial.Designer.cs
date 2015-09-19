@@ -38,6 +38,7 @@
             this.TxtChave = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ButAss = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +145,22 @@
             this.panel1.Size = new System.Drawing.Size(368, 102);
             this.panel1.TabIndex = 15;
             // 
+            // ButAss
+            // 
+            this.ButAss.Location = new System.Drawing.Point(474, 217);
+            this.ButAss.Name = "ButAss";
+            this.ButAss.Size = new System.Drawing.Size(75, 23);
+            this.ButAss.TabIndex = 16;
+            this.ButAss.Text = "Assinar";
+            this.ButAss.UseVisualStyleBackColor = true;
+            this.ButAss.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 544);
+            this.Controls.Add(this.ButAss);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,6 +191,7 @@
         private System.Windows.Forms.TextBox TxtChave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button ButAss;
     }
 }
 

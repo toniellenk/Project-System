@@ -104,5 +104,12 @@ namespace Projeto_NFC_e
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            WSmt ConsNfe = new WSmt();
+            ConsNfe.MontarXmlEnvNfe();
+            ConsNfe.AssinandoXML();
+        }
     }
 }
