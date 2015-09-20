@@ -19,9 +19,9 @@ namespace Projeto_NFC_e
     class WSmt
     {
        private XmlNode XmlEnvio;
-       private XmlDocument XmlNfe;
        private string XmlRetorno;
        X509Certificate2 cert;
+       static string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
                     
         public void MontarXmlStatServ(){    
             string WSstats = null;
@@ -39,28 +39,66 @@ namespace Projeto_NFC_e
             XmlEnvio = XmlArq.DocumentElement;
         }
 
-        public void MontarXmlEnvNfe()
+        public XmlDocument MontarXmlEnvNfe()
         {
-            string WSstats = null;
-            XmlEnvio = null;
-            WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
-            WSstats += "<EnvNfe xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\" >";
-            WSstats += "<infNFe Id=\"NFe3508059978\" versao=\"3.10\">";
-            WSstats += "<cUF>51</cUF>";
-            WSstats += "<cNF>518005127</cNF>";
-            WSstats += "<natOp>Venda a vista</natOp>";
-            WSstats += "<mod>65</mod>";
-            WSstats += "<serie>1</serie>";
-            WSstats += "<dEmi>2008-05-06</dEmi>";
-            WSstats += "<tpAmb>2</tpAmb>";
-            WSstats += "</infNFe>";
-            WSstats += "</EnvNfe>";
+ 
+            XmlDocument XmlArq = new XmlDocument();
 
-            System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
+            XmlElement raiz, no, noNFe, noInfNFe;
+            XmlAttribute att;
+
+            raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
+            // Atributos do nó de enviNFe
+            att = XmlArq.CreateAttribute("versao");
+            att.Value = "3.10";
+            raiz.Attributes.Append(att);
+
+            XmlText noText;
+
+            no = XmlArq.CreateElement("idLote", NFeNamespace);
+            noText = XmlArq.CreateTextNode("1");
+            no.AppendChild(noText);
+            // "Nó" é filho de raiz :
+            raiz.AppendChild(no);
+
+            no = XmlArq.CreateElement("indSinc", NFeNamespace);
+            noText = XmlArq.CreateTextNode("0");
+            no.AppendChild(noText);
+            // "Nó" é filho de raiz :
+            raiz.AppendChild(no);
+
+            // infNFE
+            noInfNFe = XmlArq.CreateElement("infNFe", NFeNamespace);
+            att = XmlArq.CreateAttribute("Id");
+            att.Value = "NFe3508059978";
+            noInfNFe.Attributes.Append(att);
+
+            att = XmlArq.CreateAttribute("versao");
+            att.Value = "3.10";
+            noInfNFe.Attributes.Append(att);
+
+            // Filhos do infNFE
+            no = XmlArq.CreateElement("cUF", NFeNamespace);
+            noText = XmlArq.CreateTextNode("51");
+            no.AppendChild(noText);
+            noInfNFe.AppendChild(no);
+
+            no = XmlArq.CreateElement("cNF", NFeNamespace);
+            noText = XmlArq.CreateTextNode("518005127");
+            no.AppendChild(noText);
+            noInfNFe.AppendChild(no);
+
+            // *** Inclua os demais campos aqui ....
+
+            // Hierarquia de nós
+            noNFe = XmlArq.CreateElement("NFe", NFeNamespace);
+            noNFe.AppendChild(noInfNFe);
+            raiz.AppendChild(noNFe);
+
+            XmlArq.AppendChild(raiz);
             XmlArq.PreserveWhitespace = true;
-            XmlArq.LoadXml(WSstats);
-            XmlArq.Save("C:/nfe.xml");
-            XmlNfe = XmlArq;
+            XmlArq.Save("C:/Nfe.xml");
+            return XmlArq;
         }
         
 
@@ -160,7 +198,7 @@ namespace Projeto_NFC_e
         
         }
 
-        public void AssinandoXML(){
+        public void AssinandoXML(XmlDocument XmlNfe){
 
             X509Certificate2Collection lcerts;
             X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
@@ -203,24 +241,24 @@ namespace Projeto_NFC_e
 
                     signedXml.ComputeSignature();
 
-                    XmlDocument Doc = new XmlDocument();
-                    XmlElement xmlSignature = Doc.CreateElement("Signature", "http://www.w3.org/2000/09/xmldsig#");
+                 //   XmlDocument Doc = new XmlDocument();
+                    XmlElement xmlSignature = XmlNfe.CreateElement("Signature", "http://www.w3.org/2000/09/xmldsig#");
                     XmlElement xmlSignedInfo = signedXml.SignedInfo.GetXml();
                     XmlElement xmlKeyInfo = signedXml.KeyInfo.GetXml();
 
-
-                    XmlElement xmlSignatureValue = Doc.CreateElement("SignatureValue", xmlSignature.NamespaceURI);
+                    xmlSignature.AppendChild(XmlNfe.ImportNode(xmlSignedInfo, true));
+                    XmlElement xmlSignatureValue = XmlNfe.CreateElement("SignatureValue", xmlSignature.NamespaceURI);
                     string signBase64 = Convert.ToBase64String(signedXml.Signature.SignatureValue);
-                    XmlText text = Doc.CreateTextNode(signBase64);
+                    XmlText text = XmlNfe.CreateTextNode(signBase64);
                     xmlSignatureValue.AppendChild(text);
                     xmlSignature.AppendChild(xmlSignatureValue);
 
-                    xmlSignature.AppendChild(Doc.ImportNode(xmlSignedInfo, true));
-                    xmlSignature.AppendChild(Doc.ImportNode(xmlKeyInfo, true));
+
+                    xmlSignature.AppendChild(XmlNfe.ImportNode(xmlKeyInfo, true));
                   //  XmlNfe.AppendChild(xmlSignature);
-                    var evento = XmlNfe.GetElementsByTagName("EnvNfe");
+                    var evento = XmlNfe.GetElementsByTagName("NFe");
                     evento[0].AppendChild(xmlSignature);
-                    XmlNfe.Save("C:/nfe.xml");
+                    XmlNfe.Save("C:/NfeAssinado.xml");
                 }
        
             }
