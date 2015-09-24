@@ -87,6 +87,21 @@ namespace Projeto_NFC_e
             noText = XmlArq.CreateTextNode("518005127");
             no.AppendChild(noText);
             noInfNFe.AppendChild(no);
+            
+            no = XmlArq.CreateElement("natOp", NFeNamespace);
+            noText = XmlArq.CreateTextNode("VENDAS MERCADORIAS");
+            no.AppendChild(noText);
+            noInfNFe.AppendChild(no);
+            
+            no = XmlArq.CreateElement("indPag", NFeNamespace);
+            noText = XmlArq.CreateTextNode("0");
+            no.AppendChild(noText);
+            noInfNFe.AppendChild(no);
+            
+            no = XmlArq.CreateElement("mod", NFeNamespace);
+            noText = XmlArq.CreateTextNode("65");
+            no.AppendChild(noText);
+            noInfNFe.AppendChild(no);
 
             // *** Inclua os demais campos aqui ....
 
