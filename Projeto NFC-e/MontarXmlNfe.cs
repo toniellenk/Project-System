@@ -150,6 +150,44 @@ namespace Projeto_NFC_e
             
             InserirNo(no, noide, "verProc", "4.539");
             
+             // emit
+            noemit = XmlArq.CreateElement("emit", NFeNamespace);
+            noemit.AppendChild(noide);
+            
+            InserirNo(no, noemit, "CNPJ", "73715146000197");
+            
+            InserirNo(no, noemit, "xNome", "1 - BABY HOUSE COM BRINQ E UTILIDADES LTDA");
+            
+            InserirNo(no, noemit, "xFant", "73715146000197");
+            
+             // enderEmit
+            noenderEmit = XmlArq.CreateElement("enderEmit", NFeNamespace);
+            noenderEmit.AppendChild(noemit);
+            
+            InserirNo(no, noenderEmit, "xLgr", "RUA 24 DE OUTUBRO");
+            
+            InserirNo(no, noenderEmit, "nro", "723");
+            
+            InserirNo(no, noenderEmit, "xBairro", "BOSQUE");
+            
+            InserirNo(no, noenderEmit, "cMun", "5103403");
+            
+            InserirNo(no, noenderEmit, "xMun", "CUIABA");
+            
+            InserirNo(no, noenderEmit, "UF", "MT");
+            
+            InserirNo(no, noenderEmit, "CEP", "78045290");
+            
+            InserirNo(no, noenderEmit, "cPais", "1058");
+            
+            InserirNo(no, noenderEmit, "xPais", "BRASIL");
+            
+            InserirNo(no, noenderEmit, "fone", "6533228570");
+            
+            InserirNo(no, noemit, "IE", "131495453");
+            
+            InserirNo(no, noemit, "CRT", "3");
+
           //  no = XmlArq.CreateElement("verProc", NFeNamespace);
           //  noText = XmlArq.CreateTextNode("4.539");
           //  no.AppendChild(noText);
