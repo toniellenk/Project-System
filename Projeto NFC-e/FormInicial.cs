@@ -107,8 +107,15 @@ namespace Projeto_NFC_e
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            MontarXmlNfe xml = new MontarXmlNfe();           
             WSmt ConsNfe = new WSmt();
-            ConsNfe.AssinandoXML(ConsNfe.MontarXmlEnvNfe());
+            ConsNfe.AssinandoXML(xml.MontarXmlEnvNfe());
+        }
+
+        private void ButMontNfe_Click(object sender, EventArgs e)
+        {
+            MontarXmlNfe xml = new MontarXmlNfe();
+            xml.MontarXmlEnvNfe();
         }
     }
 }

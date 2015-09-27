@@ -16,15 +16,30 @@ using System.Security.Cryptography.Xml;
 
 namespace Projeto_NFC_e
 {
+
+   
     class MontarXmlNfe
     {
 
+      XmlDocument XmlArq = new XmlDocument();
+      XmlText noText;
+      string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
+
+      void InserirNo(XmlElement NoInsert, string tag, string valor)
+      {
+          XmlElement no;
+          no = XmlArq.CreateElement(tag, NFeNamespace);
+          noText = XmlArq.CreateTextNode(valor);
+          no.AppendChild(noText);
+          NoInsert.AppendChild(no); 
+    
+        }
+
       public XmlDocument MontarXmlEnvNfe()
         {
- 
-            XmlDocument XmlArq = new XmlDocument();
 
-            XmlElement raiz, no, noNFe, noide, noInfNFe, noemit;
+
+            XmlElement raiz, no, noNFe, noide, noInfNFe, noemit, noenderEmit, det, prod;
             XmlAttribute att;
 
             raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
@@ -33,10 +48,8 @@ namespace Projeto_NFC_e
             att.Value = "3.10";
             raiz.Attributes.Append(att);
 
-            XmlText noText;
-
             no = XmlArq.CreateElement("idLote", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
+            noText = XmlArq.CreateTextNode("12190");
             no.AppendChild(noText);
             // "Nó" é filho de raiz :
             raiz.AppendChild(no);
@@ -59,147 +72,143 @@ namespace Projeto_NFC_e
             
              // ide
             noide = XmlArq.CreateElement("ide", NFeNamespace);
-            noide.AppendChild(noNFe);
+            noInfNFe.AppendChild(noide);
+            
 
             // Filhos do ide
-            no = XmlArq.CreateElement("cUF", NFeNamespace);
-            noText = XmlArq.CreateTextNode("51");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
 
-            no = XmlArq.CreateElement("cNF", NFeNamespace);
-            noText = XmlArq.CreateTextNode("518005127");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("natOp", NFeNamespace);
-            noText = XmlArq.CreateTextNode("VENDAS MERCADORIAS");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("indPag", NFeNamespace);
-            noText = XmlArq.CreateTextNode("0");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("mod", NFeNamespace);
-            noText = XmlArq.CreateTextNode("65");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
+            InserirNo( noide, "cUF", "51");
 
-            no = XmlArq.CreateElement("serie", NFeNamespace);
-            noText = XmlArq.CreateTextNode("65");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
+            InserirNo( noide, "cNF", "12893003");
+
+            InserirNo( noide, "natOp", "3148");
+
+            InserirNo( noide, "indPag", "0");
+
+            InserirNo( noide, "mod", "65");
+
+            InserirNo( noide, "serie", "65");
+
+            InserirNo( noide, "nNF", "3148");
+
+            InserirNo( noide, "dhEmi", "2015-09-25T15:52:51-04:00");
+
+            InserirNo( noide, "tpNF", "1");
+
+            InserirNo( noide, "idDest", "1");
+
+            InserirNo(noide, "cMunFG", "5103403");
+
+            InserirNo( noide, "tpImp", "4");
+
+            InserirNo( noide, "tpEmis", "1");
+
+            InserirNo( noide, "cDV", "7");
+
+            InserirNo(noide, "tpAmb", "1");
+
+            InserirNo( noide, "finNFe", "1");
+
+            InserirNo( noide, "indFinal", "1");
+
+            InserirNo( noide, "indPres", "1");
+
+            InserirNo( noide, "procEmi", "0");                      
             
-            no = XmlArq.CreateElement("nNF", NFeNamespace);
-            noText = XmlArq.CreateTextNode("10");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("dhEmi", NFeNamespace);
-            noText = XmlArq.CreateTextNode("2015-09-25T15:52:51-04:00");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("tpNF", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("idDest", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("cMunFG", NFeNamespace);
-            noText = XmlArq.CreateTextNode("5103403");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("tpEmis", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("cDV", NFeNamespace);
-            noText = XmlArq.CreateTextNode("7");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("finNFe", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("indFinal", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("indPres", NFeNamespace);
-            noText = XmlArq.CreateTextNode("1");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            no = XmlArq.CreateElement("procEmi", NFeNamespace);
-            noText = XmlArq.CreateTextNode("0");
-            no.AppendChild(noText);
-            noide.AppendChild(no);
-            
-            
-            InserirNo(no, noide, "verProc", "4.539");
+            InserirNo( noide, "verProc", "4.539");
             
              // emit
             noemit = XmlArq.CreateElement("emit", NFeNamespace);
-            noemit.AppendChild(noide);
+            noInfNFe.AppendChild(noemit);
+
+            // filhos emit
             
-            InserirNo(no, noemit, "CNPJ", "73715146000197");
+            InserirNo( noemit, "CNPJ", "73715146000197");
             
-            InserirNo(no, noemit, "xNome", "1 - BABY HOUSE COM BRINQ E UTILIDADES LTDA");
-            
-            InserirNo(no, noemit, "xFant", "73715146000197");
+            InserirNo( noemit, "xNome", "1 - BABY HOUSE COM BRINQ E UTILIDADES LTDA");
+
+            InserirNo(noemit, "xFant", "BABY DREAMS");
             
              // enderEmit
             noenderEmit = XmlArq.CreateElement("enderEmit", NFeNamespace);
-            noenderEmit.AppendChild(noemit);
+            noemit.AppendChild(noenderEmit);
             
-            InserirNo(no, noenderEmit, "xLgr", "RUA 24 DE OUTUBRO");
+            InserirNo( noenderEmit, "xLgr", "RUA 24 DE OUTUBRO");
             
-            InserirNo(no, noenderEmit, "nro", "723");
+            InserirNo( noenderEmit, "nro", "723");
             
-            InserirNo(no, noenderEmit, "xBairro", "BOSQUE");
+            InserirNo( noenderEmit, "xBairro", "BOSQUE");
             
-            InserirNo(no, noenderEmit, "cMun", "5103403");
+            InserirNo( noenderEmit, "cMun", "5103403");
             
-            InserirNo(no, noenderEmit, "xMun", "CUIABA");
+            InserirNo( noenderEmit, "xMun", "CUIABA");
             
-            InserirNo(no, noenderEmit, "UF", "MT");
+            InserirNo( noenderEmit, "UF", "MT");
             
-            InserirNo(no, noenderEmit, "CEP", "78045290");
+            InserirNo( noenderEmit, "CEP", "78045290");
             
-            InserirNo(no, noenderEmit, "cPais", "1058");
+            InserirNo( noenderEmit, "cPais", "1058");
             
-            InserirNo(no, noenderEmit, "xPais", "BRASIL");
+            InserirNo( noenderEmit, "xPais", "BRASIL");
             
-            InserirNo(no, noenderEmit, "fone", "6533228570");
+            InserirNo( noenderEmit, "fone", "6533228570");
             
-            InserirNo(no, noemit, "IE", "131495453");
+            InserirNo( noemit, "IE", "131495453");
             
-            InserirNo(no, noemit, "CRT", "3");
+            InserirNo( noemit, "CRT", "3");
 
-          //  no = XmlArq.CreateElement("verProc", NFeNamespace);
-          //  noText = XmlArq.CreateTextNode("4.539");
-          //  no.AppendChild(noText);
-          //  noide.AppendChild(no);
-            
-            
+            // det
+            det = XmlArq.CreateElement("det", NFeNamespace);
+            att = XmlArq.CreateAttribute("nItem");
+            att.Value = "1";
+            det.Attributes.Append(att);
+            noInfNFe.AppendChild(det);
+
+            // prod
+            prod = XmlArq.CreateElement("prod", NFeNamespace);
+            det.AppendChild(prod);
+
+            // filhos prod
+            InserirNo(prod, "cProd", "8639");
+
+            InserirNo(prod, "cEAN", "");
+
+            InserirNo(prod, "xProd", "BODY M/C LILAS MAMAE E EU TEMOS ALGO 241-242 T-P/M");
+
+            InserirNo(prod, "NCM", "61119090");
+
+            InserirNo(prod, "CFOP", "5102");
+
+            InserirNo(prod, "uCom", "PC");
+
+            InserirNo(prod, "qCom", "1");
+
+            InserirNo(prod, "vUnCom", "46.31");
+
+            InserirNo(prod, "vProd", "46.31");
+
+            InserirNo(prod, "cEANTrib", "");
+
+            InserirNo(prod, "uTrib", "PC");
+
+            InserirNo(prod, "qTrib", "1");
+
+            InserirNo(prod, "vUnTrib", "46.31");
+
+            InserirNo(prod, "vDesc", "1.86");
+
+            InserirNo(prod, "indTot", "1");
+
             // *** Inclua os demais campos aqui ....
 
             // Hierarquia de nós
             noNFe = XmlArq.CreateElement("NFe", NFeNamespace);
-            noNFe.AppendChild(noInfNFe);
-            raiz.AppendChild(noNFe);
+            att = XmlArq.CreateAttribute("xmlns");
+            att.Value = "http://www.portalfiscal.inf.br/nfe";
+            noNFe.Attributes.Append(att);
+            noNFe.AppendChild(noInfNFe);        
+
+            raiz.AppendChild(noNFe);          
 
             XmlArq.AppendChild(raiz);
             XmlArq.PreserveWhitespace = true;

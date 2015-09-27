@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButAss = new System.Windows.Forms.Button();
+            this.ButMontNfe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,11 +156,22 @@
             this.ButAss.UseVisualStyleBackColor = true;
             this.ButAss.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // ButMontNfe
+            // 
+            this.ButMontNfe.Location = new System.Drawing.Point(474, 344);
+            this.ButMontNfe.Name = "ButMontNfe";
+            this.ButMontNfe.Size = new System.Drawing.Size(75, 23);
+            this.ButMontNfe.TabIndex = 17;
+            this.ButMontNfe.Text = "Montar NFe";
+            this.ButMontNfe.UseVisualStyleBackColor = true;
+            this.ButMontNfe.Click += new System.EventHandler(this.ButMontNfe_Click);
+            // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 544);
+            this.Controls.Add(this.ButMontNfe);
             this.Controls.Add(this.ButAss);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -192,6 +204,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ButAss;
+        private System.Windows.Forms.Button ButMontNfe;
     }
 }
 
