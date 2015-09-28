@@ -39,7 +39,8 @@ namespace Projeto_NFC_e
         {
 
 
-            XmlElement raiz, no, noNFe, noide, noInfNFe, noemit, noenderEmit, det, prod;
+            XmlElement raiz, no, noNFe, noIde, noInfNFe, noEmit, noEnderEmit, 
+                noDet, noProd, noImposto, noICMS, noPIS, noCOFINS, noICMS90, noPISAliq, noCOFINSAliq;
             XmlAttribute att;
 
             raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
@@ -71,133 +72,197 @@ namespace Projeto_NFC_e
             noInfNFe.Attributes.Append(att);
             
              // ide
-            noide = XmlArq.CreateElement("ide", NFeNamespace);
-            noInfNFe.AppendChild(noide);
+            noIde = XmlArq.CreateElement("ide", NFeNamespace);
+            noInfNFe.AppendChild(noIde);
             
 
             // Filhos do ide
 
-            InserirNo( noide, "cUF", "51");
+            InserirNo( noIde, "cUF", "51");
 
-            InserirNo( noide, "cNF", "12893003");
+            InserirNo( noIde, "cNF", "12893003");
 
-            InserirNo( noide, "natOp", "3148");
+            InserirNo( noIde, "natOp", "3148");
 
-            InserirNo( noide, "indPag", "0");
+            InserirNo( noIde, "indPag", "0");
 
-            InserirNo( noide, "mod", "65");
+            InserirNo( noIde, "mod", "65");
 
-            InserirNo( noide, "serie", "65");
+            InserirNo( noIde, "serie", "65");
 
-            InserirNo( noide, "nNF", "3148");
+            InserirNo( noIde, "nNF", "3148");
 
-            InserirNo( noide, "dhEmi", "2015-09-25T15:52:51-04:00");
+            InserirNo( noIde, "dhEmi", "2015-09-25T15:52:51-04:00");
 
-            InserirNo( noide, "tpNF", "1");
+            InserirNo( noIde, "tpNF", "1");
 
-            InserirNo( noide, "idDest", "1");
+            InserirNo( noIde, "idDest", "1");
 
-            InserirNo(noide, "cMunFG", "5103403");
+            InserirNo(noIde, "cMunFG", "5103403");
 
-            InserirNo( noide, "tpImp", "4");
+            InserirNo( noIde, "tpImp", "4");
 
-            InserirNo( noide, "tpEmis", "1");
+            InserirNo( noIde, "tpEmis", "1");
 
-            InserirNo( noide, "cDV", "7");
+            InserirNo( noIde, "cDV", "7");
 
-            InserirNo(noide, "tpAmb", "1");
+            InserirNo(noIde, "tpAmb", "1");
 
-            InserirNo( noide, "finNFe", "1");
+            InserirNo( noIde, "finNFe", "1");
 
-            InserirNo( noide, "indFinal", "1");
+            InserirNo( noIde, "indFinal", "1");
 
-            InserirNo( noide, "indPres", "1");
+            InserirNo( noIde, "indPres", "1");
 
-            InserirNo( noide, "procEmi", "0");                      
+            InserirNo( noIde, "procEmi", "0");                      
             
-            InserirNo( noide, "verProc", "4.539");
+            InserirNo( noIde, "verProc", "4.539");
             
              // emit
-            noemit = XmlArq.CreateElement("emit", NFeNamespace);
-            noInfNFe.AppendChild(noemit);
+            noEmit = XmlArq.CreateElement("emit", NFeNamespace);
+            noInfNFe.AppendChild(noEmit);
 
             // filhos emit
             
-            InserirNo( noemit, "CNPJ", "73715146000197");
+            InserirNo( noEmit, "CNPJ", "73715146000197");
             
-            InserirNo( noemit, "xNome", "1 - BABY HOUSE COM BRINQ E UTILIDADES LTDA");
+            InserirNo( noEmit, "xNome", "1 - BABY HOUSE COM BRINQ E UTILIDADES LTDA");
 
-            InserirNo(noemit, "xFant", "BABY DREAMS");
+            InserirNo(noEmit, "xFant", "BABY DREAMS");
             
              // enderEmit
-            noenderEmit = XmlArq.CreateElement("enderEmit", NFeNamespace);
-            noemit.AppendChild(noenderEmit);
+            noEnderEmit = XmlArq.CreateElement("enderEmit", NFeNamespace);
+            noEmit.AppendChild(noEnderEmit);
             
-            InserirNo( noenderEmit, "xLgr", "RUA 24 DE OUTUBRO");
+            InserirNo( noEnderEmit, "xLgr", "RUA 24 DE OUTUBRO");
             
-            InserirNo( noenderEmit, "nro", "723");
+            InserirNo( noEnderEmit, "nro", "723");
             
-            InserirNo( noenderEmit, "xBairro", "BOSQUE");
+            InserirNo( noEnderEmit, "xBairro", "BOSQUE");
             
-            InserirNo( noenderEmit, "cMun", "5103403");
+            InserirNo( noEnderEmit, "cMun", "5103403");
             
-            InserirNo( noenderEmit, "xMun", "CUIABA");
+            InserirNo( noEnderEmit, "xMun", "CUIABA");
             
-            InserirNo( noenderEmit, "UF", "MT");
+            InserirNo( noEnderEmit, "UF", "MT");
             
-            InserirNo( noenderEmit, "CEP", "78045290");
+            InserirNo( noEnderEmit, "CEP", "78045290");
             
-            InserirNo( noenderEmit, "cPais", "1058");
+            InserirNo( noEnderEmit, "cPais", "1058");
             
-            InserirNo( noenderEmit, "xPais", "BRASIL");
+            InserirNo( noEnderEmit, "xPais", "BRASIL");
             
-            InserirNo( noenderEmit, "fone", "6533228570");
+            InserirNo( noEnderEmit, "fone", "6533228570");
             
-            InserirNo( noemit, "IE", "131495453");
+            InserirNo( noEmit, "IE", "131495453");
             
-            InserirNo( noemit, "CRT", "3");
+            InserirNo( noEmit, "CRT", "3");
 
             // det
-            det = XmlArq.CreateElement("det", NFeNamespace);
+            noDet = XmlArq.CreateElement("det", NFeNamespace);
             att = XmlArq.CreateAttribute("nItem");
             att.Value = "1";
-            det.Attributes.Append(att);
-            noInfNFe.AppendChild(det);
+            noDet.Attributes.Append(att);
+            noInfNFe.AppendChild(noDet);
 
             // prod
-            prod = XmlArq.CreateElement("prod", NFeNamespace);
-            det.AppendChild(prod);
+            noProd = XmlArq.CreateElement("prod", NFeNamespace);
+            noDet.AppendChild(noProd);
 
             // filhos prod
-            InserirNo(prod, "cProd", "8639");
+            InserirNo(noProd, "cProd", "8639");
 
-            InserirNo(prod, "cEAN", "");
+            InserirNo(noProd, "cEAN", "");
 
-            InserirNo(prod, "xProd", "BODY M/C LILAS MAMAE E EU TEMOS ALGO 241-242 T-P/M");
+            InserirNo(noProd, "xProd", "BODY M/C LILAS MAMAE E EU TEMOS ALGO 241-242 T-P/M");
 
-            InserirNo(prod, "NCM", "61119090");
+            InserirNo(noProd, "NCM", "61119090");
 
-            InserirNo(prod, "CFOP", "5102");
+            InserirNo(noProd, "CFOP", "5102");
 
-            InserirNo(prod, "uCom", "PC");
+            InserirNo(noProd, "uCom", "PC");
 
-            InserirNo(prod, "qCom", "1");
+            InserirNo(noProd, "qCom", "1");
 
-            InserirNo(prod, "vUnCom", "46.31");
+            InserirNo(noProd, "vUnCom", "46.31");
 
-            InserirNo(prod, "vProd", "46.31");
+            InserirNo(noProd, "vProd", "46.31");
 
-            InserirNo(prod, "cEANTrib", "");
+            InserirNo(noProd, "cEANTrib", "");
 
-            InserirNo(prod, "uTrib", "PC");
+            InserirNo(noProd, "uTrib", "PC");
 
-            InserirNo(prod, "qTrib", "1");
+            InserirNo(noProd, "qTrib", "1");
 
-            InserirNo(prod, "vUnTrib", "46.31");
+            InserirNo(noProd, "vUnTrib", "46.31");
 
-            InserirNo(prod, "vDesc", "1.86");
+            InserirNo(noProd, "vDesc", "1.86");
 
-            InserirNo(prod, "indTot", "1");
+            InserirNo(noProd, "indTot", "1");
+
+            // imposto
+            noImposto = XmlArq.CreateElement("imposto", NFeNamespace);
+            noDet.AppendChild(noImposto);
+
+            // ICMS
+            noICMS = XmlArq.CreateElement("ICMS", NFeNamespace);
+            noImposto.AppendChild(noICMS);
+
+            // ICMS90
+            noICMS90 = XmlArq.CreateElement("ICMS90", NFeNamespace);
+            noICMS.AppendChild(noICMS90);
+          
+            // filhos ICMS90
+            InserirNo(noICMS90, "orig", "0");
+
+            InserirNo(noICMS90, "CST", "90");
+
+            // PIS
+            noPIS = XmlArq.CreateElement("PIS", NFeNamespace);
+            noImposto.AppendChild(noPIS);
+
+            // PISAliq
+            noPISAliq = XmlArq.CreateElement("PIS", NFeNamespace);
+            noPIS.AppendChild(noPISAliq);
+
+            // filhos PISAliq
+            InserirNo(noPISAliq, "CST", "01");
+
+            InserirNo(noPISAliq, "vBC", "44.45");
+
+            InserirNo(noPISAliq, "pPIS", "0.65");
+
+            InserirNo(noPISAliq, "vPIS", "0.29");  
+
+            // COFINS
+            noCOFINS = XmlArq.CreateElement("COFINS", NFeNamespace);
+            noImposto.AppendChild(noCOFINS);
+
+            // COFINSAliq
+            noCOFINSAliq = XmlArq.CreateElement("COFINS", NFeNamespace);
+            noCOFINS.AppendChild(noCOFINSAliq);
+
+            // filhos COFINSAliq
+            InserirNo(noCOFINSAliq, "CST", "01");
+
+            InserirNo(noCOFINSAliq, "vBC", "44.45");
+
+            InserirNo(noCOFINSAliq, "pCOFINS", "3.00");
+
+            InserirNo(noCOFINSAliq, "vCOFINS", "1.33");
+
+            // total
+            noTotal = XmlArq.CreateElement("total", NFeNamespace);
+            noInfNFe.AppendChild(noTotal);
+
+            // ICMSTot
+            noICMSTot = XmlArq.CreateElement("ICMSTot", NFeNamespace);
+            noTotal.AppendChild(noICMSTot);
+
+            // filhos ICMSTot
+            InserirNo(noCOFINSAliq, "CST", "01");
+            
+
 
             // *** Inclua os demais campos aqui ....
 
