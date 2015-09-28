@@ -40,7 +40,8 @@ namespace Projeto_NFC_e
 
 
             XmlElement raiz, no, noNFe, noIde, noInfNFe, noEmit, noEnderEmit, 
-                noDet, noProd, noImposto, noICMS, noPIS, noCOFINS, noICMS90, noPISAliq, noCOFINSAliq;
+                noDet, noProd, noImposto, noICMS, noPIS, noCOFINS, noICMS90,
+                noPISAliq, noCOFINSAliq, noTotal, noICMSTot, noTransp, noPag, noInfAdic;
             XmlAttribute att;
 
             raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
@@ -260,9 +261,55 @@ namespace Projeto_NFC_e
             noTotal.AppendChild(noICMSTot);
 
             // filhos ICMSTot
-            InserirNo(noCOFINSAliq, "CST", "01");
+            InserirNo(noICMSTot, "vBC", "0");
             
-
+            InserirNo(noICMSTot, "vICMS", "0");
+            
+            InserirNo(noICMSTot, "vICMSDeson", "0");
+            
+            InserirNo(noICMSTot, "vBCST", "0");
+            
+            InserirNo(noICMSTot, "vST", "0");
+            
+            InserirNo(noICMSTot, "vProd", "46.31");
+            
+            InserirNo(noICMSTot, "vFrete", "0");
+            
+            InserirNo(noICMSTot, "vSeg", "0");
+            
+            InserirNo(noICMSTot, "vDesc", "1.86");
+            
+            InserirNo(noICMSTot, "vII", "0");
+            
+            InserirNo(noICMSTot, "vIPI", "0");
+            
+            InserirNo(noICMSTot, "vPIS", "0.29");
+            
+            InserirNo(noICMSTot, "vCOFINS", "1.33");
+            
+            InserirNo(noICMSTot, "vOutro", "0");
+            
+            InserirNo(noICMSTot, "vNF", "44.45");
+            
+            // transp
+            noTransp = XmlArq.CreateElement("transp", NFeNamespace);
+            noInfNFe.AppendChild(noTransp);
+            
+            InserirNo(noTransp, "modFrete", "9");
+            
+            // pag
+            noPag = XmlArq.CreateElement("pag", NFeNamespace);
+            noInfNFe.AppendChild(noPag);
+            
+            InserirNo(noPag, "tPag", "99");
+            
+            InserirNo(noPag, "vPag", "44.45");
+            
+            // infAdic
+            noInfAdic = XmlArq.CreateElement("infAdic", NFeNamespace);
+            noInfNFe.AppendChild(noInfAdic);
+            
+            InserirNo(noInfAdic, "infCpl", "TESTE EMISSISSÃO NFC-E AMBIENTE DE HOMOLOGACAO");
 
             // *** Inclua os demais campos aqui ....
 
