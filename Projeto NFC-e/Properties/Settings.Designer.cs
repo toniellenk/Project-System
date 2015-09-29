@@ -42,5 +42,25 @@ namespace Projeto_NFC_e.Properties {
                 return ((string)(this["Projeto_NFC_e_ConsNfe_NfeConsulta2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeAutorizacao")]
+        public string Projeto_NFC_e_EnvNfe_NfeAutorizacao {
+            get {
+                return ((string)(this["Projeto_NFC_e_EnvNfe_NfeAutorizacao"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeRetAutorizacao")]
+        public string Projeto_NFC_e_RecNfe_NfeRetAutorizacao {
+            get {
+                return ((string)(this["Projeto_NFC_e_RecNfe_NfeRetAutorizacao"]));
+            }
+        }
     }
 }

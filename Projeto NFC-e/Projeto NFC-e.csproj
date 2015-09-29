@@ -67,6 +67,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\EnvNfe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RecNfe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\StatServ\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +110,16 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\EnvNfe\NfeAutorizacao.wsdl" />
+    <None Include="Web References\EnvNfe\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RecNfe\NfeRetAutorizacao.wsdl" />
+    <None Include="Web References\RecNfe\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\StatServ\NfeStatusServico2.wsdl" />
     <None Include="Web References\StatServ\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -118,6 +138,28 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeAutorizacao%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EnvNfe\</RelPath>
+      <UpdateFromURL>https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeAutorizacao%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Projeto_NFC_e_EnvNfe_NfeAutorizacao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeRetAutorizacao%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RecNfe\</RelPath>
+      <UpdateFromURL>https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeRetAutorizacao%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Projeto_NFC_e_RecNfe_NfeRetAutorizacao</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ConsNfe\</RelPath>

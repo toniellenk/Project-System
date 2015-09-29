@@ -44,6 +44,15 @@ namespace Projeto_NFC_e
                 noPISAliq, noCOFINSAliq, noTotal, noICMSTot, noTransp, noPag, noInfAdic;
             XmlAttribute att;
 
+            // Create an XML declaration. 
+            XmlDeclaration xmldecl;
+            xmldecl = XmlArq.CreateXmlDeclaration("1.0", null, null);
+            xmldecl.Encoding = "UTF-8";
+
+            // Add the new node to the document.
+            XmlElement root = XmlArq.DocumentElement;
+            XmlArq.InsertBefore(xmldecl, root);
+
             raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
             // Atributos do nó de enviNFe
             att = XmlArq.CreateAttribute("versao");
@@ -83,7 +92,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "cNF", "12893003");
 
-            InserirNo( noIde, "natOp", "3148");
+            InserirNo(noIde, "natOp", "VENDAS MERCADORIAS");
 
             InserirNo( noIde, "indPag", "0");
 
@@ -93,7 +102,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "nNF", "3148");
 
-            InserirNo( noIde, "dhEmi", "2015-09-25T15:52:51-04:00");
+            InserirNo( noIde, "dhEmi", "2015-09-28T22:14:51-04:00");
 
             InserirNo( noIde, "tpNF", "1");
 
@@ -107,7 +116,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "cDV", "7");
 
-            InserirNo(noIde, "tpAmb", "1");
+            InserirNo(noIde, "tpAmb", "2");
 
             InserirNo( noIde, "finNFe", "1");
 
@@ -223,7 +232,7 @@ namespace Projeto_NFC_e
             noImposto.AppendChild(noPIS);
 
             // PISAliq
-            noPISAliq = XmlArq.CreateElement("PIS", NFeNamespace);
+            noPISAliq = XmlArq.CreateElement("PISAliq", NFeNamespace);
             noPIS.AppendChild(noPISAliq);
 
             // filhos PISAliq
@@ -240,7 +249,7 @@ namespace Projeto_NFC_e
             noImposto.AppendChild(noCOFINS);
 
             // COFINSAliq
-            noCOFINSAliq = XmlArq.CreateElement("COFINS", NFeNamespace);
+            noCOFINSAliq = XmlArq.CreateElement("COFINSAliq", NFeNamespace);
             noCOFINS.AppendChild(noCOFINSAliq);
 
             // filhos COFINSAliq
@@ -309,7 +318,7 @@ namespace Projeto_NFC_e
             noInfAdic = XmlArq.CreateElement("infAdic", NFeNamespace);
             noInfNFe.AppendChild(noInfAdic);
             
-            InserirNo(noInfAdic, "infCpl", "TESTE EMISSISSÃO NFC-E AMBIENTE DE HOMOLOGACAO");
+            InserirNo(noInfAdic, "infCpl", "TESTE EMISSAO NFC-E AMBIENTE DE HOMOLOGACAO");
 
             // *** Inclua os demais campos aqui ....
 
@@ -323,6 +332,7 @@ namespace Projeto_NFC_e
             raiz.AppendChild(noNFe);          
 
             XmlArq.AppendChild(raiz);
+
             XmlArq.PreserveWhitespace = true;
             XmlArq.Save("C:/Nfe.xml");
             return XmlArq;

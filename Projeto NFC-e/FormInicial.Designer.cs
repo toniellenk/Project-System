@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButAss = new System.Windows.Forms.Button();
-            this.ButMontNfe = new System.Windows.Forms.Button();
+            this.ButRecNfe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,7 +141,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TxtChave);
             this.panel1.Controls.Add(this.ButConsNfc);
-            this.panel1.Location = new System.Drawing.Point(334, 25);
+            this.panel1.Location = new System.Drawing.Point(318, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(368, 102);
             this.panel1.TabIndex = 15;
@@ -156,22 +156,22 @@
             this.ButAss.UseVisualStyleBackColor = true;
             this.ButAss.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // ButMontNfe
+            // ButRecNfe
             // 
-            this.ButMontNfe.Location = new System.Drawing.Point(474, 344);
-            this.ButMontNfe.Name = "ButMontNfe";
-            this.ButMontNfe.Size = new System.Drawing.Size(75, 23);
-            this.ButMontNfe.TabIndex = 17;
-            this.ButMontNfe.Text = "Montar NFe";
-            this.ButMontNfe.UseVisualStyleBackColor = true;
-            this.ButMontNfe.Click += new System.EventHandler(this.ButMontNfe_Click);
+            this.ButRecNfe.Location = new System.Drawing.Point(474, 344);
+            this.ButRecNfe.Name = "ButRecNfe";
+            this.ButRecNfe.Size = new System.Drawing.Size(75, 23);
+            this.ButRecNfe.TabIndex = 17;
+            this.ButRecNfe.Text = "Recibo NFe";
+            this.ButRecNfe.UseVisualStyleBackColor = true;
+            this.ButRecNfe.Click += new System.EventHandler(this.ButMontNfe_Click);
             // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 544);
-            this.Controls.Add(this.ButMontNfe);
+            this.Controls.Add(this.ButRecNfe);
             this.Controls.Add(this.ButAss);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -196,7 +196,6 @@
         private System.Windows.Forms.Button ButLimp;
         private System.Windows.Forms.Button ButStatSefaz;
         private System.Windows.Forms.Label RetSefaz;
-        private System.Windows.Forms.Label XmlEnv;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button ButConsNfc;
@@ -204,7 +203,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ButAss;
-        private System.Windows.Forms.Button ButMontNfe;
+        private System.Windows.Forms.Button ButRecNfe;
+        public System.Windows.Forms.Label XmlEnv;
     }
 }
 

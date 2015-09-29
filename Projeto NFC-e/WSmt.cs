@@ -21,14 +21,13 @@ namespace Projeto_NFC_e
        private XmlNode XmlEnvio;
        private string XmlRetorno;
        X509Certificate2 cert;
-       static string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
                     
         public void MontarXmlStatServ(){    
             string WSstats = null;
             XmlEnvio = null;
             WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
             WSstats += "<consStatServ xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\" >"; 
-            WSstats += "<tpAmb>1</tpAmb>";
+            WSstats += "<tpAmb>2</tpAmb>";
             WSstats += "<cUF>51</cUF>";
             WSstats += "<xServ>STATUS</xServ>";
             WSstats += "</consStatServ>";
@@ -45,10 +44,27 @@ namespace Projeto_NFC_e
             XmlEnvio = null;
             WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
             WSstats += "<consSitNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\">";
-            WSstats += "<tpAmb>1</tpAmb>";
+            WSstats += "<tpAmb>2</tpAmb>";
             WSstats += "<xServ>CONSULTAR</xServ>";
             WSstats += "<chNFe>"+ChaveNfe+"</chNFe>";
             WSstats += "</consSitNFe>";
+
+            System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
+            XmlArq.PreserveWhitespace = true;
+            XmlArq.LoadXml(WSstats);
+            XmlArq.Save("C:/teste.xml");
+            XmlEnvio = XmlArq.DocumentElement;
+        }
+
+        public void MontarXmlReciNFe(string Recibo)
+        {
+            string WSstats = null;
+            XmlEnvio = null;
+            WSstats = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+            WSstats += "<consReciNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"3.10\">";
+            WSstats += "<tpAmb>2</tpAmb>";
+            WSstats += "<nRec>" + Recibo + "</nRec>";
+            WSstats += "</consReciNFe>";
 
             System.Xml.XmlDocument XmlArq = new System.Xml.XmlDocument();
             XmlArq.PreserveWhitespace = true;
@@ -98,6 +114,49 @@ namespace Projeto_NFC_e
                      
             lStore.Close();
         }
+
+        public void WsRecNfe()
+        {
+            RecNfe.NfeRetAutorizacao wsSer = new RecNfe.NfeRetAutorizacao();
+            RecNfe.nfeCabecMsg wsCab = new RecNfe.nfeCabecMsg();
+
+            wsCab.cUF = "51";
+            wsCab.versaoDados = "3.10";
+            wsSer.nfeCabecMsgValue = wsCab;
+
+
+            X509Certificate2Collection lcerts;
+            X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+
+            // Abre o Store
+            lStore.Open(OpenFlags.OpenExistingOnly);
+
+            // Lista os certificados
+            lcerts = lStore.Certificates;
+            bool LocCert = false;
+            string NumSerie = "79B1801522204BB8";
+
+            foreach (X509Certificate2 tpcert in lcerts)
+            {
+                if (tpcert.SerialNumber == NumSerie)
+                {
+                    cert = tpcert;
+                    LocCert = true;
+                }
+            }
+            if (LocCert)
+            {
+                wsSer.ClientCertificates.Add(cert);
+                wsSer.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12;
+                XmlRetorno = wsSer.nfeRetAutorizacaoLote(XmlEnvio).OuterXml;
+            }
+            else
+            {
+                MessageBox.Show("O Certificado com o Número de Série " + NumSerie + " não foi encontrado.");
+            }
+
+            lStore.Close();
+        }
         
          public void WsStatServ()
         
@@ -124,7 +183,7 @@ namespace Projeto_NFC_e
                 {
                     wsSer.ClientCertificates.Add(cert);
                     XmlRetorno = wsSer.nfeStatusServicoNF2(XmlEnvio).OuterXml;
-
+                    
                 }
                 else
                 {
@@ -135,6 +194,42 @@ namespace Projeto_NFC_e
             lStore.Close();      
         
         }
+
+         public void WsEnvNfe()
+         {
+             EnvNfe.NfeAutorizacao wsSer = new EnvNfe.NfeAutorizacao();
+             EnvNfe.nfeCabecMsg wsCab = new EnvNfe.nfeCabecMsg();
+             wsCab.cUF = "51";
+             wsCab.versaoDados = "3.10";
+             wsSer.nfeCabecMsgValue = wsCab;
+
+
+             X509Certificate2Collection lcerts;
+             X509Store lStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+
+             // Abre o Store
+             lStore.Open(OpenFlags.OpenExistingOnly);
+
+             // Lista os certificados
+             lcerts = lStore.Certificates;
+             string NumSerie = "79B1801522204BB8";
+             foreach (X509Certificate2 cert in lcerts)
+             {
+                 if (cert.SerialNumber == NumSerie)
+                 {
+                     wsSer.ClientCertificates.Add(cert);
+                     XmlRetorno = wsSer.nfeAutorizacaoLote(XmlEnvio).OuterXml;
+
+                 }
+                 else
+                 {
+                     MessageBox.Show("O Número de Série " + NumSerie + " não foi encontrado.");
+                 }
+             }
+
+             lStore.Close();
+
+         }
 
         public void AssinandoXML(XmlDocument XmlNfe){
 
@@ -197,6 +292,7 @@ namespace Projeto_NFC_e
                     var evento = XmlNfe.GetElementsByTagName("NFe");
                     evento[0].AppendChild(xmlSignature);
                     XmlNfe.Save("C:/NfeAssinado.xml");
+                    XmlEnvio = XmlNfe.DocumentElement;
                 }
        
             }
