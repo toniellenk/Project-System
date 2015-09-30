@@ -26,15 +26,39 @@ namespace Projeto_NFC_e
       string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
 
       void InserirNo(XmlElement NoInsert, string tag, string valor)
-      {
+         {
           XmlElement no;
           no = XmlArq.CreateElement(tag, NFeNamespace);
           noText = XmlArq.CreateTextNode(valor);
           no.AppendChild(noText);
           NoInsert.AppendChild(no); 
     
+         }
+      
+      public static int DigitoModulo11(long intNumero)
+        {
+            int[] intPesos = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 
+            9, 2, 3, 4, 5, 6, 7, 8, 9 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4 };
+            string strText = intNumero.ToString();
+ 
+            if (strText.Length > 43)
+                throw new Exception("Número não suportado pela função!");
+ 
+            int intSoma = 0;
+            int intIdx = 0;
+            for (int intPos = strText.Length - 1; intPos >= 0; intPos--)
+            {
+                intSoma += Convert.ToInt32(strText[intPos].ToString()) * intPesos[intIdx];
+                intIdx++;
+            }
+            int intResto = (intSoma * 10) % 11;
+            int intDigito = intResto;
+            if (intDigito >= 10)
+                intDigito = 0;
+ 
+            return intDigito;
         }
-
+        
       public XmlDocument MontarXmlEnvNfe()
         {
 
