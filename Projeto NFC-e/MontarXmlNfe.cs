@@ -38,7 +38,7 @@ namespace Projeto_NFC_e
       public static int DigitoModulo11(long intNumero)
         {
             int[] intPesos = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 
-            9, 2, 3, 4, 5, 6, 7, 8, 9 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4 };
+            9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4 };
             string strText = intNumero.ToString();
  
             if (strText.Length > 43)
@@ -126,7 +126,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "nNF", "3148");
 
-            InserirNo( noIde, "dhEmi", "2015-09-28T22:14:51-04:00");
+            InserirNo( noIde, "dhEmi", "2015-10-01T19:39:51-04:00");
 
             InserirNo( noIde, "tpNF", "1");
 
