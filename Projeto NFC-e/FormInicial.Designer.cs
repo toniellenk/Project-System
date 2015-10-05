@@ -29,184 +29,235 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicial));
-            this.ButStatSefaz = new System.Windows.Forms.Button();
-            this.ButLimp = new System.Windows.Forms.Button();
-            this.RetSefaz = new System.Windows.Forms.Label();
-            this.XmlEnv = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ButConsNfc = new System.Windows.Forms.Button();
-            this.TxtChave = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ButAss = new System.Windows.Forms.Button();
-            this.ButRecNfe = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.MenuInicial = new System.Windows.Forms.MenuStrip();
+            this.MenCad = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estabelecimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenVend = new System.Windows.Forms.ToolStripMenuItem();
+            this.orçamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentosDeSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nFeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenFinan = new System.Windows.Forms.ToolStripMenuItem();
+            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contasAPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contasAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenEst = new System.Windows.Forms.ToolStripMenuItem();
+            this.saldoProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenRel = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuInicial.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ButStatSefaz
+            // MenuInicial
             // 
-            this.ButStatSefaz.Location = new System.Drawing.Point(473, 167);
-            this.ButStatSefaz.Name = "ButStatSefaz";
-            this.ButStatSefaz.Size = new System.Drawing.Size(75, 23);
-            this.ButStatSefaz.TabIndex = 4;
-            this.ButStatSefaz.Text = "Status Sefaz";
-            this.ButStatSefaz.UseVisualStyleBackColor = true;
-            this.ButStatSefaz.Click += new System.EventHandler(this.button1_Click);
+            this.MenuInicial.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.MenuInicial.AutoSize = false;
+            this.MenuInicial.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.MenuInicial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.MenuInicial.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.MenuInicial.GripMargin = new System.Windows.Forms.Padding(2);
+            this.MenuInicial.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.MenuInicial.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenCad,
+            this.MenVend,
+            this.MenFinan,
+            this.MenEst,
+            this.MenRel});
+            this.MenuInicial.Location = new System.Drawing.Point(0, 0);
+            this.MenuInicial.Margin = new System.Windows.Forms.Padding(2);
+            this.MenuInicial.Name = "MenuInicial";
+            this.MenuInicial.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.MenuInicial.Size = new System.Drawing.Size(738, 50);
+            this.MenuInicial.TabIndex = 0;
+            this.MenuInicial.Text = "MenuInicial";
+            this.MenuInicial.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuInicial_ItemClicked);
             // 
-            // ButLimp
+            // MenCad
             // 
-            this.ButLimp.Location = new System.Drawing.Point(473, 298);
-            this.ButLimp.Name = "ButLimp";
-            this.ButLimp.Size = new System.Drawing.Size(75, 23);
-            this.ButLimp.TabIndex = 6;
-            this.ButLimp.Text = "Limpar";
-            this.ButLimp.UseVisualStyleBackColor = true;
-            this.ButLimp.Click += new System.EventHandler(this.ButTest_Click);
+            this.MenCad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.fornecedoresToolStripMenuItem,
+            this.produtosToolStripMenuItem,
+            this.usuáriosToolStripMenuItem,
+            this.estabelecimentosToolStripMenuItem});
+            this.MenCad.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.MenCad.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MenCad.Image = ((System.Drawing.Image)(resources.GetObject("MenCad.Image")));
+            this.MenCad.Name = "MenCad";
+            this.MenCad.Size = new System.Drawing.Size(118, 46);
+            this.MenCad.Text = "Cadastro";
             // 
-            // RetSefaz
+            // clientesToolStripMenuItem
             // 
-            this.RetSefaz.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.RetSefaz.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.RetSefaz.Cursor = System.Windows.Forms.Cursors.Default;
-            this.RetSefaz.ForeColor = System.Drawing.Color.Black;
-            this.RetSefaz.Location = new System.Drawing.Point(563, 167);
-            this.RetSefaz.Name = "RetSefaz";
-            this.RetSefaz.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RetSefaz.Size = new System.Drawing.Size(455, 286);
-            this.RetSefaz.TabIndex = 7;
-            this.RetSefaz.Click += new System.EventHandler(this.RetSefaz_Click);
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
-            // XmlEnv
+            // fornecedoresToolStripMenuItem
             // 
-            this.XmlEnv.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.XmlEnv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.XmlEnv.Cursor = System.Windows.Forms.Cursors.Default;
-            this.XmlEnv.ForeColor = System.Drawing.Color.Black;
-            this.XmlEnv.Location = new System.Drawing.Point(12, 167);
-            this.XmlEnv.Name = "XmlEnv";
-            this.XmlEnv.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.XmlEnv.Size = new System.Drawing.Size(455, 286);
-            this.XmlEnv.TabIndex = 9;
-            this.XmlEnv.Click += new System.EventHandler(this.XmlEnv_Click_1);
+            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             // 
-            // label2
+            // produtosToolStripMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "XML de Envio";
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.produtosToolStripMenuItem.Text = "Produtos";
             // 
-            // label3
+            // usuáriosToolStripMenuItem
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(728, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "XML de Retorno";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.usuáriosToolStripMenuItem.Text = "Usuários";
             // 
-            // ButConsNfc
+            // estabelecimentosToolStripMenuItem
             // 
-            this.ButConsNfc.Location = new System.Drawing.Point(125, 66);
-            this.ButConsNfc.Name = "ButConsNfc";
-            this.ButConsNfc.Size = new System.Drawing.Size(100, 23);
-            this.ButConsNfc.TabIndex = 12;
-            this.ButConsNfc.Text = "Consulta NFC-e";
-            this.ButConsNfc.UseVisualStyleBackColor = true;
-            this.ButConsNfc.Click += new System.EventHandler(this.ButConsNfc_Click);
+            this.estabelecimentosToolStripMenuItem.Name = "estabelecimentosToolStripMenuItem";
+            this.estabelecimentosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.estabelecimentosToolStripMenuItem.Text = "Estabelecimentos";
             // 
-            // TxtChave
+            // MenVend
             // 
-            this.TxtChave.Location = new System.Drawing.Point(11, 40);
-            this.TxtChave.Name = "TxtChave";
-            this.TxtChave.Size = new System.Drawing.Size(346, 20);
-            this.TxtChave.TabIndex = 13;
-            this.TxtChave.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.MenVend.BackColor = System.Drawing.Color.Transparent;
+            this.MenVend.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orçamentosToolStripMenuItem,
+            this.documentosDeSaídaToolStripMenuItem});
+            this.MenVend.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.MenVend.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MenVend.Image = ((System.Drawing.Image)(resources.GetObject("MenVend.Image")));
+            this.MenVend.Name = "MenVend";
+            this.MenVend.Size = new System.Drawing.Size(103, 46);
+            this.MenVend.Text = "Vendas";
+            this.MenVend.Click += new System.EventHandler(this.nFeToolStripMenuItem_Click);
             // 
-            // label1
+            // orçamentosToolStripMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Chave NFC-e";
+            this.orçamentosToolStripMenuItem.Name = "orçamentosToolStripMenuItem";
+            this.orçamentosToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
+            this.orçamentosToolStripMenuItem.Text = "Orçamentos";
             // 
-            // panel1
+            // documentosDeSaídaToolStripMenuItem
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.TxtChave);
-            this.panel1.Controls.Add(this.ButConsNfc);
-            this.panel1.Location = new System.Drawing.Point(318, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(368, 102);
-            this.panel1.TabIndex = 15;
+            this.documentosDeSaídaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nFeToolStripMenuItem1});
+            this.documentosDeSaídaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("documentosDeSaídaToolStripMenuItem.Image")));
+            this.documentosDeSaídaToolStripMenuItem.Name = "documentosDeSaídaToolStripMenuItem";
+            this.documentosDeSaídaToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
+            this.documentosDeSaídaToolStripMenuItem.Text = "Documentos de Saída";
             // 
-            // ButAss
+            // nFeToolStripMenuItem1
             // 
-            this.ButAss.Location = new System.Drawing.Point(474, 217);
-            this.ButAss.Name = "ButAss";
-            this.ButAss.Size = new System.Drawing.Size(75, 23);
-            this.ButAss.TabIndex = 16;
-            this.ButAss.Text = "Assinar";
-            this.ButAss.UseVisualStyleBackColor = true;
-            this.ButAss.Click += new System.EventHandler(this.button1_Click_1);
+            this.nFeToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.nFeToolStripMenuItem1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nFeToolStripMenuItem1.Image = global::Projeto_NFC_e.Properties.Resources.Word_html_doc;
+            this.nFeToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.nFeToolStripMenuItem1.Name = "nFeToolStripMenuItem1";
+            this.nFeToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
+            this.nFeToolStripMenuItem1.Text = "NFe";
+            this.nFeToolStripMenuItem1.Click += new System.EventHandler(this.nFeToolStripMenuItem1_Click);
             // 
-            // ButRecNfe
+            // MenFinan
             // 
-            this.ButRecNfe.Location = new System.Drawing.Point(474, 344);
-            this.ButRecNfe.Name = "ButRecNfe";
-            this.ButRecNfe.Size = new System.Drawing.Size(75, 23);
-            this.ButRecNfe.TabIndex = 17;
-            this.ButRecNfe.Text = "Recibo NFe";
-            this.ButRecNfe.UseVisualStyleBackColor = true;
-            this.ButRecNfe.Click += new System.EventHandler(this.ButMontNfe_Click);
+            this.MenFinan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.caixaToolStripMenuItem,
+            this.contasAPagarToolStripMenuItem,
+            this.contasAReceberToolStripMenuItem});
+            this.MenFinan.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.MenFinan.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MenFinan.Image = ((System.Drawing.Image)(resources.GetObject("MenFinan.Image")));
+            this.MenFinan.Name = "MenFinan";
+            this.MenFinan.Size = new System.Drawing.Size(132, 46);
+            this.MenFinan.Text = "Financeiro";
+            // 
+            // caixaToolStripMenuItem
+            // 
+            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.caixaToolStripMenuItem.Text = "Caixa";
+            // 
+            // contasAPagarToolStripMenuItem
+            // 
+            this.contasAPagarToolStripMenuItem.Name = "contasAPagarToolStripMenuItem";
+            this.contasAPagarToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.contasAPagarToolStripMenuItem.Text = "Contas a Pagar";
+            // 
+            // contasAReceberToolStripMenuItem
+            // 
+            this.contasAReceberToolStripMenuItem.Name = "contasAReceberToolStripMenuItem";
+            this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.contasAReceberToolStripMenuItem.Text = "Contas a Receber";
+            // 
+            // MenEst
+            // 
+            this.MenEst.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saldoProdutosToolStripMenuItem});
+            this.MenEst.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.MenEst.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MenEst.Image = ((System.Drawing.Image)(resources.GetObject("MenEst.Image")));
+            this.MenEst.Name = "MenEst";
+            this.MenEst.Size = new System.Drawing.Size(110, 46);
+            this.MenEst.Text = "Estoque";
+            // 
+            // saldoProdutosToolStripMenuItem
+            // 
+            this.saldoProdutosToolStripMenuItem.Name = "saldoProdutosToolStripMenuItem";
+            this.saldoProdutosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.saldoProdutosToolStripMenuItem.Text = "Produtos";
+            this.saldoProdutosToolStripMenuItem.Click += new System.EventHandler(this.saldoProdutosToolStripMenuItem_Click);
+            // 
+            // MenRel
+            // 
+            this.MenRel.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.MenRel.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MenRel.Image = ((System.Drawing.Image)(resources.GetObject("MenRel.Image")));
+            this.MenRel.Name = "MenRel";
+            this.MenRel.Size = new System.Drawing.Size(130, 46);
+            this.MenRel.Text = "Relatórios";
             // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 544);
-            this.Controls.Add(this.ButRecNfe);
-            this.Controls.Add(this.ButAss);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.XmlEnv);
-            this.Controls.Add(this.RetSefaz);
-            this.Controls.Add(this.ButLimp);
-            this.Controls.Add(this.ButStatSefaz);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(738, 563);
+            this.Controls.Add(this.MenuInicial);
+            this.MainMenuStrip = this.MenuInicial;
             this.Name = "FormInicial";
-            this.Text = "NFCe - Nota Fiscal do Consumidor";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inicial";
+            this.Load += new System.EventHandler(this.FormInicial_Load);
+            this.MenuInicial.ResumeLayout(false);
+            this.MenuInicial.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button ButLimp;
-        private System.Windows.Forms.Button ButStatSefaz;
-        private System.Windows.Forms.Label RetSefaz;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button ButConsNfc;
-        private System.Windows.Forms.TextBox TxtChave;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button ButAss;
-        private System.Windows.Forms.Button ButRecNfe;
-        public System.Windows.Forms.Label XmlEnv;
+        private System.Windows.Forms.MenuStrip MenuInicial;
+        private System.Windows.Forms.ToolStripMenuItem MenVend;
+        private System.Windows.Forms.ToolStripMenuItem documentosDeSaídaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nFeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem MenCad;
+        private System.Windows.Forms.ToolStripMenuItem MenFinan;
+        private System.Windows.Forms.ToolStripMenuItem MenEst;
+        private System.Windows.Forms.ToolStripMenuItem MenRel;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estabelecimentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orçamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contasAPagarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contasAReceberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saldoProdutosToolStripMenuItem;
+
+
+
     }
 }
-

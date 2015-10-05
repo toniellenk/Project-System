@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
@@ -53,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConDados.cs" />
+    <Compile Include="FormCadClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadClientes.Designer.cs">
+      <DependentUpon>FormCadClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInicial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInicial.Designer.cs">
       <DependentUpon>FormInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNfe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNfe.Designer.cs">
+      <DependentUpon>FormNfe.cs</DependentUpon>
     </Compile>
     <Compile Include="MontarXmlNfe.cs" />
     <Compile Include="Program.cs" />
@@ -83,8 +97,14 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WSmt.cs" />
+    <EmbeddedResource Include="FormCadClientes.resx">
+      <DependentUpon>FormCadClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNfe.resx">
+      <DependentUpon>FormNfe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +114,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
     <None Include="Properties\Settings.settings">
@@ -185,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="check-mark-8-multi-size.ico" />
+    <None Include="Resources\Word html doc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

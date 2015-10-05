@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Security.Cryptography.X509Certificates;
-
 
 namespace Projeto_NFC_e
 {
@@ -18,110 +15,39 @@ namespace Projeto_NFC_e
         public FormInicial()
         {
             InitializeComponent();
-
-
         }
 
-
-        private void countTextBox_TextChanged(object sender, EventArgs e)
+        private void FormInicial_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void countLabel_Click(object sender, EventArgs e)
+        private void nFeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void nFeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormNfe NFE = new FormNfe();
+            NFE.ShowDialog();
+        }
+
+        private void MenuInicial_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        private void cUFTextBox_TextChanged(object sender, EventArgs e)
+        private void saldoProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WSmt StatusServ = new WSmt();
-            StatusServ.MontarXmlStatServ();
-            XmlEnv.Text = StatusServ.XmlEnv();
-            StatusServ.WsStatServ();
-            RetSefaz.Text = StatusServ.XmlRet();
-            
-        }
+            FormCadClientes teste = new FormCadClientes();
+            teste.Show();
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RetSefaz_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButTest_Click(object sender, EventArgs e)
-        {
-            RetSefaz.Text = null;
-            XmlEnv.Text = null;
-        }
-
-        private void RetSefaz_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void XmlEnv_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButConsNfc_Click(object sender, EventArgs e)
-        {
-            WSmt ConsNfe = new WSmt();
-            ConsNfe.MontarXmlConsSit("51150973715146000197650650000031481128930037");
-           // ConsNfe.MontarXmlConsSit(TxtChave.Text);
-            ConsNfe.WsConsNfe();
-            XmlEnv.Text = ConsNfe.XmlEnv();
-            RetSefaz.Text = ConsNfe.XmlRet();
-        }
-
-        private void XmlEnv_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RetSefaz_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            MontarXmlNfe xml = new MontarXmlNfe();           
-            WSmt ConsNfe = new WSmt();
-            ConsNfe.AssinandoXML(xml.MontarXmlEnvNfe());
-            ConsNfe.WsEnvNfe();
-            XmlEnv.Text = ConsNfe.XmlEnv();
-            RetSefaz.Text = ConsNfe.XmlRet();
-        }
-
-        private void ButMontNfe_Click(object sender, EventArgs e)
-        {
-            WSmt ConsNfe = new WSmt();
-            ConsNfe.MontarXmlReciNFe("510000004746175");
-            ConsNfe.WsRecNfe();
-            XmlEnv.Text = ConsNfe.XmlEnv();
-            RetSefaz.Text = ConsNfe.XmlRet();
         }
     }
 }

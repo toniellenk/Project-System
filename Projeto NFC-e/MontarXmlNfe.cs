@@ -126,7 +126,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "nNF", "3148");
 
-            InserirNo( noIde, "dhEmi", "2015-10-01T19:39:51-04:00");
+            InserirNo( noIde, "dhEmi", "2015-10-02T20:41:51-04:00");
 
             InserirNo( noIde, "tpNF", "1");
 
