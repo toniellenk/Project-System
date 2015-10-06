@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Projeto_NFC_e
 {
-    public class ConDados
+    public class DadosClientes
     {
        public class ClientesObj {
         public string Nome;
