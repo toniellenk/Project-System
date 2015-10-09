@@ -26,26 +26,6 @@ namespace Projeto_NFC_e.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2")]
-        public string Projeto_NFC_e_StatServ_NfeStatusServico2 {
-            get {
-                return ((string)(this["Projeto_NFC_e_StatServ_NfeStatusServico2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta2")]
-        public string Projeto_NFC_e_ConsNfe_NfeConsulta2 {
-            get {
-                return ((string)(this["Projeto_NFC_e_ConsNfe_NfeConsulta2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeAutorizacao")]
         public string Projeto_NFC_e_EnvNfe_NfeAutorizacao {
             get {
@@ -60,6 +40,26 @@ namespace Projeto_NFC_e.Properties {
         public string Projeto_NFC_e_RecNfe_NfeRetAutorizacao {
             get {
                 return ((string)(this["Projeto_NFC_e_RecNfe_NfeRetAutorizacao"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeConsulta2")]
+        public string Projeto_NFC_e_ConsNfe_NfeConsulta2 {
+            get {
+                return ((string)(this["Projeto_NFC_e_ConsNfe_NfeConsulta2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2")]
+        public string Projeto_NFC_e_StatServ_NfeStatusServico2 {
+            get {
+                return ((string)(this["Projeto_NFC_e_StatServ_NfeStatusServico2"]));
             }
         }
     }

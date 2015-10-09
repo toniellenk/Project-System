@@ -23,7 +23,9 @@ namespace Projeto_NFC_e
 
       XmlDocument XmlArq = new XmlDocument();
       XmlText noText;
-      string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
+      public static string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
+      public static string DataAtualXml = Funcoes.DataHoraAtual();
+
 
       void InserirNo(XmlElement NoInsert, string tag, string valor)
          {
@@ -35,38 +37,19 @@ namespace Projeto_NFC_e
     
          }
       
-      public static int DigitoModulo11(long intNumero)
-        {
-            int[] intPesos = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 
-            9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4 };
-            string strText = intNumero.ToString();
- 
-            if (strText.Length > 43)
-                throw new Exception("Número não suportado pela função!");
- 
-            int intSoma = 0;
-            int intIdx = 0;
-            for (int intPos = strText.Length - 1; intPos >= 0; intPos--)
-            {
-                intSoma += Convert.ToInt32(strText[intPos].ToString()) * intPesos[intIdx];
-                intIdx++;
-            }
-            int intResto = (intSoma * 10) % 11;
-            int intDigito = intResto;
-            if (intDigito >= 10)
-                intDigito = 0;
- 
-            return intDigito;
-        }
+      
         
       public XmlDocument MontarXmlEnvNfe()
         {
 
 
-            XmlElement raiz, no, noNFe, noIde, noInfNFe, noEmit, noEnderEmit, 
+            XmlElement raiz, no, noNFe, noinfNFeSupl, noIde, noInfNFe, noEmit, noEnderEmit, 
                 noDet, noProd, noImposto, noICMS, noPIS, noCOFINS, noICMS90,
                 noPISAliq, noCOFINSAliq, noTotal, noICMSTot, noTransp, noPag, noInfAdic;
             XmlAttribute att;
+
+
+           
 
             // Create an XML declaration. 
             XmlDeclaration xmldecl;
@@ -98,7 +81,7 @@ namespace Projeto_NFC_e
             // infNFE
             noInfNFe = XmlArq.CreateElement("infNFe", NFeNamespace);
             att = XmlArq.CreateAttribute("Id");
-            att.Value = "NFe51150973715146000197650650000031481128930037";
+            att.Value = "NFe51151073715146000197650650000031481128930037";
             noInfNFe.Attributes.Append(att);
 
             att = XmlArq.CreateAttribute("versao");
@@ -126,7 +109,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "nNF", "3148");
 
-            InserirNo( noIde, "dhEmi", "2015-10-02T20:41:51-04:00");
+            InserirNo(noIde, "dhEmi", DataAtualXml);
 
             InserirNo( noIde, "tpNF", "1");
 
@@ -208,7 +191,7 @@ namespace Projeto_NFC_e
 
             InserirNo(noProd, "cEAN", "");
 
-            InserirNo(noProd, "xProd", "BODY M/C LILAS MAMAE E EU TEMOS ALGO 241-242 T-P/M");
+            InserirNo(noProd, "xProd", "NOTA FISCAL EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
 
             InserirNo(noProd, "NCM", "61119090");
 
@@ -351,15 +334,15 @@ namespace Projeto_NFC_e
             att = XmlArq.CreateAttribute("xmlns");
             att.Value = "http://www.portalfiscal.inf.br/nfe";
             noNFe.Attributes.Append(att);
-            noNFe.AppendChild(noInfNFe);        
-
-            raiz.AppendChild(noNFe);          
-
+            noNFe.AppendChild(noInfNFe);
+            raiz.AppendChild(noNFe);       
             XmlArq.AppendChild(raiz);
 
             XmlArq.PreserveWhitespace = true;
             XmlArq.Save("C:/Nfe.xml");
             return XmlArq;
+
         }
+
       } 
   }    

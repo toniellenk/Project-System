@@ -288,12 +288,60 @@ namespace Projeto_NFC_e
 
 
                     xmlSignature.AppendChild(XmlNfe.ImportNode(xmlKeyInfo, true));
-                  //  XmlNfe.AppendChild(xmlSignature);
                     var evento = XmlNfe.GetElementsByTagName("NFe");
+
                     evento[0].AppendChild(xmlSignature);
+
+                    // infNFeSupl
+                    var Vet = XmlNfe.GetElementsByTagName("DigestValue");
+                    string token;
+                    string DigestValue = Vet[0].OuterXml;
+                    XmlElement noinfNFeSupl = XmlNfe.CreateElement("infNFeSupl", "http://www.portalfiscal.inf.br/nfe");
+                    XmlElement qrCode = XmlNfe.CreateElement("qrCode", "http://www.portalfiscal.inf.br/nfe");
+
+                    token = "chNFe=51151073715146000197650650000031481128930037";
+                    token += "&nVersao=100";
+                    token += "&tpAmb=2";
+                    token += "&cDest=99999999000191";
+                    token += "&dhEmi=" + Funcoes.ConvertHexa(MontarXmlNfe.DataAtualXml);
+                    token += "&vNF=44.45&vICMS=0.00";
+                    token += "&digVal=" + Funcoes.ConvertHexa(DigestValue);
+                    token += "&cIdToken=000001";
+                    string TokenSemRach = token;
+                    token += "&cHashQRCode=e0be0fbae4020860f5a695b4cd7e2cc9";
+
+                    MessageBox.Show(token);
+                    string Rach = Funcoes.generateHasg(token);
+
+                    string tokenCompleto = "<![CDATA["+ "https://www.sefaz.mt.gov.br/NFCE/NFCE-COM.aspx?" + TokenSemRach + "&" + Rach + "]]>";
+                    MessageBox.Show(tokenCompleto);
+                    XmlText noText;
+                    noText = XmlNfe.CreateTextNode(tokenCompleto);
+                    qrCode.AppendChild(noText);
+                    noinfNFeSupl.AppendChild(qrCode);
+
+                    evento[0].AppendChild(noinfNFeSupl);
+
                     XmlNfe.Save("C:/NfeAssinado.xml");
+
+
                     XmlEnvio = XmlNfe.DocumentElement;
+
                 }
+
+
+
+                // qrCode
+                //        XmlElement noqrCode = XmlNfe.CreateElement("qrCode");
+
+                //  InserirNo(noinfNFeSupl, "qrCode", "<![CDATA[" + "https://www" + "sefaz.mt.gov.br/NFCE/NFCE-COM.aspx?chNFe=43150108287693000157651010000000971000001251&nVersao=100&tpAmb=2&cDest=99999999000191&dhEmi=323031352d30312d32305431373a30303a34392d30323a3030&vNF=1.00&vICMS=0.00&digVal=2f4a703477714e6d6e4e646d31776b64743936655a486b65354f513d&cIdToken=000001&cHashQRCode=ecc4f0e7e612456f2e3521768bd572b6f0eae240]]> ");
+                //noNFe.AppendChild(noinfNFeSupl);
+
+
+
+
+                
+           //     MessageBox.Show(DigestValue.Substring(56, 28));
        
             }
             else

@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButAss = new System.Windows.Forms.Button();
             this.ButRecNfe = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,11 +168,22 @@
             this.ButRecNfe.UseVisualStyleBackColor = true;
             this.ButRecNfe.Click += new System.EventHandler(this.ButMontNfe_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(222, 115);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_3);
+            // 
             // FormNfe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 544);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ButRecNfe);
             this.Controls.Add(this.ButAss);
             this.Controls.Add(this.panel1);
@@ -207,6 +219,7 @@
         private System.Windows.Forms.Button ButAss;
         private System.Windows.Forms.Button ButRecNfe;
         public System.Windows.Forms.Label XmlEnv;
+        private System.Windows.Forms.Button button1;
     }
 }
 

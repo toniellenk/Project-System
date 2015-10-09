@@ -73,6 +73,7 @@
     <Compile Include="FormNfe.Designer.cs">
       <DependentUpon>FormNfe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcoes.cs" />
     <Compile Include="MontarXmlNfe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +182,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Projeto_NFC_e_RecNfe_NfeRetAutorizacao</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StatServ\</RelPath>
+      <UpdateFromURL>https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Projeto_NFC_e_StatServ_NfeStatusServico2</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ConsNfe\</RelPath>
@@ -191,17 +203,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Projeto_NFC_e_ConsNfe_NfeConsulta2</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\StatServ\</RelPath>
-      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico2%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Projeto_NFC_e_StatServ_NfeStatusServico2</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
