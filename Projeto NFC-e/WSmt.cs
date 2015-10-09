@@ -302,7 +302,7 @@ namespace Projeto_NFC_e
                     token = "chNFe=51151073715146000197650650000031481128930037";
                     token += "&nVersao=100";
                     token += "&tpAmb=2";
-                    token += "&cDest=99999999000191";
+                //    token += "&cDest=99999999000191";
                     token += "&dhEmi=" + Funcoes.ConvertHexa(MontarXmlNfe.DataAtualXml);
                     token += "&vNF=44.45&vICMS=0.00";
                     token += "&digVal=" + Funcoes.ConvertHexa(DigestValue);
