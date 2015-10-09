@@ -274,7 +274,6 @@ namespace Projeto_NFC_e
 
                     signedXml.ComputeSignature();
 
-                 //   XmlDocument Doc = new XmlDocument();
                     XmlElement xmlSignature = XmlNfe.CreateElement("Signature", "http://www.w3.org/2000/09/xmldsig#");
                     XmlElement xmlSignedInfo = signedXml.SignedInfo.GetXml();
                     XmlElement xmlKeyInfo = signedXml.KeyInfo.GetXml();
@@ -323,27 +322,12 @@ namespace Projeto_NFC_e
 
                     evento[0].AppendChild(noinfNFeSupl);
 
+                    
+                    // Salvando XML
                     XmlNfe.Save("C:/NfeAssinado.xml");
-
-
                     XmlEnvio = XmlNfe.DocumentElement;
 
                 }
-
-
-
-                // qrCode
-                //        XmlElement noqrCode = XmlNfe.CreateElement("qrCode");
-
-                //  InserirNo(noinfNFeSupl, "qrCode", "<![CDATA[" + "https://www" + "sefaz.mt.gov.br/NFCE/NFCE-COM.aspx?chNFe=43150108287693000157651010000000971000001251&nVersao=100&tpAmb=2&cDest=99999999000191&dhEmi=323031352d30312d32305431373a30303a34392d30323a3030&vNF=1.00&vICMS=0.00&digVal=2f4a703477714e6d6e4e646d31776b64743936655a486b65354f513d&cIdToken=000001&cHashQRCode=ecc4f0e7e612456f2e3521768bd572b6f0eae240]]> ");
-                //noNFe.AppendChild(noinfNFeSupl);
-
-
-
-
-                
-           //     MessageBox.Show(DigestValue.Substring(56, 28));
-       
             }
             else
             {
@@ -351,10 +335,10 @@ namespace Projeto_NFC_e
             }
 
             lStore.Close();
-
-            
         }
 
+    
+    
         public string XmlEnv()
         {
             return XmlEnvio.OuterXml;
@@ -364,6 +348,8 @@ namespace Projeto_NFC_e
         {
              return XmlRetorno;
         }
+    
+        
     }
 
 }
