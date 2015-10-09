@@ -23,9 +23,17 @@ namespace Projeto_NFC_e
 
       XmlDocument XmlArq = new XmlDocument();
       XmlText noText;
-      public static string NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
-      public static string DataAtualXml = Funcoes.DataHoraAtual();
-
+      public static string NFeNamespace, DataAtualXml, cUF, CNPJ, mod,serie, nNF, cNF, cDV;
+      
+      NFeNamespace = "http://www.portalfiscal.inf.br/nfe";
+      DataAtualXml = Funcoes.DataHoraAtual();
+      cUF = "51";
+      CNPJ = "73715146000197";
+      mod = "55";
+      serie = "65";
+      nNF = "3148";
+      cNF = "12893003";
+      cDV = "7";
 
       void InserirNo(XmlElement NoInsert, string tag, string valor)
          {
@@ -42,14 +50,11 @@ namespace Projeto_NFC_e
       public XmlDocument MontarXmlEnvNfe()
         {
 
-
             XmlElement raiz, no, noNFe, noinfNFeSupl, noIde, noInfNFe, noEmit, noEnderEmit, 
                 noDet, noProd, noImposto, noICMS, noPIS, noCOFINS, noICMS90,
                 noPISAliq, noCOFINSAliq, noTotal, noICMSTot, noTransp, noPag, noInfAdic;
             XmlAttribute att;
 
-
-           
 
             // Create an XML declaration. 
             XmlDeclaration xmldecl;
