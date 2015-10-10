@@ -284,15 +284,10 @@ namespace Projeto_NFC_e
                     XmlText text = XmlNfe.CreateTextNode(signBase64);
                     xmlSignatureValue.AppendChild(text);
                     xmlSignature.AppendChild(xmlSignatureValue);
-
-
                     xmlSignature.AppendChild(XmlNfe.ImportNode(xmlKeyInfo, true));
-                    var evento = XmlNfe.GetElementsByTagName("NFe");
-
-                    evento[0].AppendChild(xmlSignature);
 
                     // infNFeSupl
-                    var Vet = XmlNfe.GetElementsByTagName("DigestValue");
+                    var Vet = xmlSignedInfo.GetElementsByTagName("DigestValue");
                     string token;
                     string DigestValue = Vet[0].InnerText;
                 //    MessageBox.Show(DigestValue);
@@ -319,10 +314,16 @@ namespace Projeto_NFC_e
                     noText = XmlNfe.CreateTextNode(tokenCompleto);
                    qrCode.AppendChild(noText);
                     noinfNFeSupl.AppendChild(qrCode);
-
+                    
+                    
+                    var evento = XmlNfe.GetElementsByTagName("NFe");
+                    
+                    //Fixando tag Signature
+                    evento[0].AppendChild(xmlSignature);
+                    
+                    //Fixando tag infNFeSupl
                     evento[0].AppendChild(noinfNFeSupl);
 
-                    
                     // Salvando XML
                     XmlNfe.Save("C:/NfeAssinado.xml");
                     XmlEnvio = XmlNfe.DocumentElement;
