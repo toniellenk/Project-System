@@ -295,7 +295,7 @@ namespace Projeto_NFC_e
                     var Vet = XmlNfe.GetElementsByTagName("DigestValue");
                     string token;
                     string DigestValue = Vet[0].InnerText;
-                    MessageBox.Show(DigestValue);
+                //    MessageBox.Show(DigestValue);
                     XmlElement noinfNFeSupl = XmlNfe.CreateElement("infNFeSupl", "http://www.portalfiscal.inf.br/nfe");
                     XmlElement qrCode = XmlNfe.CreateElement("qrCode", "http://www.portalfiscal.inf.br/nfe");
 
@@ -310,14 +310,14 @@ namespace Projeto_NFC_e
                     string TokenSemRach = token;
                     token += "&cHashQRCode=e0be0fbae4020860f5a695b4cd7e2cc9";
 
-                    MessageBox.Show(token);
+                  //  MessageBox.Show(token);
                     string Rach = Funcoes.generateHasg(token);
 
-                    string tokenCompleto = "<![CDATA["+ "" + TokenSemRach + "&" + Rach + "]]>";
+                    string tokenCompleto = "<![CDATA[" + "http://www.sefaz.mt.gov.br/nfce/consultanfce?" + TokenSemRach + "&cHashQRCode=" + Rach + "]]>";
                     MessageBox.Show(tokenCompleto);
                     XmlText noText;
                     noText = XmlNfe.CreateTextNode(tokenCompleto);
-                    qrCode.AppendChild(noText);
+                   qrCode.AppendChild(noText);
                     noinfNFeSupl.AppendChild(qrCode);
 
                     evento[0].AppendChild(noinfNFeSupl);

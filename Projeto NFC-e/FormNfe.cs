@@ -119,7 +119,7 @@ namespace Projeto_NFC_e
         private void ButMontNfe_Click(object sender, EventArgs e)
         {
             WSmt ConsNfe = new WSmt();
-            ConsNfe.MontarXmlReciNFe("510000004862240");
+            ConsNfe.MontarXmlReciNFe(TxtChave.Text);
             ConsNfe.WsRecNfe();
             XmlEnv.Text = ConsNfe.XmlEnv();
             RetSefaz.Text = ConsNfe.XmlRet();
