@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicial));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuInicial = new System.Windows.Forms.MenuStrip();
             this.MenCad = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +49,12 @@
             this.MenEst = new System.Windows.Forms.ToolStripMenuItem();
             this.saldoProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenRel = new System.Windows.Forms.ToolStripMenuItem();
+            this.PanCentral = new System.Windows.Forms.Panel();
+            this.BuNvCliente = new System.Windows.Forms.Button();
+            this.LsVyPrinc = new System.Windows.Forms.DataGridView();
             this.MenuInicial.SuspendLayout();
+            this.PanCentral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuInicial
@@ -101,6 +108,7 @@
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
             this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -218,12 +226,61 @@
             this.MenRel.Size = new System.Drawing.Size(130, 46);
             this.MenRel.Text = "Relatórios";
             // 
+            // PanCentral
+            // 
+            this.PanCentral.Controls.Add(this.LsVyPrinc);
+            this.PanCentral.Controls.Add(this.BuNvCliente);
+            this.PanCentral.Location = new System.Drawing.Point(121, 55);
+            this.PanCentral.Name = "PanCentral";
+            this.PanCentral.Size = new System.Drawing.Size(605, 496);
+            this.PanCentral.TabIndex = 1;
+            // 
+            // BuNvCliente
+            // 
+            this.BuNvCliente.Location = new System.Drawing.Point(29, 449);
+            this.BuNvCliente.Name = "BuNvCliente";
+            this.BuNvCliente.Size = new System.Drawing.Size(75, 23);
+            this.BuNvCliente.TabIndex = 1;
+            this.BuNvCliente.Text = "Novo";
+            this.BuNvCliente.UseVisualStyleBackColor = true;
+            this.BuNvCliente.Click += new System.EventHandler(this.BuNvCliente_Click);
+            // 
+            // LsVyPrinc
+            // 
+            this.LsVyPrinc.AllowUserToAddRows = false;
+            this.LsVyPrinc.AllowUserToDeleteRows = false;
+            this.LsVyPrinc.AllowUserToResizeColumns = false;
+            this.LsVyPrinc.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle2;
+            this.LsVyPrinc.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.Location = new System.Drawing.Point(0, 79);
+            this.LsVyPrinc.Name = "LsVyPrinc";
+            this.LsVyPrinc.ReadOnly = true;
+            this.LsVyPrinc.RowHeadersVisible = false;
+            this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LsVyPrinc.Size = new System.Drawing.Size(605, 347);
+            this.LsVyPrinc.TabIndex = 2;
+            this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
+            // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(738, 563);
+            this.Controls.Add(this.PanCentral);
             this.Controls.Add(this.MenuInicial);
             this.MainMenuStrip = this.MenuInicial;
             this.Name = "FormInicial";
@@ -232,6 +289,8 @@
             this.Load += new System.EventHandler(this.FormInicial_Load);
             this.MenuInicial.ResumeLayout(false);
             this.MenuInicial.PerformLayout();
+            this.PanCentral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,6 +315,9 @@
         private System.Windows.Forms.ToolStripMenuItem contasAPagarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contasAReceberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saldoProdutosToolStripMenuItem;
+        private System.Windows.Forms.Panel PanCentral;
+        private System.Windows.Forms.Button BuNvCliente;
+        private System.Windows.Forms.DataGridView LsVyPrinc;
 
 
 

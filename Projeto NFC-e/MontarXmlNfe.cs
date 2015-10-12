@@ -55,16 +55,6 @@ namespace Projeto_NFC_e
                 noPISAliq, noCOFINSAliq, noTotal, noICMSTot, noTransp, noPag, noInfAdic;
             XmlAttribute att;
 
-
-            // Create an XML declaration. 
-            XmlDeclaration xmldecl;
-            xmldecl = XmlArq.CreateXmlDeclaration("1.0", null, null);
-            xmldecl.Encoding = "UTF-8";
-
-            // Add the new node to the document.
-            XmlElement root = XmlArq.DocumentElement;
-            XmlArq.InsertBefore(xmldecl, root);
-
             raiz = XmlArq.CreateElement("enviNFe", NFeNamespace);
             // Atributos do nó de enviNFe
             att = XmlArq.CreateAttribute("versao");
@@ -72,7 +62,7 @@ namespace Projeto_NFC_e
             raiz.Attributes.Append(att);
 
             no = XmlArq.CreateElement("idLote", NFeNamespace);
-            noText = XmlArq.CreateTextNode("12190");
+            noText = XmlArq.CreateTextNode("1219");
             no.AppendChild(noText);
             // "Nó" é filho de raiz :
             raiz.AppendChild(no);
@@ -86,7 +76,7 @@ namespace Projeto_NFC_e
             // infNFE
             noInfNFe = XmlArq.CreateElement("infNFe", NFeNamespace);
             att = XmlArq.CreateAttribute("Id");
-            att.Value = "NFe51151073715146000197650650000031481128930037";
+            att.Value = "NFe51151073715146000197650650000033461999999995";
             noInfNFe.Attributes.Append(att);
 
             att = XmlArq.CreateAttribute("versao");
@@ -102,7 +92,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "cUF", "51");
 
-            InserirNo( noIde, "cNF", "12893003");
+            InserirNo( noIde, "cNF", "99999999");
 
             InserirNo(noIde, "natOp", "VENDAS MERCADORIAS");
 
@@ -112,7 +102,7 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "serie", "65");
 
-            InserirNo( noIde, "nNF", "3148");
+            InserirNo( noIde, "nNF", "3346");
 
             InserirNo(noIde, "dhEmi", DataAtualXml);
 
@@ -126,9 +116,9 @@ namespace Projeto_NFC_e
 
             InserirNo( noIde, "tpEmis", "1");
 
-            InserirNo( noIde, "cDV", "7");
+            InserirNo( noIde, "cDV", "5");
 
-            InserirNo(noIde, "tpAmb", "2");
+            InserirNo(noIde, "tpAmb", "1");
 
             InserirNo( noIde, "finNFe", "1");
 

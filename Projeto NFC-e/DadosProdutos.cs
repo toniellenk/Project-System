@@ -55,8 +55,8 @@ namespace Projeto_NFC_e
 
 
         public DataTable Consulta(int IdProd)
-        { 
-                    
+        {
+
                 /*Query SQL*/    
                 string SqlSelect = "select * from t0040 where IdProd = @IdProd";
                
@@ -108,8 +108,8 @@ namespace Projeto_NFC_e
                 
                 ObjConn.Close();
             }
-        
-         public void atualizar(ClientesObj clientes)
+
+        public void atualizar(ProdObj Prod)
             {
                 string SqlInsert = "update t0050 set Nome = @Nome, CpfCnpj = @CpfCnpj, Pessoa = @Pessoa, @Estrangeiro, ";
                 SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
@@ -119,24 +119,25 @@ namespace Projeto_NFC_e
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
-                ObjCmd.Parameters.AddWithValue("@Nome", clientes.Nome);
-                ObjCmd.Parameters.AddWithValue("@CpfCnpj", clientes.CpfCnpj);
-                ObjCmd.Parameters.AddWithValue("@Pessoa", clientes.Pessoa);
-                ObjCmd.Parameters.AddWithValue("@Estrangeiro", clientes.Estrangeiro);
-                ObjCmd.Parameters.AddWithValue("@IdentEstrangeiro", clientes.IdentEstrangeiro);
-                ObjCmd.Parameters.AddWithValue("@RS", clientes.RS);
-                ObjCmd.Parameters.AddWithValue("@NomeFant", clientes.NomeFant);
-                ObjCmd.Parameters.AddWithValue("@Endereco", clientes.Endereco);
-                ObjCmd.Parameters.AddWithValue("@Num", clientes.Num);
-                ObjCmd.Parameters.AddWithValue("@Cep", clientes.Cep);
-                ObjCmd.Parameters.AddWithValue("@FoneRes", clientes.FoneRes);
-                ObjCmd.Parameters.AddWithValue("@FoneCom", clientes.FoneCom);
-                ObjCmd.Parameters.AddWithValue("@Cel", clientes.Cel);
-                ObjCmd.Parameters.AddWithValue("@OutrosCont", clientes.OutrosCont);
-                ObjCmd.Parameters.AddWithValue("@Email", clientes.Email);
-                ObjCmd.Parameters.AddWithValue("@IdentFiscal", clientes.IdentFiscal);
-                ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
-                ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
+                ObjCmd.Parameters.AddWithValue("@Desc", Prod.Desc);
+                ObjCmd.Parameters.AddWithValue("@CodBarras", Prod.CodBarras);
+                ObjCmd.Parameters.AddWithValue("@Ncm", Prod.Ncm);
+                ObjCmd.Parameters.AddWithValue("@UnMed", Prod.UnMed);
+                ObjCmd.Parameters.AddWithValue("@CstIcms", Prod.CstIcms);
+                ObjCmd.Parameters.AddWithValue("@TipTribIcms", Prod.TipTribIcms);
+                ObjCmd.Parameters.AddWithValue("@AliqIcms", Prod.AliqIcms);
+                ObjCmd.Parameters.AddWithValue("@CstIpi", Prod.CstIpi);
+                ObjCmd.Parameters.AddWithValue("@AliqIpi", Prod.AliqIpi);
+                ObjCmd.Parameters.AddWithValue("@CstPis", Prod.CstPis);
+                ObjCmd.Parameters.AddWithValue("@AliqPis", Prod.AliqPis);
+                ObjCmd.Parameters.AddWithValue("@CstCofins", Prod.CstCofins);
+                ObjCmd.Parameters.AddWithValue("@AliqCofins", Prod.AliqCofins);
+                ObjCmd.Parameters.AddWithValue("@Deposito", Prod.Deposito);
+                ObjCmd.Parameters.AddWithValue("@LocDepos", Prod.LocDepos);
+                ObjCmd.Parameters.AddWithValue("@SubLocDepos", Prod.SubLocDepos);
+                ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
+                ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
+                ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
                 
                 ObjConn.Open();
                 

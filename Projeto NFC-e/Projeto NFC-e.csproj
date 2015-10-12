@@ -55,11 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConDados.cs" />
-    <Compile Include="FormCadClientes.cs">
+    <Compile Include="DadosClientes.cs" />
+    <Compile Include="DadosProdutos.cs" />
+    <Compile Include="FormNvCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadClientes.Designer.cs">
-      <DependentUpon>FormCadClientes.cs</DependentUpon>
+    <Compile Include="FormNvCliente.Designer.cs">
+      <DependentUpon>FormNvCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInicial.cs">
       <SubType>Form</SubType>
@@ -77,6 +79,11 @@
     <Compile Include="MontarXmlNfe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\CancNfe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\ConsNfe\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,8 +105,8 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WSmt.cs" />
-    <EmbeddedResource Include="FormCadClientes.resx">
-      <DependentUpon>FormCadClientes.cs</DependentUpon>
+    <EmbeddedResource Include="FormNvCliente.resx">
+      <DependentUpon>FormNvCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
@@ -127,6 +134,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\CancNfe\RecepcaoEvento.wsdl" />
+    <None Include="Web References\CancNfe\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\ConsNfe\NfeConsulta2.wsdl" />
     <None Include="Web References\ConsNfe\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -203,6 +215,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Projeto_NFC_e_ConsNfe_NfeConsulta2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfce.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CancNfe\</RelPath>
+      <UpdateFromURL>https://nfce.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Projeto_NFC_e_CancNfe_RecepcaoEvento</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

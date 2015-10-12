@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_NFC_e
 {
-    public partial class FormCadClientes : Form
+    public partial class FormNvCliente : Form
     {
-        public FormCadClientes()
+        public FormNvCliente()
         {
             
             InitializeComponent();
@@ -104,9 +104,7 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            ConDados Dados = new ConDados();
-            dt = Dados.Consulta();
+
         }
 
         

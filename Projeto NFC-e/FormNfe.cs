@@ -83,8 +83,8 @@ namespace Projeto_NFC_e
         private void ButConsNfc_Click(object sender, EventArgs e)
         {
             WSmt ConsNfe = new WSmt();
-            string chave = "5115107371514600019765065000003148112893003" + Convert.ToString(Funcoes.DigitoModulo11("5115107371514600019765065000003148112893003"));
-        //    MessageBox.Show(chave);
+            string chave = "5115107371514600019765065000003346199999999" + Convert.ToString(Funcoes.DigitoModulo11("5115107371514600019765065000003346199999999"));
+           // MessageBox.Show(chave);
             ConsNfe.MontarXmlConsSit(chave);
             ConsNfe.WsConsNfe();
             XmlEnv.Text = ConsNfe.XmlEnv();
@@ -134,9 +134,16 @@ namespace Projeto_NFC_e
         private void button1_Click_3(object sender, EventArgs e)
 
         {
-            MontarXmlNfe xml = new MontarXmlNfe();
             WSmt ConsNfe = new WSmt();
-            ConsNfe.AssinandoXML(xml.MontarXmlEnvNfe());
+            ConsNfe.AssinandoXMLCanc(ConsNfe.MontarXmlCacNFe());
+            ConsNfe.WsEnvCancNfe();
+            XmlEnv.Text = ConsNfe.XmlEnv();
+            RetSefaz.Text = ConsNfe.XmlRet();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

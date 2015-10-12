@@ -35,9 +35,9 @@ namespace Projeto_NFC_e
         public DataSet ds = new DataSet();
         public DataTable dt = new DataTable();
 
-        public DataTable Consulta() { 
-            
-                string SqlSelect = "select * from t0050";
+        public DataTable Consulta() {
+
+            string SqlSelect = "select * from t0050";
                 /*Cria o objeto de conexão com o banco */
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 /*Cria o objeto de execução do comando */

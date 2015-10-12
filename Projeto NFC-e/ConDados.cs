@@ -35,9 +35,9 @@ namespace Projeto_NFC_e
         public DataSet ds = new DataSet();
         public DataTable dt = new DataTable();
 
-        public DataTable Consulta() { 
-            
-                string SqlSelect = "select * from t0050";
+        public DataTable ConsultaSimples(string Query) {
+
+            string SqlSelect = Query;
                 /*Cria o objeto de conexão com o banco */
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 /*Cria o objeto de execução do comando */
@@ -51,66 +51,6 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
                 return dt;
         }
-
-
-        public DataTable Consulta(int IdCliente)
-        { 
-                    
-                /*Query SQL*/    
-                string SqlSelect = "select * from t0050 where IdCliente = @IdCliente";
-               
-                SqlConnection ObjConn = new SqlConnection(SrtCon);
-                SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
-                
-                /*Definição de parãmetros da Query */
-                ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
-                
-                ObjConn.Open();   
-                SqlDataAdapter da = new SqlDataAdapter(ObjCmd);
-                da.Fill(ds);
-                dt = ds.Tables[0];
-                ObjConn.Close();
-                return dt;
-        }
         
-        public void inserir(ClientesObj clientes)
-            {
-                string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, ";
-                SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
-                SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
-                SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
-                SqlInsert += "@InscEst, @InscMun)";
-                SqlConnection ObjConn = new SqlConnection(SrtCon);
-                SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
-
-                ObjCmd.Parameters.AddWithValue("@Nome", clientes.Nome);
-                ObjCmd.Parameters.AddWithValue("@CpfCnpj", clientes.CpfCnpj);
-                ObjCmd.Parameters.AddWithValue("@Pessoa", clientes.Pessoa);
-                ObjCmd.Parameters.AddWithValue("@Estrangeiro", clientes.Estrangeiro);
-                ObjCmd.Parameters.AddWithValue("@IdentEstrangeiro", clientes.IdentEstrangeiro);
-                ObjCmd.Parameters.AddWithValue("@RS", clientes.RS);
-                ObjCmd.Parameters.AddWithValue("@NomeFant", clientes.NomeFant);
-                ObjCmd.Parameters.AddWithValue("@Endereco", clientes.Endereco);
-                ObjCmd.Parameters.AddWithValue("@Num", clientes.Num);
-                ObjCmd.Parameters.AddWithValue("@Cep", clientes.Cep);
-                ObjCmd.Parameters.AddWithValue("@FoneRes", clientes.FoneRes);
-                ObjCmd.Parameters.AddWithValue("@FoneCom", clientes.FoneCom);
-                ObjCmd.Parameters.AddWithValue("@Cel", clientes.Cel);
-                ObjCmd.Parameters.AddWithValue("@OutrosCont", clientes.OutrosCont);
-                ObjCmd.Parameters.AddWithValue("@Email", clientes.Email);
-                ObjCmd.Parameters.AddWithValue("@IdentFiscal", clientes.IdentFiscal);
-                ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
-                ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
-                
-                ObjConn.Open();
-                
-                ObjCmd.ExecuteNonQuery();
-                
-                ObjConn.Close();
-            }
-        
-        public string nome {
-            get { return SrtCon; }
-        }
     }
 }

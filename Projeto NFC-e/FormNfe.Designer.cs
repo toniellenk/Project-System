@@ -32,7 +32,6 @@
             this.ButStatSefaz = new System.Windows.Forms.Button();
             this.ButLimp = new System.Windows.Forms.Button();
             this.RetSefaz = new System.Windows.Forms.Label();
-            this.XmlEnv = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ButConsNfc = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.ButAss = new System.Windows.Forms.Button();
             this.ButRecNfe = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.XmlEnv = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,19 +77,6 @@
             this.RetSefaz.Size = new System.Drawing.Size(455, 286);
             this.RetSefaz.TabIndex = 7;
             this.RetSefaz.Click += new System.EventHandler(this.RetSefaz_Click);
-            // 
-            // XmlEnv
-            // 
-            this.XmlEnv.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.XmlEnv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.XmlEnv.Cursor = System.Windows.Forms.Cursors.Default;
-            this.XmlEnv.ForeColor = System.Drawing.Color.Black;
-            this.XmlEnv.Location = new System.Drawing.Point(31, 169);
-            this.XmlEnv.Name = "XmlEnv";
-            this.XmlEnv.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.XmlEnv.Size = new System.Drawing.Size(455, 286);
-            this.XmlEnv.TabIndex = 9;
-            this.XmlEnv.Click += new System.EventHandler(this.XmlEnv_Click_1);
             // 
             // label2
             // 
@@ -178,18 +165,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_3);
             // 
+            // XmlEnv
+            // 
+            this.XmlEnv.Location = new System.Drawing.Point(44, 171);
+            this.XmlEnv.Name = "XmlEnv";
+            this.XmlEnv.Size = new System.Drawing.Size(423, 284);
+            this.XmlEnv.TabIndex = 19;
+            this.XmlEnv.Text = "";
+            // 
             // FormNfe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 544);
+            this.Controls.Add(this.XmlEnv);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ButRecNfe);
             this.Controls.Add(this.ButAss);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.XmlEnv);
             this.Controls.Add(this.RetSefaz);
             this.Controls.Add(this.ButLimp);
             this.Controls.Add(this.ButStatSefaz);
@@ -218,8 +213,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ButAss;
         private System.Windows.Forms.Button ButRecNfe;
-        public System.Windows.Forms.Label XmlEnv;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox XmlEnv;
     }
 }
 
