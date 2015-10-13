@@ -104,8 +104,60 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+             if BuNvCliente {
+                 AdcAtua(1);
+             }
+             else BuAtCliente {
+                 AdcAtua(2)
+             }
         }
+        
+        region Métodos
+        
+        public void AdcAtua(int Op){
+            
+            DadosClientes objDados = new DadosClientes();
+            objDados.ClientesObj.Nome = ;
+123         objDados.ClientesObj.CpfCnpj = ;
+124         objDados.ClientesObj.Pessoa = ;
+125         objDados.ClientesObj.Estrangeiro = ;
+126         objDados.ClientesObj.IdentEstrangeiro = ;
+127         objDados.ClientesObj.RS = ;
+128         objDados.ClientesObj.NomeFant = ;
+129         objDados.ClientesObj.Endereco = ;
+130         objDados.ClientesObj.Num = ;
+131         objDados.ClientesObj.Cep = ;
+132         objDados.ClientesObj.FoneRes = ;
+133         objDados.ClientesObj.FoneCom = ;
+134         objDados.ClientesObj.Cel = ;
+135         objDados.ClientesObj.OutrosCont = ;
+136         objDados.ClientesObj.Email =; 
+137         objDados.ClientesObj.IdentFiscal = ;
+138         objDados.ClientesObj.InscEst = ;
+139         objDados.ClientesObj.InscMun = ;
+
+            if op == 1 { 
+                objDados.inserir(objDados.ClientesObj());
+                MessageBox.Show("Cliente inserido com sucesso!");
+            }
+            else op == 2 {
+                objDados.atualizar(objDados.ClientesObj())
+                MessageBox.Show("Cliente atualizado com sucesso!");
+            }
+            else MessageBox.Show("Ops... Operação inválida.");
+        }
+        
+        public void Alterar(){
+            
+        }
+        
+        public void remover(){
+            
+            
+        }
+        
+        
+        endrergion
 
         
     }
