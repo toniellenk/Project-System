@@ -117,7 +117,9 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdcAtua(Operacao);
+            if (ValidaCampos()){
+                AdcAtua(Operacao);
+            }
         }
         
         #region Métodos
@@ -233,8 +235,10 @@ namespace Projeto_NFC_e
                       
         }
         
-        public void remover(){
+        public void remover(string ItemSelect){
             
+            DadosClientes objDados = new DadosClientes();
+            objDados.remover(ItemSelect);
             
         }
 
