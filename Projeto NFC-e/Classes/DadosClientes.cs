@@ -36,8 +36,10 @@ namespace Projeto_NFC_e
         public DataTable dt = new DataTable();
 
         public DataTable Consulta() {
-
-            string SqlSelect = "select * from t0050";
+            
+        try
+            {
+                string SqlSelect = "select * from t0050";
                 /*Cria o objeto de conexão com o banco */
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 /*Cria o objeto de execução do comando */
@@ -50,6 +52,11 @@ namespace Projeto_NFC_e
                 dt = ds.Tables[0];
                 ObjConn.Close();
                 return dt;
+            }   
+        catch (Exception ex)
+            {
+                return MessageBox.Show("Ocorreu o Erro: "+ex.Message.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
