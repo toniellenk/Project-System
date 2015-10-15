@@ -150,8 +150,19 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-        public string nome {
-            get { return SrtCon; }
-        }
+        public void remover(string IdCliente)
+            {
+                string SqlRemov = "delete t0050 where IdCliente = @IdCliente";
+                SqlConnection ObjConn = new SqlConnection(SrtCon);
+                SqlCommand ObjCmd = new SqlCommand(SqlRemov, ObjConn);
+
+                ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
+                
+                ObjConn.Open();
+                
+                ObjCmd.ExecuteNonQuery();
+                
+                ObjConn.Close();
+            }
     }
 }
