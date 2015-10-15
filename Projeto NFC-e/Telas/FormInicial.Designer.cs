@@ -50,10 +50,10 @@
             this.saldoProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenRel = new System.Windows.Forms.ToolStripMenuItem();
             this.PanCentral = new System.Windows.Forms.Panel();
-            this.BuNvCliente = new System.Windows.Forms.Button();
             this.LsVyPrinc = new System.Windows.Forms.DataGridView();
+            this.ButAltCliente = new System.Windows.Forms.Button();
+            this.BuNvCliente = new System.Windows.Forms.Button();
             this.MenuInicial.SuspendLayout();
-            this.PanCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             this.MenuInicial.Margin = new System.Windows.Forms.Padding(2);
             this.MenuInicial.Name = "MenuInicial";
             this.MenuInicial.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuInicial.Size = new System.Drawing.Size(738, 50);
+            this.MenuInicial.Size = new System.Drawing.Size(1237, 50);
             this.MenuInicial.TabIndex = 0;
             this.MenuInicial.Text = "MenuInicial";
             this.MenuInicial.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuInicial_ItemClicked);
@@ -228,22 +228,10 @@
             // 
             // PanCentral
             // 
-            this.PanCentral.Controls.Add(this.LsVyPrinc);
-            this.PanCentral.Controls.Add(this.BuNvCliente);
             this.PanCentral.Location = new System.Drawing.Point(121, 55);
             this.PanCentral.Name = "PanCentral";
-            this.PanCentral.Size = new System.Drawing.Size(605, 496);
+            this.PanCentral.Size = new System.Drawing.Size(1072, 780);
             this.PanCentral.TabIndex = 1;
-            // 
-            // BuNvCliente
-            // 
-            this.BuNvCliente.Location = new System.Drawing.Point(29, 449);
-            this.BuNvCliente.Name = "BuNvCliente";
-            this.BuNvCliente.Size = new System.Drawing.Size(75, 23);
-            this.BuNvCliente.TabIndex = 1;
-            this.BuNvCliente.Text = "Novo";
-            this.BuNvCliente.UseVisualStyleBackColor = true;
-            this.BuNvCliente.Click += new System.EventHandler(this.BuNvCliente_Click);
             // 
             // LsVyPrinc
             // 
@@ -265,31 +253,57 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle2;
             this.LsVyPrinc.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.LsVyPrinc.Location = new System.Drawing.Point(0, 79);
+            this.LsVyPrinc.Location = new System.Drawing.Point(121, 323);
             this.LsVyPrinc.Name = "LsVyPrinc";
             this.LsVyPrinc.ReadOnly = true;
             this.LsVyPrinc.RowHeadersVisible = false;
             this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LsVyPrinc.Size = new System.Drawing.Size(605, 347);
+            this.LsVyPrinc.Size = new System.Drawing.Size(1072, 512);
             this.LsVyPrinc.TabIndex = 2;
             this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
+            this.LsVyPrinc.GotFocus += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // ButAltCliente
+            // 
+            this.ButAltCliente.Location = new System.Drawing.Point(232, 875);
+            this.ButAltCliente.Name = "ButAltCliente";
+            this.ButAltCliente.Size = new System.Drawing.Size(75, 26);
+            this.ButAltCliente.TabIndex = 3;
+            this.ButAltCliente.Text = "Alterar";
+            this.ButAltCliente.UseVisualStyleBackColor = true;
+            this.ButAltCliente.Click += new System.EventHandler(this.ButAltCliente_Click);
+            // 
+            // BuNvCliente
+            // 
+            this.BuNvCliente.Location = new System.Drawing.Point(124, 875);
+            this.BuNvCliente.Name = "BuNvCliente";
+            this.BuNvCliente.Size = new System.Drawing.Size(75, 26);
+            this.BuNvCliente.TabIndex = 1;
+            this.BuNvCliente.Text = "Novo";
+            this.BuNvCliente.UseVisualStyleBackColor = true;
+            this.BuNvCliente.Click += new System.EventHandler(this.BuNvCliente_Click);
             // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(738, 563);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1237, 1006);
+            this.Controls.Add(this.LsVyPrinc);
+            this.Controls.Add(this.ButAltCliente);
             this.Controls.Add(this.PanCentral);
             this.Controls.Add(this.MenuInicial);
+            this.Controls.Add(this.BuNvCliente);
             this.MainMenuStrip = this.MenuInicial;
+            this.MaximizeBox = false;
             this.Name = "FormInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicial";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormInicial_Load);
             this.MenuInicial.ResumeLayout(false);
             this.MenuInicial.PerformLayout();
-            this.PanCentral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
             this.ResumeLayout(false);
 
@@ -318,6 +332,7 @@
         private System.Windows.Forms.Panel PanCentral;
         private System.Windows.Forms.Button BuNvCliente;
         private System.Windows.Forms.DataGridView LsVyPrinc;
+        private System.Windows.Forms.Button ButAltCliente;
 
 
 

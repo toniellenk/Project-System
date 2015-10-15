@@ -16,6 +16,8 @@ namespace Projeto_NFC_e
         {
             InitializeComponent();
             LsVyPrinc.Visible = false;
+            BuNvCliente.Visible = false;
+            ButAltCliente.Visible = false; 
         }
 
         private void FormInicial_Load(object sender, EventArgs e)
@@ -46,13 +48,15 @@ namespace Projeto_NFC_e
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CarregarListView(); 
+            CarregarListView();
+            BuNvCliente.Visible = true;
+            ButAltCliente.Visible = true;
 
         }
 
         private void BuNvCliente_Click(object sender, EventArgs e)
         {
-            FormNvCliente NovoCliente = new FormNvCliente();
+            FormNvCliente NovoCliente = new FormNvCliente(1,1);
             NovoCliente.Show();
 
         }
@@ -117,14 +121,16 @@ namespace Projeto_NFC_e
                 linha["CPF / CNPJ"] =  dr["CpfCnpj"].ToString();
                 linha["Telefone"] = dr["FoneRes"].ToString();
                 linha["Celular"] = dr["Cel"].ToString();
-                linha["e-mail"] = dr["Email"].ToString();
+                linha["e-mail"] = dr["Email"].ToString();                
                 mDataTable.Rows.Add(linha);
             }
 
             
          //   LsVyPrinc.View = View.Details;
             LsVyPrinc.DataSource = mDataTable;
+            LsVyPrinc.Columns[0].Width = 30; 
             LsVyPrinc.Visible = true;
+
 
         }
         #endregion
@@ -141,6 +147,15 @@ namespace Projeto_NFC_e
 
          private void LsVyPrinc_CellContentClick(object sender, DataGridViewCellEventArgs e)
          {
+
+         }
+
+         private void ButAltCliente_Click(object sender, EventArgs e)
+         {
+             int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
+             FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
+             ALterarCliente.Show();
+
 
          }
 

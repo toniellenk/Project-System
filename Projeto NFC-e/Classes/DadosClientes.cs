@@ -10,24 +10,24 @@ namespace Projeto_NFC_e
     public class DadosClientes
     {
        public class ClientesObj {
-        public string Nome;
-        public string CpfCnpj;
-        public int  Pessoa;
-        public bool Estrangeiro;
-        public string IdentEstrangeiro;
-        public string RS;
-        public string NomeFant;
-        public string Endereco;
-        public string Num;
-        public string Cep;
-        public string FoneRes;
-        public string FoneCom;
-        public string Cel;
-        public string OutrosCont;
-        public string Email;
-        public string IdentFiscal;
-        public string InscEst;
-        public string InscMun;
+       public string Nome = "";
+           public string CpfCnpj = "";
+        public int Pessoa = 1;
+        public bool Estrangeiro = false;
+        public string IdentEstrangeiro = "";
+        public string RS = "";
+        public string NomeFant = "";
+        public string Endereco = "";
+        public string Num = "";
+        public string Cep = "";
+        public string FoneRes = "";
+        public string FoneCom = "";
+        public string Cel = "";
+        public string OutrosCont = "";
+        public string Email = "";
+        public int IdentFiscal = 1;
+        public string InscEst = "";
+        public string InscMun = "";
 
        }
         
@@ -75,10 +75,12 @@ namespace Projeto_NFC_e
         
         public void inserir(ClientesObj clientes)
             {
+              //  string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, @IdentEstrangeiro, @RS, @NomeFant, @Endereco, null, null, null, null, null, null, null, null, null, null)";
+
                 string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, ";
                 SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
-                SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
-                SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
+               SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
+               SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
                 SqlInsert += "@InscEst, @InscMun)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
@@ -109,15 +111,16 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-         public void atualizar(ClientesObj clientes)
+         public void atualizar(ClientesObj clientes, string IdCliente)
             {
-                string SqlInsert = "update t0050 set Nome = @Nome, CpfCnpj = @CpfCnpj, Pessoa = @Pessoa, @Estrangeiro, ";
-                SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
-                SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
-                SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
-                SqlInsert += "@InscEst, @InscMun)";
+                string SqlUpdate = "update t0050 set Nome = @Nome, CpfCnpj = @CpfCnpj, Pessoa = @Pessoa,"; 
+                SqlUpdate += "Estrangeiro = @Estrangeiro, ";
+                SqlUpdate += "RS = @RS, NomeFant = NomeFant, Endereco = @Endereco, ";
+                SqlUpdate += "Num = @Num, Cep = @Cep, FoneRes = @FoneRes, FoneCom = @FoneCom, ";
+                SqlUpdate += "Cel = @Cel, OutrosCont = @OutrosCont, Email = @Email, IdentFiscal = @IdentFiscal, ";
+                SqlUpdate += "InscEst = @InscEst, InscMun = @InscMun where IdCliente = @IdCliente";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
-                SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
+                SqlCommand ObjCmd = new SqlCommand(SqlUpdate, ObjConn);
 
                 ObjCmd.Parameters.AddWithValue("@Nome", clientes.Nome);
                 ObjCmd.Parameters.AddWithValue("@CpfCnpj", clientes.CpfCnpj);
@@ -137,6 +140,8 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@IdentFiscal", clientes.IdentFiscal);
                 ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
                 ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
+                ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
+                
                 
                 ObjConn.Open();
                 
