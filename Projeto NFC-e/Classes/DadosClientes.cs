@@ -82,12 +82,12 @@ namespace Projeto_NFC_e
         
         public void inserir(ClientesObj clientes)
             {
-              //  string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, @IdentEstrangeiro, @RS, @NomeFant, @Endereco, null, null, null, null, null, null, null, null, null, null)";
+
 
                 string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, ";
                 SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
-               SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
-               SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
+                SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
+                SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
                 SqlInsert += "@InscEst, @InscMun)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
@@ -120,12 +120,28 @@ namespace Projeto_NFC_e
         
          public void atualizar(ClientesObj clientes, string IdCliente)
             {
-                string SqlUpdate = "update t0050 set Nome = @Nome, CpfCnpj = @CpfCnpj, Pessoa = @Pessoa,"; 
+                string SqlUpdate = "update t0050 set ";
+                
+                SqlUpdate += "Nome = @Nome, ";
+                SqlUpdate += "CpfCnpj = @CpfCnpj, " 
+                SqlUpdate += "Pessoa = @Pessoa, "; 
                 SqlUpdate += "Estrangeiro = @Estrangeiro, ";
-                SqlUpdate += "RS = @RS, NomeFant = NomeFant, Endereco = @Endereco, ";
-                SqlUpdate += "Num = @Num, Cep = @Cep, FoneRes = @FoneRes, FoneCom = @FoneCom, ";
-                SqlUpdate += "Cel = @Cel, OutrosCont = @OutrosCont, Email = @Email, IdentFiscal = @IdentFiscal, ";
-                SqlUpdate += "InscEst = @InscEst, InscMun = @InscMun where IdCliente = @IdCliente";
+                SqlUpdate += "RS = @RS, ";
+                SqlUpdate += "NomeFant = NomeFant,"; 
+                SqlUpdate += "Endereco = @Endereco, ";
+                SqlUpdate += "Num = @Num, ";
+                SqlUpdate += "Cep = @Cep, ";
+                SqlUpdate += "FoneRes = @FoneRes, ";
+                SqlUpdate += "FoneCom = @FoneCom, ";
+                SqlUpdate += "Cel = @Cel, ";
+                SqlUpdate += "OutrosCont = @OutrosCont, ";
+                SqlUpdate += "Email = @Email, ";
+                SqlUpdate += "IdentFiscal = @IdentFiscal, ";
+                SqlUpdate += "InscEst = @InscEst, ";
+                SqlUpdate += "InscMun = @InscMun "; 
+                
+                SqlUpdate += "where IdCliente = @IdCliente";
+                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlUpdate, ObjConn);
 
@@ -148,7 +164,6 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
                 ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
                 ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
-                
                 
                 ObjConn.Open();
                 
