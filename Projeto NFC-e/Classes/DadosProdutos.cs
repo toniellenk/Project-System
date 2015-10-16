@@ -11,6 +11,7 @@ namespace Projeto_NFC_e
     {
        public class ProdObj 
        {
+        public string Nome;
         public string Desc;
         public string CodBarras;
         public int Ncm;
@@ -76,12 +77,13 @@ namespace Projeto_NFC_e
         
         public void inserir(ProdObj Prod)
             {
-                string SqlInsert = "insert into t0040 values(@Desc, @CodBarras, @Ncm, @UnMed, ";
+                string SqlInsert = "insert into t0040 values(Nome@, @DescDet, @CodBarras, @Ncm, @UnMed, ";
                 SqlInsert += "@CstIcms, TipTribIcms, @AliqIcms, @CstIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
                 SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @Vendedor, @GrupItens)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
+                ObjCmd.Parameters.AddWithValue("Nome@", Prod.Nome);
                 ObjCmd.Parameters.AddWithValue("@Desc", Prod.Desc);
                 ObjCmd.Parameters.AddWithValue("@CodBarras", Prod.CodBarras);
                 ObjCmd.Parameters.AddWithValue("@Ncm", Prod.Ncm);
@@ -111,14 +113,35 @@ namespace Projeto_NFC_e
 
         public void atualizar(ProdObj Prod)
             {
-                string SqlInsert = "update t0050 set Nome = @Nome, CpfCnpj = @CpfCnpj, Pessoa = @Pessoa, @Estrangeiro, ";
-                SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
-                SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
-                SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
-                SqlInsert += "@InscEst, @InscMun)";
+                string SqlUpdate = "update t0025 set ";
+                
+                SqlUpdate += "Nome = @Nome, ";
+                SqlUpdate += "Nome = @Desc, ";
+                SqlUpdate += "CpfCnpj = @CodBarras, " 
+                SqlUpdate += "Pessoa = @Pessoa, "; 
+                SqlUpdate += "Estrangeiro = @Ncm, ";
+                SqlUpdate += "RS = @UnMed, ";
+                SqlUpdate += "NomeFant = CstIcms,"; 
+                SqlUpdate += "Endereco = @TipTribIcms, ";
+                SqlUpdate += "Num = @AliqIcms, ";
+                SqlUpdate += "Cep = @CstIpi, ";
+                SqlUpdate += "FoneRes = @AliqIpi, ";
+                SqlUpdate += "FoneCom = @CstPis, ";
+                SqlUpdate += "Cel = @AliqPis, ";
+                SqlUpdate += "OutrosCont = @CstCofins, ";
+                SqlUpdate += "Email = @AliqCofins, ";
+                SqlUpdate += "IdentFiscal = @Deposito, ";
+                SqlUpdate += "InscEst = @LocDepos, ";
+                SqlUpdate += "Fornecedor = @Fornecedor "; 
+                SqlUpdate += "Vendedor = @Vendedor "; 
+                SqlUpdate += "GrupItens = @GrupItens "; 
+                
+                SqlUpdate += "where IdProd = @IdProd";
+                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
-                SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
+                SqlCommand ObjCmd = new SqlCommand(SqlUpdate, ObjConn);
 
+                ObjCmd.Parameters.AddWithValue("@Nome", Prod.Nome);
                 ObjCmd.Parameters.AddWithValue("@Desc", Prod.Desc);
                 ObjCmd.Parameters.AddWithValue("@CodBarras", Prod.CodBarras);
                 ObjCmd.Parameters.AddWithValue("@Ncm", Prod.Ncm);
@@ -138,6 +161,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
                 ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
+                ObjCmd.Parameters.AddWithValue("IdProd@", Prod.IdProd);
                 
                 ObjConn.Open();
                 
