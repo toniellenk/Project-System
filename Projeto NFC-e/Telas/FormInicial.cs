@@ -17,7 +17,8 @@ namespace Projeto_NFC_e
             InitializeComponent();
             LsVyPrinc.Visible = false;
             BuNvCliente.Visible = false;
-            ButAltCliente.Visible = false; 
+            ButAltCliente.Visible = false;
+            ButDelCliente.Visible = false;
         }
 
         private void FormInicial_Load(object sender, EventArgs e)
@@ -46,11 +47,12 @@ namespace Projeto_NFC_e
 
         }
 
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarregarListView();
             BuNvCliente.Visible = true;
             ButAltCliente.Visible = true;
+            ButDelCliente.Visible = true;
 
         }
 
@@ -156,6 +158,18 @@ namespace Projeto_NFC_e
              FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
              ALterarCliente.Show();
 
+
+         }
+
+         private void ButDelCliente_Click(object sender, EventArgs e)
+         {
+             string ItemSelect = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
+             DadosClientes objDados = new DadosClientes();
+             objDados.remover(ItemSelect);
+         }
+
+         private void PanCentral_Paint(object sender, PaintEventArgs e)
+         {
 
          }
 

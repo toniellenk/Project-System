@@ -28,7 +28,7 @@ namespace Projeto_NFC_e
             Operacao = Op;
             if (Op == 2)
             {
-                Alterar(ItemSelect);            
+                Alterar(ItemSelect);
             }
 
         }
@@ -119,6 +119,7 @@ namespace Projeto_NFC_e
         {
             if (ValidaCampos()){
                 AdcAtua(Operacao);
+                Close();
             }
         }
         
@@ -234,15 +235,7 @@ namespace Projeto_NFC_e
           
                       
         }
-        
-        public void remover(string ItemSelect){
-            
-            DadosClientes objDados = new DadosClientes();
-            objDados.remover(ItemSelect);
-            
-        }
-
-        public bool ValidaCampos() { 
+         public bool ValidaCampos() { 
             bool retorno = true;
             string CapInvalid = "";
 

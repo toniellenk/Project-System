@@ -4,6 +4,7 @@ using System.Linq;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Projeto_NFC_e
 {
@@ -35,7 +36,7 @@ namespace Projeto_NFC_e
         public DataSet ds = new DataSet();
         public DataTable dt = new DataTable();
 
-        public DataTable Consulta() {
+        public void Consulta() {
             
         try
             {
@@ -51,16 +52,17 @@ namespace Projeto_NFC_e
                 da.Fill(ds);
                 dt = ds.Tables[0];
                 ObjConn.Close();
-                return dt;
+                //return dt;
             }   
         catch (Exception ex)
             {
-                return MessageBox.Show("Ocorreu o Erro: "+ex.Message.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ao conectar a base de dados: " + ex.Message.ToString(), "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
 
-        public DataTable Consulta(int IdCliente)
+        public void Consulta(int IdCliente)
         { 
                     
                 /*Query SQL*/    
@@ -77,7 +79,6 @@ namespace Projeto_NFC_e
                 da.Fill(ds);
                 dt = ds.Tables[0];
                 ObjConn.Close();
-                return dt;
         }
         
         public void inserir(ClientesObj clientes)
@@ -123,7 +124,7 @@ namespace Projeto_NFC_e
                 string SqlUpdate = "update t0050 set ";
                 
                 SqlUpdate += "Nome = @Nome, ";
-                SqlUpdate += "CpfCnpj = @CpfCnpj, " 
+                SqlUpdate += "CpfCnpj = @CpfCnpj, ";
                 SqlUpdate += "Pessoa = @Pessoa, "; 
                 SqlUpdate += "Estrangeiro = @Estrangeiro, ";
                 SqlUpdate += "RS = @RS, ";
@@ -174,17 +175,27 @@ namespace Projeto_NFC_e
         
         public void remover(string IdCliente)
             {
-                string SqlRemov = "delete t0050 where IdCliente = @IdCliente";
-                SqlConnection ObjConn = new SqlConnection(SrtCon);
-                SqlCommand ObjCmd = new SqlCommand(SqlRemov, ObjConn);
+                try
+                {
+                    string SqlRemov = "delete t0050 where IdCliente = @IdCliente";
+                    SqlConnection ObjConn = new SqlConnection(SrtCon);
+                    SqlCommand ObjCmd = new SqlCommand(SqlRemov, ObjConn);
 
-                ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
-                
-                ObjConn.Open();
-                
-                ObjCmd.ExecuteNonQuery();
-                
-                ObjConn.Close();
+                    ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
+
+                    ObjConn.Open();
+
+                    ObjCmd.ExecuteNonQuery();
+
+                    ObjConn.Close();
+
+                    MessageBox.Show("O Cliente " + IdCliente+" foi excluído com sucesso.");
+
+                }
+                catch (Exception ex) {
+
+                    MessageBox.Show("Ao tentar excluir: " + ex.Message.ToString(), "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
     }
 }

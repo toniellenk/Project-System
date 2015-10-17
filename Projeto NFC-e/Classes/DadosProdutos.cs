@@ -111,13 +111,13 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
 
-        public void atualizar(ProdObj Prod)
+        public void atualizar(ProdObj Prod, string IdProd)
             {
                 string SqlUpdate = "update t0025 set ";
                 
                 SqlUpdate += "Nome = @Nome, ";
                 SqlUpdate += "Nome = @Desc, ";
-                SqlUpdate += "CpfCnpj = @CodBarras, " 
+                SqlUpdate += "CpfCnpj = @CodBarras, ";
                 SqlUpdate += "Pessoa = @Pessoa, "; 
                 SqlUpdate += "Estrangeiro = @Ncm, ";
                 SqlUpdate += "RS = @UnMed, ";
@@ -161,7 +161,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
                 ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
-                ObjCmd.Parameters.AddWithValue("IdProd@", Prod.IdProd);
+                ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
                 
                 ObjConn.Open();
                 

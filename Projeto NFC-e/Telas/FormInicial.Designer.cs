@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicial));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuInicial = new System.Windows.Forms.MenuStrip();
             this.MenCad = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,9 @@
             this.LsVyPrinc = new System.Windows.Forms.DataGridView();
             this.ButAltCliente = new System.Windows.Forms.Button();
             this.BuNvCliente = new System.Windows.Forms.Button();
+            this.ButDelCliente = new System.Windows.Forms.Button();
             this.MenuInicial.SuspendLayout();
+            this.PanCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,10 +231,18 @@
             // 
             // PanCentral
             // 
-            this.PanCentral.Location = new System.Drawing.Point(121, 55);
+            this.PanCentral.AutoScroll = true;
+            this.PanCentral.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.PanCentral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanCentral.Controls.Add(this.BuNvCliente);
+            this.PanCentral.Controls.Add(this.ButDelCliente);
+            this.PanCentral.Controls.Add(this.ButAltCliente);
+            this.PanCentral.Location = new System.Drawing.Point(165, 55);
+            this.PanCentral.Margin = new System.Windows.Forms.Padding(5);
             this.PanCentral.Name = "PanCentral";
-            this.PanCentral.Size = new System.Drawing.Size(1072, 780);
+            this.PanCentral.Size = new System.Drawing.Size(1072, 860);
             this.PanCentral.TabIndex = 1;
+            this.PanCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanCentral_Paint);
             // 
             // LsVyPrinc
             // 
@@ -239,33 +250,46 @@
             this.LsVyPrinc.AllowUserToDeleteRows = false;
             this.LsVyPrinc.AllowUserToResizeColumns = false;
             this.LsVyPrinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle6;
             this.LsVyPrinc.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.LsVyPrinc.Location = new System.Drawing.Point(121, 323);
+            this.LsVyPrinc.Location = new System.Drawing.Point(165, 324);
+            this.LsVyPrinc.Margin = new System.Windows.Forms.Padding(5);
             this.LsVyPrinc.Name = "LsVyPrinc";
             this.LsVyPrinc.ReadOnly = true;
             this.LsVyPrinc.RowHeadersVisible = false;
+            this.LsVyPrinc.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
             this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LsVyPrinc.Size = new System.Drawing.Size(1072, 512);
+            this.LsVyPrinc.Size = new System.Drawing.Size(1072, 506);
             this.LsVyPrinc.TabIndex = 2;
             this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
             this.LsVyPrinc.GotFocus += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
+            
+            
+// 
             // ButAltCliente
             // 
-            this.ButAltCliente.Location = new System.Drawing.Point(232, 875);
+            this.ButAltCliente.Location = new System.Drawing.Point(172, 810);
             this.ButAltCliente.Name = "ButAltCliente";
             this.ButAltCliente.Size = new System.Drawing.Size(75, 26);
             this.ButAltCliente.TabIndex = 3;
@@ -275,7 +299,7 @@
             // 
             // BuNvCliente
             // 
-            this.BuNvCliente.Location = new System.Drawing.Point(124, 875);
+            this.BuNvCliente.Location = new System.Drawing.Point(64, 810);
             this.BuNvCliente.Name = "BuNvCliente";
             this.BuNvCliente.Size = new System.Drawing.Size(75, 26);
             this.BuNvCliente.TabIndex = 1;
@@ -283,18 +307,26 @@
             this.BuNvCliente.UseVisualStyleBackColor = true;
             this.BuNvCliente.Click += new System.EventHandler(this.BuNvCliente_Click);
             // 
+            // ButDelCliente
+            // 
+            this.ButDelCliente.Location = new System.Drawing.Point(277, 810);
+            this.ButDelCliente.Name = "ButDelCliente";
+            this.ButDelCliente.Size = new System.Drawing.Size(75, 26);
+            this.ButDelCliente.TabIndex = 4;
+            this.ButDelCliente.Text = "Excluir";
+            this.ButDelCliente.UseVisualStyleBackColor = true;
+            this.ButDelCliente.Click += new System.EventHandler(this.ButDelCliente_Click);
+            // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1237, 1006);
+            this.ClientSize = new System.Drawing.Size(1237, 998);
             this.Controls.Add(this.LsVyPrinc);
-            this.Controls.Add(this.ButAltCliente);
             this.Controls.Add(this.PanCentral);
             this.Controls.Add(this.MenuInicial);
-            this.Controls.Add(this.BuNvCliente);
             this.MainMenuStrip = this.MenuInicial;
             this.MaximizeBox = false;
             this.Name = "FormInicial";
@@ -304,6 +336,7 @@
             this.Load += new System.EventHandler(this.FormInicial_Load);
             this.MenuInicial.ResumeLayout(false);
             this.MenuInicial.PerformLayout();
+            this.PanCentral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
             this.ResumeLayout(false);
 
@@ -333,6 +366,7 @@
         private System.Windows.Forms.Button BuNvCliente;
         private System.Windows.Forms.DataGridView LsVyPrinc;
         private System.Windows.Forms.Button ButAltCliente;
+        private System.Windows.Forms.Button ButDelCliente;
 
 
 
