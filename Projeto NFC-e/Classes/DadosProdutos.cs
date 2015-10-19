@@ -31,6 +31,7 @@ namespace Projeto_NFC_e
         public string Fornecedor;
         public string Vendedor;
         public string GrupItens;
+        public string Natureza;
        }
         
         string SrtCon = ConfigurationManager.ConnectionStrings["root"].ConnectionString;
@@ -79,7 +80,7 @@ namespace Projeto_NFC_e
             {
                 string SqlInsert = "insert into t0040 values(Nome@, @DescDet, @CodBarras, @Ncm, @UnMed, ";
                 SqlInsert += "@CstIcms, TipTribIcms, @AliqIcms, @CstIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
-                SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @Vendedor, @GrupItens)";
+                SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @Vendedor, @GrupItens, @Natureza)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
@@ -103,6 +104,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
                 ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
+                ObjCmd.Parameters.AddWithValue("Natureza", Prod.Natureza);
                 
                 ObjConn.Open();
                 
@@ -132,9 +134,10 @@ namespace Projeto_NFC_e
                 SqlUpdate += "Email = @AliqCofins, ";
                 SqlUpdate += "IdentFiscal = @Deposito, ";
                 SqlUpdate += "InscEst = @LocDepos, ";
-                SqlUpdate += "Fornecedor = @Fornecedor "; 
-                SqlUpdate += "Vendedor = @Vendedor "; 
-                SqlUpdate += "GrupItens = @GrupItens "; 
+                SqlUpdate += "Fornecedor = @Fornecedor, "; 
+                SqlUpdate += "Vendedor = @Vendedor, "; 
+                SqlUpdate += "GrupItens = @GrupItens, "; 
+                SqlUpdate += "Natureza = @Natureza "; 
                 
                 SqlUpdate += "where IdProd = @IdProd";
                 
@@ -162,6 +165,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
                 ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
+                ObjCmd.Parameters.AddWithValue("Natureza", Prod.Natureza);
                 
                 ObjConn.Open();
                 
