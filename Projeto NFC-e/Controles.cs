@@ -12,15 +12,16 @@ namespace Projeto_NFC_e
     public class Controles
     {
         
-        public class BotaoNv{
-            public static int NvCliente()
+        public class BotaoNv
+        {
+            public static int NvCliente
             {
-                return 1;
+                get { return 1; }
             } 
             
-            public static int NvProduto()
+            public static int NvProduto
             {
-                return 2;
+                get { return 2; }
             } 
 
         };
