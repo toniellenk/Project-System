@@ -17,6 +17,11 @@ namespace Projeto_NFC_e
             {
                 return 1;
             } 
+            
+            public static int NvProduto()
+            {
+                return 2;
+            } 
 
         };
 
@@ -26,6 +31,11 @@ namespace Projeto_NFC_e
             {
                 return 1;
             }
+            
+            public static int AltProduto()
+            {
+                return 2;
+            }
 
         };
 
@@ -34,6 +44,11 @@ namespace Projeto_NFC_e
             public static int DelCliente()
             {
                 return 1;
+            }
+            
+            public static int DelProd()
+            {
+                return 2;
             }
 
         };
@@ -49,23 +64,40 @@ namespace Projeto_NFC_e
 
         public static void Novo(int Botao)
         {
-            if (Botao == 1)
-            {
-                    FormNvCliente NovoCliente = new FormNvCliente(1, 1);
-                    NovoCliente.Show();  
-                }
+            switch (Botao){
+                case 1:
+                    {
+                        FormNvCliente NovoCliente = new FormNvCliente(1, 1);
+                        NovoCliente.Show();  
+                        break;
+                    }
+             /*   case 2:
+                    {
+                        FormNvProduto NovoProduto = new FormNvProduto(1, 1);
+                        NovoProduto.Show();  
+                        break;
+                    } */
+            }
 
         }
 
         public static void Alterar(int Botao, int ItemSelect)
         {
 
-            if (Botao == 1)
-            {               
-                FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
-                ALterarCliente.Show();
+            switch (Botao){
+                case 1:
+                    {               
+                        FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
+                        ALterarCliente.Show();
+                        break;
+                    }
+             /*   case 2:
+                    {               
+                        FormNvProduto AlterarProduto = new FormNvProduto(2, ItemSelect);
+                        AlterarProduto.Show(); 
+                        break;
+                    } */
             }
-
         }
 
         public static void Remover(int Botao, int ItemSelect)
@@ -77,7 +109,13 @@ namespace Projeto_NFC_e
                         DadosClientes DelCliente = new DadosClientes();
                         DelCliente.remover(ItemSelect);
                         break;
-                    }              
+                    } 
+                case 2:
+                    {
+                        DadosProdutos DelProduto = new DadosProdutos();
+                        DelProduto.remover(ItemSelect);
+                        break;
+                    }
                     
             }
         }
@@ -87,11 +125,11 @@ namespace Projeto_NFC_e
 
             DataTable mDataTable = new DataTable();
 
-        //    switch (Filtros.Nome)
-       //     {
+        /*   switch (Filtros.Nome)
+            {
 
-           //     case true:
-            //        {
+                case true:
+                    { */
                         DadosClientes objDados = new DadosClientes();
                         objDados.Consulta();
                                                
@@ -160,12 +198,12 @@ namespace Projeto_NFC_e
 
                         return mDataTable;   
                         
-                  //  }
-              //  default: {
-              //      return mDataTable;
+             /*       }
+                default: {
+                    return mDataTable;
                     
-            //    }
-          //  }
+                }
+           } */
         }
         
         public static DataTable CarregarGradeProdutos()
