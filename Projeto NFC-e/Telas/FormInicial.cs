@@ -62,7 +62,12 @@ namespace Projeto_NFC_e
         {
 
         }
-
+        
+         public void produtosToolStripMenuItem_Click(object sender, EventArgs e){
+             
+             
+         } 
+        
         public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BuNvCliente.Visible = true;
