@@ -7,11 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Projeto_NFC_e
 {
     public partial class FormInicial : Form
     {
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+
+        int TipoButNv, TipoButAlt, TipoButDel;
+
         public FormInicial()
         {
             InitializeComponent();
@@ -49,18 +65,35 @@ namespace Projeto_NFC_e
 
         public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CarregarListView();
             BuNvCliente.Visible = true;
             ButAltCliente.Visible = true;
             ButDelCliente.Visible = true;
+            TipoButNv = Controles.BotaoNv.NvCliente();
+            TipoButDel = Controles.BotaoAlt.AltCliente();
+            TipoButAlt = Controles.BotaoAlt.AltCliente();
+          //  TipoGrade = Controles.TipoGrade.GradeCliente(); 
 
+            Dictionary<string,string> comboSource = new Dictionary<string,string>();
+            comboSource.Add("1", "Sunday");
+            comboSource.Add("2", "Monday");
+            comboSource.Add("3", "Tuesday");
+            comboSource.Add("4", "Wednesday");
+            comboSource.Add("5", "Thursday");
+            comboSource.Add("6", "Friday");
+            comboSource.Add("7", "Saturday");
+            CombBxFilt.DataSource = new BindingSource(comboSource, null);
+            CombBxFilt.DisplayMember = "Value";
+            CombBxFilt.ValueMember = "Key";
+ 
+
+                //   CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Sunday");
+
+ 
         }
 
-        private void BuNvCliente_Click(object sender, EventArgs e)
+        private void ButNovo_Click(object sender, EventArgs e)
         {
-            FormNvCliente NovoCliente = new FormNvCliente(1,1);
-            NovoCliente.Show();
-
+            Controles.Novo(TipoButNv);
         }
 
         private void ListViewPinc_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,70 +102,13 @@ namespace Projeto_NFC_e
         }
 
         #region Métodos
-         private void CarregarListView() 
+         private void CarregarListViewClientes() 
         {
-            DadosClientes objDados = new DadosClientes();
-            objDados.Consulta();
 
-            DataTable mDataTable = new DataTable();
-
-            DataColumn mDataColumn;
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "ID";
-            mDataTable.Columns.Add(mDataColumn);
-
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "Nome";
-            mDataTable.Columns.Add(mDataColumn);
-
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "CPF / CNPJ";
-            mDataTable.Columns.Add(mDataColumn);
-
-
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "Telefone";
-            mDataTable.Columns.Add(mDataColumn);
-
-
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "Celular";
-            mDataTable.Columns.Add(mDataColumn);
-
-
-            mDataColumn = new DataColumn();
-            mDataColumn.DataType = Type.GetType("System.String");
-            mDataColumn.ColumnName = "e-mail";
-            mDataTable.Columns.Add(mDataColumn);
-
-
-
-            DataRow linha;
-            
-
-            foreach (DataRow dr in objDados.dt.Rows)
-            {
-                linha = mDataTable.NewRow();
-                linha["ID"] = dr["IdCliente"].ToString(); 
-                linha["Nome"] =  dr["Nome"].ToString();
-                linha["CPF / CNPJ"] =  dr["CpfCnpj"].ToString();
-                linha["Telefone"] = dr["FoneRes"].ToString();
-                linha["Celular"] = dr["Cel"].ToString();
-                linha["e-mail"] = dr["Email"].ToString();                
-                mDataTable.Rows.Add(linha);
-            }
-
-            
-         //   LsVyPrinc.View = View.Details;
-            LsVyPrinc.DataSource = mDataTable;
-            LsVyPrinc.Columns[0].Width = 30; 
+            LsVyPrinc.DataSource = Controles.CarregarGradeClientes();
+            LsVyPrinc.Columns[0].Width = 30;
+            LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             LsVyPrinc.Visible = true;
-
 
         }
         #endregion
@@ -155,22 +131,31 @@ namespace Projeto_NFC_e
          private void ButAltCliente_Click(object sender, EventArgs e)
          {
              int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
-             FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
-             ALterarCliente.Show();
-
-
+             Controles.Alterar(TipoButAlt, ItemSelect);
          }
 
          private void ButDelCliente_Click(object sender, EventArgs e)
          {
-             string ItemSelect = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
-             DadosClientes objDados = new DadosClientes();
-             objDados.remover(ItemSelect);
+             int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
+             Controles.Remover(TipoButDel, ItemSelect);
+
          }
 
          private void PanCentral_Paint(object sender, PaintEventArgs e)
          {
 
+         }
+
+         private void panel1_Paint(object sender, PaintEventArgs e)
+         {
+
+         }
+
+         private void button1_Click(object sender, EventArgs e)
+         {
+             string key = ((KeyValuePair<string,string>)CombBxFilt.SelectedItem).Key;
+             string value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
+             MessageBox.Show(key + "   " + value);
          }
 
     }

@@ -175,7 +175,7 @@ namespace Projeto_NFC_e
                 MessageBox.Show("Cliente inserido com sucesso!");
             }
             if (Op == 2) {
-                ObjDadosClientes.atualizar(ObjCliente, Convert.ToString(IdCliente));
+                ObjDadosClientes.atualizar(ObjCliente, IdCliente);
                 MessageBox.Show("Cliente atualizado com sucesso!");
             }  
         

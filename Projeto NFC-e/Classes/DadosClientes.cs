@@ -119,7 +119,7 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-         public void atualizar(ClientesObj clientes, string IdCliente)
+         public void atualizar(ClientesObj clientes, int IdCliente)
             {
                 string SqlUpdate = "update t0050 set ";
                 
@@ -173,7 +173,7 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-        public void remover(string IdCliente)
+        public void remover(int IdCliente)
             {
                 try
                 {

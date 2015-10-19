@@ -57,6 +57,7 @@
     <Compile Include="Classes\ConDados.cs" />
     <Compile Include="Classes\DadosClientes.cs" />
     <Compile Include="Classes\DadosProdutos.cs" />
+    <Compile Include="Controles.cs" />
     <Compile Include="Telas\FormNvCliente.cs">
       <SubType>Form</SubType>
     </Compile>
