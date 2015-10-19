@@ -167,6 +167,71 @@ namespace Projeto_NFC_e
             //    }
           //  }
         }
+        
+        public static DataTable CarregarGradeProdutos()
+                {
+
+                        DataTable mDataTable = new DataTable();
+
+
+                        DadosProdutos objDados = new DadosProdutos();
+                        objDados.Consulta();
+                                               
+
+                        DataColumn mDataColumn;
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "ID";
+                        mDataTable.Columns.Add(mDataColumn);
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "Nome";
+                        mDataTable.Columns.Add(mDataColumn);
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "Descrição Detalhada";
+                        mDataTable.Columns.Add(mDataColumn);
+
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "Grupo de Itens";
+                        mDataTable.Columns.Add(mDataColumn);
+
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "Unidade de Medida";
+                        mDataTable.Columns.Add(mDataColumn);
+
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "Natureza";
+                        mDataTable.Columns.Add(mDataColumn);
+
+                        DataRow linha;
+
+
+
+                        foreach (DataRow dr in objDados.dt.Rows)
+                        {
+                            linha = mDataTable.NewRow();
+                            linha["ID"] = dr["IdIdProd"].ToString();
+                            linha["Nome"] = dr["Nome"].ToString();
+                            linha["Descrição Detalhada"] = dr["Desc"].ToString();
+                            linha["Grupo de itens"] = dr["GrupItens"].ToString();
+                            linha["Celular"] = dr["UnMed"].ToString();
+                            linha["Natureza"] = dr["Natureza"].ToString();
+                            mDataTable.Rows.Add(linha);
+                        }
+
+
+                        return mDataTable;   
+
+                }
 
 
     }
