@@ -40,7 +40,7 @@ namespace Projeto_NFC_e
 
         public DataTable Consulta() { 
             
-                string SqlSelect = "select * from t0040";
+                string SqlSelect = "select * from t0025";
                 /*Cria o objeto de conexão com o banco */
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 /*Cria o objeto de execução do comando */
@@ -60,7 +60,7 @@ namespace Projeto_NFC_e
         {
 
                 /*Query SQL*/    
-                string SqlSelect = "select * from t0040 where IdProd = @IdProd";
+                string SqlSelect = "select * from t0025 where IdProd = @IdProd";
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
@@ -78,7 +78,7 @@ namespace Projeto_NFC_e
         
         public void inserir(ProdObj Prod)
             {
-                string SqlInsert = "insert into t0040 values(Nome@, @DescDet, @CodBarras, @Ncm, @UnMed, ";
+                string SqlInsert = "insert into t0025 values(Nome@, @DescDet, @CodBarras, @Ncm, @UnMed, ";
                 SqlInsert += "@CstIcms, TipTribIcms, @AliqIcms, @CstIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
                 SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @Vendedor, @GrupItens, @Natureza)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
@@ -164,8 +164,8 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
                 ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
-                ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
                 ObjCmd.Parameters.AddWithValue("Natureza", Prod.Natureza);
+                ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
                 
                 ObjConn.Open();
                 
