@@ -262,7 +262,7 @@ namespace Projeto_NFC_e
                             linha["Nome"] = dr["Nome"].ToString();
                             linha["Descrição Detalhada"] = dr["Desc"].ToString();
                             linha["Grupo de itens"] = dr["GrupItens"].ToString();
-                            linha["Celular"] = dr["UnMed"].ToString();
+                            linha["Un. Medida"] = dr["UnMed"].ToString();
                             linha["Natureza"] = dr["Natureza"].ToString();
                             mDataTable.Rows.Add(linha);
                         }
