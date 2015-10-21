@@ -68,16 +68,16 @@ namespace Projeto_NFC_e
             switch (Botao){
                 case 1:
                     {
-                        FormNvCliente NovoCliente = new FormNvCliente(1, 1);
+                        FormCliente NovoCliente = new FormCliente(1, 1);
                         NovoCliente.Show();  
                         break;
                     }
-             /*   case 2:
+                case 2:
                     {
-                        FormNvProduto NovoProduto = new FormNvProduto(1, 1);
+                        FormProduto NovoProduto = new FormProduto(1, 1);
                         NovoProduto.Show();  
                         break;
-                    } */
+                    } 
             }
 
         }
@@ -87,17 +87,17 @@ namespace Projeto_NFC_e
 
             switch (Botao){
                 case 1:
-                    {               
-                        FormNvCliente ALterarCliente = new FormNvCliente(2, ItemSelect);
+                    {
+                        FormCliente ALterarCliente = new FormCliente(2, ItemSelect);
                         ALterarCliente.Show();
                         break;
                     }
-             /*   case 2:
+                case 2:
                     {               
-                        FormNvProduto AlterarProduto = new FormNvProduto(2, ItemSelect);
+                        FormProduto AlterarProduto = new FormProduto(2, ItemSelect);
                         AlterarProduto.Show(); 
                         break;
-                    } */
+                    } 
             }
         }
 
@@ -143,7 +143,7 @@ namespace Projeto_NFC_e
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Nome";
+                        mDataColumn.ColumnName = "NOME";
                         mDataTable.Columns.Add(mDataColumn);
 
                         mDataColumn = new DataColumn();
@@ -154,20 +154,26 @@ namespace Projeto_NFC_e
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Telefone";
+                        mDataColumn.ColumnName = "TELEFONE";
                         mDataTable.Columns.Add(mDataColumn);
 
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Celular";
+                        mDataColumn.ColumnName = "CELULAR";
                         mDataTable.Columns.Add(mDataColumn);
 
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "e-mail";
+                        mDataColumn.ColumnName = "E-MAIL";
                         mDataTable.Columns.Add(mDataColumn);
+
+            /*
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "tamanho";
+                        mDataTable.Columns.Add(mDataColumn); */
 
                         DataRow linha;
 
@@ -177,22 +183,28 @@ namespace Projeto_NFC_e
                         {
                             string CpfCnpj = dr["CpfCnpj"].ToString();
 
-                            if (CpfCnpj.Length >= 14)
+                            CpfCnpj = CpfCnpj.Trim();
+
+                            if (CpfCnpj.Length == 14)
                             {
-                                CpfCnpj = CpfCnpj.Substring(1, 2) + "." + CpfCnpj.Substring(3, 3) + "." + CpfCnpj.Substring(6, 3) + "/" + CpfCnpj.Substring(9, 4) + "-" + CpfCnpj.Substring(13, 2);
+                                CpfCnpj = CpfCnpj.Substring(0, 2) + "." + CpfCnpj.Substring(2, 3) + "." + CpfCnpj.Substring(5, 3) + "/" + CpfCnpj.Substring(8, 4) + "-" + CpfCnpj.Substring(12, 2);
                             }
-                            if (CpfCnpj.Length <= 11)
+                            if (CpfCnpj.Length == 11)
                             {
-                                CpfCnpj = CpfCnpj.Substring(1, 3) + "." + CpfCnpj.Substring(4, 3) + "." + CpfCnpj.Substring(7, 3) + "-" + CpfCnpj.Substring(10, 2);
+                                CpfCnpj = CpfCnpj.Substring(0, 3) + "." + CpfCnpj.Substring(3, 3) + "." + CpfCnpj.Substring(6, 3) + "-" + CpfCnpj.Substring(9, 2);
                             }
+                           // MessageBox.Show(Convert.ToString(CpfCnpj.Length));
+
+                            
 
                             linha = mDataTable.NewRow();
                             linha["ID"] = dr["IdCliente"].ToString();
-                            linha["Nome"] = dr["Nome"].ToString();
+                            linha["NOME"] = dr["Nome"].ToString();
                             linha["CPF / CNPJ"] = CpfCnpj;
-                            linha["Telefone"] = dr["FoneRes"].ToString();
-                            linha["Celular"] = dr["Cel"].ToString();
-                            linha["e-mail"] = dr["Email"].ToString();
+                            linha["TELEFONE"] = dr["FoneRes"].ToString();
+                            linha["CELULAR"] = dr["Cel"].ToString();
+                            linha["E-MAIL"] = dr["Email"].ToString();
+                        //    linha["tamanho"] = Convert.ToString(CpfCnpj.Length);
                             mDataTable.Rows.Add(linha);
                         }
 
@@ -242,7 +254,7 @@ namespace Projeto_NFC_e
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Unidade de Medida";
+                        mDataColumn.ColumnName = "Un. Medida";
                         mDataTable.Columns.Add(mDataColumn);
 
 
@@ -258,7 +270,7 @@ namespace Projeto_NFC_e
                         foreach (DataRow dr in objDados.dt.Rows)
                         {
                             linha = mDataTable.NewRow();
-                            linha["ID"] = dr["IdIdProd"].ToString();
+                            linha["ID"] = dr["IdProd"].ToString();
                             linha["Nome"] = dr["Nome"].ToString();
                             linha["Descrição Detalhada"] = dr["Desc"].ToString();
                             linha["Grupo de itens"] = dr["GrupItens"].ToString();

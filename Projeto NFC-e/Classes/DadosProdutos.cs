@@ -4,6 +4,7 @@ using System.Linq;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Projeto_NFC_e
 {
@@ -173,9 +174,31 @@ namespace Projeto_NFC_e
                 
                 ObjConn.Close();
             }
-        
-        public string nome {
-            get { return SrtCon; }
+
+        public void remover(int IdProd)
+        {
+            try
+            {
+                string SqlRemov = "delete t0025 where IdProd = @IdProd";
+                SqlConnection ObjConn = new SqlConnection(SrtCon);
+                SqlCommand ObjCmd = new SqlCommand(SqlRemov, ObjConn);
+
+                ObjCmd.Parameters.AddWithValue("@IdProd", IdProd);
+
+                ObjConn.Open();
+
+                ObjCmd.ExecuteNonQuery();
+
+                ObjConn.Close();
+
+                MessageBox.Show("O Produto " + IdProd + " foi excluído com sucesso.");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ao tentar excluir: " + ex.Message.ToString(), "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

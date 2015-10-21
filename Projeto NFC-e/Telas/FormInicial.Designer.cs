@@ -51,13 +51,14 @@
             this.saldoProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenRel = new System.Windows.Forms.ToolStripMenuItem();
             this.PanCentral = new System.Windows.Forms.Panel();
+            this.LsVyPrinc = new System.Windows.Forms.DataGridView();
+            this.PanFiltros = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CombBxFilt = new System.Windows.Forms.ComboBox();
             this.BuNvCliente = new System.Windows.Forms.Button();
             this.ButDelCliente = new System.Windows.Forms.Button();
             this.ButAltCliente = new System.Windows.Forms.Button();
-            this.LsVyPrinc = new System.Windows.Forms.DataGridView();
-            this.PanFiltros = new System.Windows.Forms.Panel();
-            this.CombBxFilt = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NomRotina = new System.Windows.Forms.Label();
             this.MenuInicial.SuspendLayout();
             this.PanCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
@@ -122,6 +123,7 @@
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click_1);
             // 
             // usuáriosToolStripMenuItem
             // 
@@ -236,19 +238,92 @@
             // PanCentral
             // 
             this.PanCentral.AutoScroll = true;
-            this.PanCentral.BackColor = System.Drawing.Color.Transparent;
+            this.PanCentral.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.PanCentral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanCentral.Controls.Add(this.NomRotina);
             this.PanCentral.Controls.Add(this.LsVyPrinc);
             this.PanCentral.Controls.Add(this.PanFiltros);
             this.PanCentral.Controls.Add(this.BuNvCliente);
             this.PanCentral.Controls.Add(this.ButDelCliente);
             this.PanCentral.Controls.Add(this.ButAltCliente);
-            this.PanCentral.Location = new System.Drawing.Point(165, 55);
+            this.PanCentral.Location = new System.Drawing.Point(164, 55);
             this.PanCentral.Margin = new System.Windows.Forms.Padding(5);
             this.PanCentral.Name = "PanCentral";
             this.PanCentral.Size = new System.Drawing.Size(1072, 860);
             this.PanCentral.TabIndex = 1;
             this.PanCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanCentral_Paint);
+            // 
+            // LsVyPrinc
+            // 
+            this.LsVyPrinc.AllowUserToAddRows = false;
+            this.LsVyPrinc.AllowUserToDeleteRows = false;
+            this.LsVyPrinc.AllowUserToResizeColumns = false;
+            this.LsVyPrinc.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle6;
+            this.LsVyPrinc.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.Location = new System.Drawing.Point(-1, 248);
+            this.LsVyPrinc.Margin = new System.Windows.Forms.Padding(5);
+            this.LsVyPrinc.MultiSelect = false;
+            this.LsVyPrinc.Name = "LsVyPrinc";
+            this.LsVyPrinc.ReadOnly = true;
+            this.LsVyPrinc.RowHeadersVisible = false;
+            this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LsVyPrinc.Size = new System.Drawing.Size(1071, 506);
+            this.LsVyPrinc.TabIndex = 2;
+            this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
+            this.LsVyPrinc.GotFocus += new System.EventHandler(this.Foco);
+            // 
+            // PanFiltros
+            // 
+            this.PanFiltros.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.PanFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanFiltros.Controls.Add(this.button1);
+            this.PanFiltros.Controls.Add(this.CombBxFilt);
+            this.PanFiltros.Location = new System.Drawing.Point(-1, 101);
+            this.PanFiltros.Name = "PanFiltros";
+            this.PanFiltros.Size = new System.Drawing.Size(1066, 122);
+            this.PanFiltros.TabIndex = 5;
+            this.PanFiltros.Visible = false;
+            this.PanFiltros.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(292, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Teste";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CombBxFilt
+            // 
+            this.CombBxFilt.FormattingEnabled = true;
+            this.CombBxFilt.Location = new System.Drawing.Point(64, 30);
+            this.CombBxFilt.Name = "CombBxFilt";
+            this.CombBxFilt.Size = new System.Drawing.Size(121, 21);
+            this.CombBxFilt.TabIndex = 0;
+            this.CombBxFilt.Visible = false;
             // 
             // BuNvCliente
             // 
@@ -280,74 +355,15 @@
             this.ButAltCliente.UseVisualStyleBackColor = true;
             this.ButAltCliente.Click += new System.EventHandler(this.ButAltCliente_Click);
             // 
-            // LsVyPrinc
+            // NomRotina
             // 
-            this.LsVyPrinc.AllowUserToAddRows = false;
-            this.LsVyPrinc.AllowUserToDeleteRows = false;
-            this.LsVyPrinc.AllowUserToResizeColumns = false;
-            this.LsVyPrinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle6;
-            this.LsVyPrinc.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.LsVyPrinc.Location = new System.Drawing.Point(-7, 251);
-            this.LsVyPrinc.Margin = new System.Windows.Forms.Padding(5);
-            this.LsVyPrinc.MultiSelect = false;
-            this.LsVyPrinc.Name = "LsVyPrinc";
-            this.LsVyPrinc.ReadOnly = true;
-            this.LsVyPrinc.RowHeadersVisible = false;
-            this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LsVyPrinc.Size = new System.Drawing.Size(1072, 506);
-            this.LsVyPrinc.TabIndex = 2;
-            this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
-            this.LsVyPrinc.GotFocus += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // PanFiltros
-            // 
-            this.PanFiltros.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.PanFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanFiltros.Controls.Add(this.button1);
-            this.PanFiltros.Controls.Add(this.CombBxFilt);
-            this.PanFiltros.Location = new System.Drawing.Point(-1, 101);
-            this.PanFiltros.Name = "PanFiltros";
-            this.PanFiltros.Size = new System.Drawing.Size(1066, 122);
-            this.PanFiltros.TabIndex = 5;
-            this.PanFiltros.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // CombBxFilt
-            // 
-            this.CombBxFilt.FormattingEnabled = true;
-            this.CombBxFilt.Location = new System.Drawing.Point(64, 30);
-            this.CombBxFilt.Name = "CombBxFilt";
-            this.CombBxFilt.Size = new System.Drawing.Size(121, 21);
-            this.CombBxFilt.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(292, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NomRotina.AutoSize = true;
+            this.NomRotina.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomRotina.Location = new System.Drawing.Point(17, 12);
+            this.NomRotina.Name = "NomRotina";
+            this.NomRotina.Size = new System.Drawing.Size(262, 55);
+            this.NomRotina.TabIndex = 6;
+            this.NomRotina.Text = "NomRotina";
             // 
             // FormInicial
             // 
@@ -368,6 +384,7 @@
             this.MenuInicial.ResumeLayout(false);
             this.MenuInicial.PerformLayout();
             this.PanCentral.ResumeLayout(false);
+            this.PanCentral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
             this.PanFiltros.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -402,6 +419,7 @@
         private System.Windows.Forms.Panel PanFiltros;
         private System.Windows.Forms.ComboBox CombBxFilt;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label NomRotina;
 
 
 

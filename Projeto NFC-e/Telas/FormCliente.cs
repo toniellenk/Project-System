@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Projeto_NFC_e
 {
-    public partial class FormNvCliente : Form
+    public partial class FormCliente : Form
     {
 
         private int Operacao;
-        private int IdCliente; 
-        public FormNvCliente(int Op, int ItemSelect)
+        private int IdCliente;
+        public FormCliente(int Op, int ItemSelect)
         {
             
             InitializeComponent();

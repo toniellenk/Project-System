@@ -1,6 +1,6 @@
 ﻿namespace Projeto_NFC_e
 {
-    partial class FormNvCliente
+    partial class FormProduto
     {
         /// <summary>
         /// Required designer variable.

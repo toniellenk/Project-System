@@ -7,34 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace Projeto_NFC_e
 {
     public partial class FormInicial : Form
     {
 
-        public class ComboboxItem
-        {
-            public string Text { get; set; }
-            public object Value { get; set; }
-
-            public override string ToString()
-            {
-                return Text;
-            }
-        }
-
-
         int TipoButNv, TipoButAlt, TipoButDel;
 
         public FormInicial()
         {
             InitializeComponent();
+            PanCentral.Visible = false;
             LsVyPrinc.Visible = false;
             BuNvCliente.Visible = false;
             ButAltCliente.Visible = false;
             ButDelCliente.Visible = false;
+            NomRotina.Visible = false;
+        }
+
+        public void Foco(object sender, EventArgs e)
+        {
+            switch (TipoButAlt)
+            {
+                case 1:
+                    {
+                        CarregarListViewClientes();
+                        break;
+                    }
+                case 2:
+                    {
+                        CarregarListViewProdutos();
+                        break;
+                    }
+            }
         }
 
         private void FormInicial_Load(object sender, EventArgs e)
@@ -70,15 +76,14 @@ namespace Projeto_NFC_e
         
         public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BuNvCliente.Visible = true;
-            ButAltCliente.Visible = true;
-            ButDelCliente.Visible = true;
-            TipoButNv = Controles.BotaoNv.NvCliente();
-            TipoButDel = Controles.BotaoAlt.AltCliente();
-            TipoButAlt = Controles.BotaoAlt.AltCliente();
+            PanCentral.Visible = true;
+            NomRotina.Text = "Cadastro de Clientes";
+            NomRotina.Visible = true;
+            CarregarListViewClientes();
+            
           //  TipoGrade = Controles.TipoGrade.GradeCliente(); 
 
-            Dictionary<string,string> comboSource = new Dictionary<string,string>();
+     /*       Dictionary<string,string> comboSource = new Dictionary<string,string>();
             comboSource.Add("1", "Sunday");
             comboSource.Add("2", "Monday");
             comboSource.Add("3", "Tuesday");
@@ -88,7 +93,7 @@ namespace Projeto_NFC_e
             comboSource.Add("7", "Saturday");
             CombBxFilt.DataSource = new BindingSource(comboSource, null);
             CombBxFilt.DisplayMember = "Value";
-            CombBxFilt.ValueMember = "Key";
+            CombBxFilt.ValueMember = "Key"; */
  
 
                 //   CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Sunday");
@@ -99,6 +104,19 @@ namespace Projeto_NFC_e
         private void ButNovo_Click(object sender, EventArgs e)
         {
             Controles.Novo(TipoButNv);
+            switch (TipoButNv)
+            {
+                case 1:
+                    {
+                        CarregarListViewClientes();
+                        break;
+                    }
+                case 2:
+                    {
+                        CarregarListViewProdutos();
+                        break;
+                    }
+            }
         }
 
         private void ListViewPinc_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,15 +125,36 @@ namespace Projeto_NFC_e
         }
 
         #region Métodos
-         private void CarregarListViewClientes() 
+         public void CarregarListViewClientes() 
         {
-
+            BuNvCliente.Visible = true;
+            ButAltCliente.Visible = true;
+            ButDelCliente.Visible = true;
+            TipoButNv = Controles.BotaoNv.NvCliente;
+            TipoButDel = Controles.BotaoDel.DelCliente();
+            TipoButAlt = Controles.BotaoAlt.AltCliente();
             LsVyPrinc.DataSource = Controles.CarregarGradeClientes();
             LsVyPrinc.Columns[0].Width = 30;
             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             LsVyPrinc.Visible = true;
 
         }
+
+         public void CarregarListViewProdutos()
+         {
+
+             BuNvCliente.Visible = true;
+             ButAltCliente.Visible = true;
+             ButDelCliente.Visible = true;
+             TipoButNv = Controles.BotaoNv.NvProduto;
+             TipoButDel = Controles.BotaoDel.DelProd();
+             TipoButAlt = Controles.BotaoAlt.AltProduto();
+             LsVyPrinc.DataSource = Controles.CarregarGradeProdutos();
+             LsVyPrinc.Columns[0].Width = 30;
+             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+             LsVyPrinc.Visible = true;
+
+         }
         #endregion
 
          private void LsVyPrinc_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,8 +181,20 @@ namespace Projeto_NFC_e
          private void ButDelCliente_Click(object sender, EventArgs e)
          {
              int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
-             Controles.Remover(TipoButDel, ItemSelect);
+             Controles.Remover(TipoButDel, ItemSelect);        
 
+             switch (TipoButDel){
+                case 1:
+                    {
+                        CarregarListViewClientes();
+                        break;
+                    } 
+                case 2:
+                    {
+                        CarregarListViewProdutos();
+                        break;
+                    }
+                }
          }
 
          private void PanCentral_Paint(object sender, PaintEventArgs e)
@@ -161,6 +212,15 @@ namespace Projeto_NFC_e
              string key = ((KeyValuePair<string,string>)CombBxFilt.SelectedItem).Key;
              string value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
              MessageBox.Show(key + "   " + value);
+         }
+
+         private void produtosToolStripMenuItem_Click_1(object sender, EventArgs e)
+         {
+             PanCentral.Visible = true;
+             NomRotina.Text = "Cadastro de Produtos";
+             NomRotina.Visible = true;
+             CarregarListViewProdutos();
+             
          }
 
     }
