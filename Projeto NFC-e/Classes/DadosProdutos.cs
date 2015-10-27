@@ -57,18 +57,15 @@ namespace Projeto_NFC_e
         }
 
 
-        public DataTable Consulta(int IdProd)
+        public DataTable Consulta(string Condicoes)
         {
 
-                /*Query SQL*/    
-                string SqlSelect = "select * from t0025 where IdProd = @IdProd";
+            /*Query SQL*/
+                string SqlSelect = "select * from t0025" + Condicoes;
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
-                
-                /*Definição de parãmetros da Query */
-                ObjCmd.Parameters.AddWithValue("@IdProd", IdProd);
-                
+                                
                 ObjConn.Open();   
                 SqlDataAdapter da = new SqlDataAdapter(ObjCmd);
                 da.Fill(ds);
@@ -175,7 +172,7 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
 
-        public void remover(int IdProd)
+        public void remover(string IdProd)
         {
             try
             {

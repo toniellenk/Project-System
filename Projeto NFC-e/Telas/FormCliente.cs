@@ -14,8 +14,8 @@ namespace Projeto_NFC_e
     {
 
         private int Operacao;
-        private int IdCliente;
-        public FormCliente(int Op, int ItemSelect)
+        private string IdCliente;
+        public FormCliente(int Op, string ItemSelect)
         {
             
             InitializeComponent();
@@ -180,10 +180,10 @@ namespace Projeto_NFC_e
             }  
         
         }
-        public void Alterar(int ItemSelect){
+        public void Alterar(string ItemSelect){
 
             DadosClientes objDados = new DadosClientes();
-            objDados.Consulta(ItemSelect);
+            objDados.Consulta(" where IdCliente = " + ItemSelect);
 
 //            DataTable mDataTable = new DataTable();
 

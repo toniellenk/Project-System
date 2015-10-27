@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.UI.WebControls;
 
 namespace Projeto_NFC_e
 {
     public partial class FormInicial : Form
     {
 
-        int TipoButNv, TipoButAlt, TipoButDel;
+        int TipoButNv, TipoButAlt, TipoButDel, TipoFilt;
+        string[] Filtros;
 
         public FormInicial()
         {
@@ -42,7 +44,39 @@ namespace Projeto_NFC_e
                     }
             }
         }
+        /*
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) //column header / row headers
+            {
+                return;
+            }
 
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[1].Style.BackColor = Color.LightBlue;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[2].Style.BackColor = Color.LightBlue;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[3].Style.BackColor = Color.LightBlue;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[4].Style.BackColor = Color.LightBlue;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[5].Style.BackColor = Color.LightBlue;
+          //  this.LsVyPrinc.CurrentRow.Cells[e.ColumnIndex].Style.BackColor = Color.LightBlue;
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) //column header / row headers
+            {
+                return;
+            }
+
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[0].Style.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[1].Style.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[2].Style.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[3].Style.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[4].Style.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.Rows[e.RowIndex].Cells[5].Style.BackColor = System.Drawing.SystemColors.ActiveBorder;
+
+        }
+        */
         private void FormInicial_Load(object sender, EventArgs e)
         {
 
@@ -69,10 +103,23 @@ namespace Projeto_NFC_e
 
         }
         
-         public void produtosToolStripMenuItem_Click(object sender, EventArgs e){
-             
-             
-         } 
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             PanCentral.Visible = true;
+             NomRotina.Text = "Cadastro de Produtos";
+             NomRotina.Visible = true;
+             CarregarListViewProdutos();
+
+             Filtros = new string[] { "ID", "NOME", "DESCRIÇÃO DETALHADA", "GRUPO DE ITENS", "UN. MEDIDA", "NATUREZA" };
+
+             CombBxFilt.DataSource = new BindingSource(FiltrosGrade(Filtros), null);
+             CombBxFilt.DisplayMember = "Value";
+             CombBxFilt.ValueMember = "Key";
+
+             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Nome");
+
+
+         }
         
         public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -80,25 +127,17 @@ namespace Projeto_NFC_e
             NomRotina.Text = "Cadastro de Clientes";
             NomRotina.Visible = true;
             CarregarListViewClientes();
+
+            Filtros = new string[] { "ID", "NOME", "CPF / CNPJ", "TELEFONE", "CEL", "E-MAIL" };
+
+            CombBxFilt.DataSource = new BindingSource(FiltrosGrade(Filtros), null);
+            CombBxFilt.DisplayMember = "Value";
+            CombBxFilt.ValueMember = "Key";            
+
+            CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Nome");
             
           //  TipoGrade = Controles.TipoGrade.GradeCliente(); 
 
-     /*       Dictionary<string,string> comboSource = new Dictionary<string,string>();
-            comboSource.Add("1", "Sunday");
-            comboSource.Add("2", "Monday");
-            comboSource.Add("3", "Tuesday");
-            comboSource.Add("4", "Wednesday");
-            comboSource.Add("5", "Thursday");
-            comboSource.Add("6", "Friday");
-            comboSource.Add("7", "Saturday");
-            CombBxFilt.DataSource = new BindingSource(comboSource, null);
-            CombBxFilt.DisplayMember = "Value";
-            CombBxFilt.ValueMember = "Key"; */
- 
-
-                //   CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Sunday");
-
- 
         }
 
         private void ButNovo_Click(object sender, EventArgs e)
@@ -124,39 +163,6 @@ namespace Projeto_NFC_e
 
         }
 
-        #region Métodos
-         public void CarregarListViewClientes() 
-        {
-            BuNvCliente.Visible = true;
-            ButAltCliente.Visible = true;
-            ButDelCliente.Visible = true;
-            TipoButNv = Controles.BotaoNv.NvCliente;
-            TipoButDel = Controles.BotaoDel.DelCliente();
-            TipoButAlt = Controles.BotaoAlt.AltCliente();
-            LsVyPrinc.DataSource = Controles.CarregarGradeClientes();
-            LsVyPrinc.Columns[0].Width = 30;
-            LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            LsVyPrinc.Visible = true;
-
-        }
-
-         public void CarregarListViewProdutos()
-         {
-
-             BuNvCliente.Visible = true;
-             ButAltCliente.Visible = true;
-             ButDelCliente.Visible = true;
-             TipoButNv = Controles.BotaoNv.NvProduto;
-             TipoButDel = Controles.BotaoDel.DelProd();
-             TipoButAlt = Controles.BotaoAlt.AltProduto();
-             LsVyPrinc.DataSource = Controles.CarregarGradeProdutos();
-             LsVyPrinc.Columns[0].Width = 30;
-             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-             LsVyPrinc.Visible = true;
-
-         }
-        #endregion
-
          private void LsVyPrinc_SelectedIndexChanged(object sender, EventArgs e)
          {
 
@@ -174,13 +180,13 @@ namespace Projeto_NFC_e
 
          private void ButAltCliente_Click(object sender, EventArgs e)
          {
-             int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
+             string ItemSelect = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
              Controles.Alterar(TipoButAlt, ItemSelect);
          }
 
          private void ButDelCliente_Click(object sender, EventArgs e)
          {
-             int ItemSelect = Convert.ToInt32(LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
+             string ItemSelect = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
              Controles.Remover(TipoButDel, ItemSelect);        
 
              switch (TipoButDel){
@@ -207,21 +213,240 @@ namespace Projeto_NFC_e
 
          }
 
-         private void button1_Click(object sender, EventArgs e)
+         private void ButProcurar_Click(object sender, EventArgs e)
          {
-             string key = ((KeyValuePair<string,string>)CombBxFilt.SelectedItem).Key;
-             string value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
-             MessageBox.Show(key + "   " + value);
+             CarregarFiltros();       
+         
          }
 
-         private void produtosToolStripMenuItem_Click_1(object sender, EventArgs e)
+         private void CombBxFilt_SelectedIndexChanged(object sender, EventArgs e)
          {
-             PanCentral.Visible = true;
-             NomRotina.Text = "Cadastro de Produtos";
-             NomRotina.Visible = true;
-             CarregarListViewProdutos();
+             string key = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Key;
+             switch (Convert.ToInt32(key))
+             {
+                 case 0:
+                     {
+                         RadButContendo.Enabled = false;
+                         RadButIgual.Enabled = true;
+                         RadButIgual.Checked = true;
+                         break;
+                     }
+                 case 1:
+                     {
+                         RadButContendo.Enabled = true;
+                         RadButIgual.Enabled = true;
+                         RadButContendo.Checked = true;
+                         break;
+                     }
+                 case 2:
+                     {
+                         RadButContendo.Enabled = true;
+                         RadButIgual.Enabled = true;
+                         RadButIgual.Checked = true;
+                         break;
+                     }
+                 case 3:
+                     {
+                         RadButContendo.Enabled = true;
+                         RadButIgual.Enabled = true;
+                         RadButContendo.Checked = true;
+                         break;
+                     }
+                 case 4:
+                     {
+                         RadButContendo.Enabled = true;
+                         RadButIgual.Enabled = true;
+                         RadButContendo.Checked = true;
+                         break;
+                     }
+                 case 5:
+                     {
+                         RadButContendo.Enabled = true;
+                         RadButIgual.Enabled = true;
+                         RadButContendo.Checked = true;
+                         break;
+                     }
+             }
+         }
+         private void groupBox1_Enter(object sender, EventArgs e)
+         {
+
+         }
+
+
+         #region Métodos
+         public void CarregarListViewClientes()
+         {
+             BuNvCliente.Visible = true;
+             ButAltCliente.Visible = true;
+             ButDelCliente.Visible = true;
+             TipoButNv = Controles.BotaoNv.NvCliente;
+             TipoButDel = Controles.BotaoDel.DelCliente();
+             TipoButAlt = Controles.BotaoAlt.AltCliente();
+             TipoFilt = Controles.BotaoFiltro.FiltCliente;
+             // Controles Grade = new Controles();
+             LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
+             LsVyPrinc.Columns[0].Width = 30;
+             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+
+
+
+
+             LsVyPrinc.Visible = true;
+             PanFiltros.Visible = true;
+             //    CombBxFilt.Visible = true;
+
+
+         }
+
+         public void CarregarListViewProdutos()
+         {
+
+             BuNvCliente.Visible = true;
+             ButAltCliente.Visible = true;
+             ButDelCliente.Visible = true;
+             TipoButNv = Controles.BotaoNv.NvProduto;
+             TipoButDel = Controles.BotaoDel.DelProd();
+             TipoButAlt = Controles.BotaoAlt.AltProduto();
+             TipoFilt = Controles.BotaoFiltro.FiltProduto;
+             //  Controles Grade = new Controles();
+             LsVyPrinc.DataSource = Controles.CarregarGradeProdutos("");
+             LsVyPrinc.Columns[0].Width = 30;
+             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+
+             LsVyPrinc.Visible = true;
+             PanFiltros.Visible = true;
+
+
+
+
+         }
+
+         public Dictionary<string, string> FiltrosGrade(string[] Arr)
+         {
+             Dictionary<string, string> comboSource = new Dictionary<string, string>();
+             for (int i = 0; i < Filtros.Length; i++)
+             {
+                 comboSource.Add(Convert.ToString(i), Convert.ToString(Arr[i]));
+             }
+             return comboSource;
+         }
+
+         public void CarregarFiltros()
+         {
              
-         }
+             try
+             {
+                 string key = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Key;
+                 string value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
+                 string where = null;
+                 switch (TipoFilt)
+                 {
+                     case 1:
+                         {
+                             switch (Convert.ToInt32(key))
+                             {
+                                 case 0:
+                                     {
+                                         where = "IdCliente";
+                                         RadButContendo.Enabled = false;
+                                         RadButIgual.Checked = true;
+                                         break;
+                                     }
+                                 case 1:
+                                     {
+                                         where = "Nome";
+                                         break;
+                                     }
+                                 case 2:
+                                     {
+                                         where = "CpfCnpj";
+                                         break;
+                                     }
+                                 case 3:
+                                     {
+                                         where = "FoneRes";
+                                         break;
+                                     }
+                                 case 4:
+                                     {
+                                         where = "Cel";
+                                         break;
+                                     }
+                                 case 5:
+                                     {
+                                         where = "Email";
+                                         break;
+                                     }
 
+                             }
+                             if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'");
+
+                             if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes(" where " + where + " = '" + TxtBoxProcurar.Text + "'");
+
+                             if (TxtBoxProcurar.Text == "")
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
+                        break;
+                         }
+                     case 2:
+                         {
+                             switch (Convert.ToInt32(key))
+                             {
+                                 case 0:
+                                     {
+                                         where = "IdProd";
+                                         RadButContendo.Enabled = false;
+                                         RadButIgual.Checked = true;
+                                         break;
+                                     }
+                                 case 1:
+                                     {
+                                         where = "Nome";
+                                         break;
+                                     }
+                                 case 2:
+                                     {
+                                         where = "[Desc]";
+                                         break;
+                                     }
+                                 case 3:
+                                     {
+                                         where = "GrupItens";
+                                         break;
+                                     }
+                                 case 4:
+                                     {
+                                         where = "UnMed";
+                                         break;
+                                     }
+                                 case 5:
+                                     {
+                                         where = "Natureza";
+                                         break;
+                                     }
+
+                             }
+                             if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'");
+
+                             if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos(" where " + where + " = '" + TxtBoxProcurar.Text + "'");
+
+                             if (TxtBoxProcurar.Text == "")
+                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos("");
+                             break;
+                         }
+                 }
+
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Ao filtrar dados dados: " + ex.Message.ToString(), "Erro ao Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+             }
+         }
+         #endregion
     }
 }

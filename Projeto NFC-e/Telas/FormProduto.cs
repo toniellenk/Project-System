@@ -14,22 +14,12 @@ namespace Projeto_NFC_e
     {
 
         private int Operacao;
-        private int IdCliente; 
-        public FormProduto(int Op, int ItemSelect)
+        private string IdCliente; 
+        public FormProduto()
         {
             
             InitializeComponent();
-            LabCNPJ.Visible = false;
-            LabIdExtr.Visible = false;
-            TxtBoxIdentEstrang.Visible = false;
-            LbRS.Visible = false;
-            TxtBxNomFant.Enabled = false;
-            IdCliente = ItemSelect;
-            Operacao = Op;
-            if (Op == 2)
-            {
-                Alterar(ItemSelect);
-            }
+
 
         }
 
@@ -38,77 +28,12 @@ namespace Projeto_NFC_e
 
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            LabCPF.Visible = true;
-            LabCNPJ.Visible = false;
-            this.MaskCPF_CNPJ.Mask = "000.000.000-00";                
-            LbNome.Visible = true;
-            LbRS.Visible = false;
-            TxtBxNomFant.Enabled = false;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+         private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            LabCPF.Visible = false;
-            LabCNPJ.Visible = true;
-            this.MaskCPF_CNPJ.Mask = "00.000.000/0000-00";
-            LbNome.Visible = false;
-            LbRS.Visible = true;
-            TxtBxNomFant.Enabled = true;
-            this.MaskCPF_CNPJ.Text = null;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (ChBxEntrangeiro.Checked == true)
-            {
-                LabIdExtr.Visible = true;
-                TxtBoxIdentEstrang.Visible = true;
-                MaskCPF_CNPJ.Enabled = false;
-                RadButFis.Enabled = false;
-                RadButJur.Enabled = false;
-            }
-            else
-            {
-                LabIdExtr.Visible = false;
-                TxtBoxIdentEstrang.Visible = false;
-                MaskCPF_CNPJ.Enabled = true;
-                RadButFis.Enabled = true;
-                RadButJur.Enabled = true;
-            }
-        }
-
-       private void maskedCpfCnpj_LostFocus(object sender, System.EventArgs e)
-        {
-            if (Funcoes.ValidaCPF(MaskCPF_CNPJ.Text) == false)
-            {
-                epErro.SetError(MaskCPF_CNPJ, "Preencha com um número de CPF/CNPJ válido!");
-                this.MaskCPF_CNPJ.Text = null;
-            }
-            else epErro.Clear();
-        }
 
         private void FormCadClientes_Load(object sender, EventArgs e)
         {
@@ -117,12 +42,17 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidaCampos()){
-                AdcAtua(Operacao);
-                Close();
+         //   if (ValidaCampos()){
+          //      AdcAtua(Operacao);
+          //      Close();
             }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
         
+        /*
         #region Métodos
         
         public void AdcAtua(int Op){
@@ -180,7 +110,7 @@ namespace Projeto_NFC_e
             }  
         
         }
-        public void Alterar(int ItemSelect){
+        public void Alterar(string ItemSelect){
 
             DadosClientes objDados = new DadosClientes();
             objDados.Consulta(ItemSelect);
@@ -266,43 +196,7 @@ namespace Projeto_NFC_e
         }
         
         
-    #endregion
+    #endregion */
 
-        private void TxtBxRS_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtBxNomFant_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RadButConsFinal_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MaskCNPJ_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }

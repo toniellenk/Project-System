@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace Projeto_NFC_e
 {
     public class Controles
     {
-        
         public class BotaoNv
         {
             public static int NvCliente
@@ -25,6 +25,21 @@ namespace Projeto_NFC_e
             } 
 
         };
+
+        public class BotaoFiltro
+        {
+            public static int FiltCliente
+            {
+                get { return 1; }
+            }
+
+            public static int FiltProduto
+            {
+                get { return 2; }
+            } 
+
+        };
+        
 
         public class BotaoAlt
         {
@@ -54,27 +69,30 @@ namespace Projeto_NFC_e
 
         };
 
-        public class FiltrosGradeCliente
+    /*    public Dictionary<string, string> FiltrosGrade()
         {
-            public bool CodCliente;
-            public bool Nome;
-            public bool Cnpj;
-
-        };
-
+            Filtros = new string[] { "ID", "NOME", "CPF / CNPJ", "TELEFONE", "E - MAIL" };
+            Dictionary<string, string> comboSource = new Dictionary<string, string>();
+            for (int i = 0; i < Filtros.Length; i++)
+            {
+                comboSource.Add(Convert.ToString(i), Convert.ToString(Filtros[i]));
+            }
+            return comboSource;
+        }
+    */
 
         public static void Novo(int Botao)
         {
             switch (Botao){
                 case 1:
                     {
-                        FormCliente NovoCliente = new FormCliente(1, 1);
+                        FormCliente NovoCliente = new FormCliente(1, "1");
                         NovoCliente.Show();  
                         break;
                     }
                 case 2:
                     {
-                        FormProduto NovoProduto = new FormProduto(1, 1);
+                        FormProduto NovoProduto = new FormProduto();
                         NovoProduto.Show();  
                         break;
                     } 
@@ -82,7 +100,7 @@ namespace Projeto_NFC_e
 
         }
 
-        public static void Alterar(int Botao, int ItemSelect)
+        public static void Alterar(int Botao, string ItemSelect)
         {
 
             switch (Botao){
@@ -94,14 +112,14 @@ namespace Projeto_NFC_e
                     }
                 case 2:
                     {               
-                        FormProduto AlterarProduto = new FormProduto(2, ItemSelect);
+                        FormProduto AlterarProduto = new FormProduto();
                         AlterarProduto.Show(); 
                         break;
                     } 
             }
         }
 
-        public static void Remover(int Botao, int ItemSelect)
+        public static void Remover(int Botao, string ItemSelect)
         {
 
             switch (Botao){
@@ -121,7 +139,7 @@ namespace Projeto_NFC_e
             }
         }
 
-        public static DataTable CarregarGradeClientes()
+        public static DataTable CarregarGradeClientes(string ItemSelect)
         {
 
             DataTable mDataTable = new DataTable();
@@ -132,7 +150,7 @@ namespace Projeto_NFC_e
                 case true:
                     { */
                         DadosClientes objDados = new DadosClientes();
-                        objDados.Consulta();
+                        objDados.Consulta(ItemSelect);
                                                
 
                         DataColumn mDataColumn;
@@ -146,6 +164,7 @@ namespace Projeto_NFC_e
                         mDataColumn.ColumnName = "NOME";
                         mDataTable.Columns.Add(mDataColumn);
 
+ 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
                         mDataColumn.ColumnName = "CPF / CNPJ";
@@ -168,6 +187,7 @@ namespace Projeto_NFC_e
                         mDataColumn.DataType = Type.GetType("System.String");
                         mDataColumn.ColumnName = "E-MAIL";
                         mDataTable.Columns.Add(mDataColumn);
+                      
 
             /*
                         mDataColumn = new DataColumn();
@@ -204,7 +224,8 @@ namespace Projeto_NFC_e
                             linha["TELEFONE"] = dr["FoneRes"].ToString();
                             linha["CELULAR"] = dr["Cel"].ToString();
                             linha["E-MAIL"] = dr["Email"].ToString();
-                        //    linha["tamanho"] = Convert.ToString(CpfCnpj.Length);
+                        //    linha["tamanho"] = Convert.ToString(CpfCnpj.Length);                            
+
                             mDataTable.Rows.Add(linha);
                         }
 
@@ -218,15 +239,15 @@ namespace Projeto_NFC_e
                 }
            } */
         }
-        
-        public static DataTable CarregarGradeProdutos()
+
+        public static DataTable CarregarGradeProdutos(string ItemSelect)
                 {
 
                         DataTable mDataTable = new DataTable();
 
 
                         DadosProdutos objDados = new DadosProdutos();
-                        objDados.Consulta();
+                        objDados.Consulta(ItemSelect);
                                                
 
                         DataColumn mDataColumn;
@@ -237,30 +258,30 @@ namespace Projeto_NFC_e
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Nome";
+                        mDataColumn.ColumnName = "NOME";
                         mDataTable.Columns.Add(mDataColumn);
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Descrição Detalhada";
-                        mDataTable.Columns.Add(mDataColumn);
-
-
-                        mDataColumn = new DataColumn();
-                        mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Grupo de Itens";
+                        mDataColumn.ColumnName = "DESCRIÇÃO DETALHADA";
                         mDataTable.Columns.Add(mDataColumn);
 
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Un. Medida";
+                        mDataColumn.ColumnName = "GRUPO DE ITENS";
                         mDataTable.Columns.Add(mDataColumn);
 
 
                         mDataColumn = new DataColumn();
                         mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "Natureza";
+                        mDataColumn.ColumnName = "UN. MEDIDA";
+                        mDataTable.Columns.Add(mDataColumn);
+
+
+                        mDataColumn = new DataColumn();
+                        mDataColumn.DataType = Type.GetType("System.String");
+                        mDataColumn.ColumnName = "NATUREZA";
                         mDataTable.Columns.Add(mDataColumn);
 
                         DataRow linha;
@@ -271,11 +292,14 @@ namespace Projeto_NFC_e
                         {
                             linha = mDataTable.NewRow();
                             linha["ID"] = dr["IdProd"].ToString();
-                            linha["Nome"] = dr["Nome"].ToString();
-                            linha["Descrição Detalhada"] = dr["Desc"].ToString();
-                            linha["Grupo de itens"] = dr["GrupItens"].ToString();
-                            linha["Un. Medida"] = dr["UnMed"].ToString();
-                            linha["Natureza"] = dr["Natureza"].ToString();
+                            linha["NOME"] = dr["Nome"].ToString();
+                            linha["DESCRIÇÃO DETALHADA"] = dr["Desc"].ToString();
+                            linha["GRUPO DE ITENS"] = dr["GrupItens"].ToString();
+                            linha["UN. MEDIDA"] = dr["UnMed"].ToString();
+                            linha["NATUREZA"] = dr["Natureza"].ToString();
+
+                        //    Filtros = new string[] { "ID", "NOME", "DESCRIÇÃO DETALHADA", "GRUPO DE ITENS", "UN. MEDIDA", "NATUREZA" };
+
                             mDataTable.Rows.Add(linha);
                         }
 

@@ -62,17 +62,17 @@ namespace Projeto_NFC_e
         }
 
 
-        public void Consulta(int IdCliente)
+        public void Consulta(string Condicoes)
         { 
                     
-                /*Query SQL*/    
-                string SqlSelect = "select * from t0050 where IdCliente = @IdCliente";
+                /*Query SQL*/
+                string SqlSelect = "select * from t0050" + Condicoes;
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
                 
                 /*Definição de parãmetros da Query */
-                ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
+             //   ObjCmd.Parameters.AddWithValue("@Condicoes", Condicoes);
                 
                 ObjConn.Open();   
                 SqlDataAdapter da = new SqlDataAdapter(ObjCmd);
@@ -119,7 +119,7 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-         public void atualizar(ClientesObj clientes, int IdCliente)
+         public void atualizar(ClientesObj clientes, string IdCliente)
             {
                 string SqlUpdate = "update t0050 set ";
                 
@@ -173,7 +173,7 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
             }
         
-        public void remover(int IdCliente)
+        public void remover(string IdCliente)
             {
                 try
                 {
