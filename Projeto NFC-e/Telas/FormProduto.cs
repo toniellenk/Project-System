@@ -14,7 +14,7 @@ namespace Projeto_NFC_e
     {
 
         private int Operacao;
-        private string IdCliente; 
+        private string IdProduto; 
         public FormProduto()
         {
             
@@ -44,9 +44,9 @@ namespace Projeto_NFC_e
         {
             if (ValidaCampos())
             {
-                //      AdcAtua(Operacao);
-                //      Close();
-                MessageBox.Show("Validoooou!");
+                AdcAtua(Operacao);
+                Close();
+               // MessageBox.Show("Validoooou!");
             }
         }
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -71,120 +71,88 @@ namespace Projeto_NFC_e
         
         
         #region Métodos
-        /*
+        
         public void AdcAtua(int Op){
 
             DadosProdutos.ProdObj ObjProduto = new DadosProdutos.ProdObj();
             
-            if (RadButJur.Checked == true)         
-            {
-                ObjProduto.CpfCnpj = MaskCPF_CNPJ.Text;
-                ObjProduto.RS = TxtBxRS.Text;
-                ObjProduto.NomeFant = TxtBxNomFant.Text;
+            ObjProduto.Nome = TxtNome.Text;
+            ObjProduto.DescDet = TxtDescDet.Text;
+            ObjProduto.CodBarras = TxtCodBarras.Text;
+            ObjProduto.Ncm = TxtNcm.Text;
+            ObjProduto.UnMed = TxtUnMed.Text;
+            ObjProduto.TipTribIcms = TxtTipTribIcms.Text;
+            ObjProduto.AliqIcms = TxtAliqIcms.Text;
+            ObjProduto.AliqIcmsSubst = TxtAliqIcmsSubst.Text;
+            ObjProduto.TipTribIpi = TxtTipTribIpi.Text;
+            ObjProduto.AliqIpi = TxtAliqIpit.Text;
+            ObjProduto.CstPis = TxtCstPis.Text;
+            ObjProduto.AliqPis = TxtAliqPis.Text;
+            ObjProduto.CstCofins = TxtCstCofins.Text;
+            ObjProduto.AliqCofins = TxtAliqCofins.Text;
+            ObjProduto.Deposito = TxtDeposito.Text;
+            ObjProduto.LocDepos = TxtLocDepos.Text;
+            ObjProduto.SubLocDepos = TxtSubLocDepos.Text;
+            ObjProduto.Fornecedor = TxtFornecedor.Text;
+            ObjProduto.GrupItens = TxtGrupItens.Text;
+            ObjProduto.Natureza = TxtNatureza.Text;
+            ObjProduto.CustoCompra = TxtCustoCompra.Text;
+            ObjProduto.CustoMedio = TxtCustoMedio.Text;
+            ObjProduto.CustoPersonalizado = TxtCustoPersonalizado.Text;
+            ObjProduto.CompSusp = RadButVendSusp.Checked;
+            ObjProduto.VendSusp = RadButVendSusp.Checked;
+            ObjProduto.ControlEstoq = RadButContEst.Checked;
 
-            }
-            else
-            {
-                ObjProduto.CpfCnpj = MaskCPF_CNPJ.Text;
-                ObjProduto.Nome  = TxtBxRS.Text;
-            }  
-            ObjProduto.Estrangeiro = ChBxEntrangeiro.Checked;
-            ObjProduto.IdentEstrangeiro = TxtBoxIdentEstrang.Text;                     
-            ObjProduto.Endereco = TxtBxEndereco.Text ;
-            ObjProduto.Num = TxtBxNum.Text;
-            ObjProduto.Cep = MaskCep.Text;
-            ObjProduto.FoneRes = MaskFoneRes.Text;
-            ObjProduto.FoneCom = MaskFonComer.Text;
-            ObjProduto.Cel = MaskCel.Text;
-            ObjProduto.OutrosCont = TxtBxOutContatos.Text;
-            ObjProduto.Email = TxtBxEmail.Text; 
+            DadosClientes ObjDadosProdutos = new DadosClientes();
 
-            if (RadButConsFinal.Checked) {
-                 ObjProduto.IdentFiscal = 3;
-                 ObjProduto.InscMun =  TxtBxIM.Text;
-            }
-            if (RadButContICMS.Checked){             
-                ObjProduto.IdentFiscal = 1;
-                ObjProduto.InscEst = TxtBoxIE.Text;
-                ObjProduto.InscMun = TxtBxIM.Text;
-            }
-            else  {
-                ObjProduto.IdentFiscal = 2;
-                ObjProduto.InscMun = TxtBoxIE.Text;
-            }
-
-
-
-            DadosClientes ObjDadosClientes = new DadosClientes();
-
-            if (Op == 1 && ValidaCampos()){ 
-                ObjDadosClientes.inserir(ObjProduto);
+            if (Op == 1){ 
+                ObjDadosProdutos.inserir(ObjProduto);
                 MessageBox.Show("Cliente inserido com sucesso!");
             }
             if (Op == 2) {
-                ObjDadosClientes.atualizar(ObjProduto, IdCliente);
+                ObjDadosProdutos.atualizar(ObjProduto, IdProduto);
                 MessageBox.Show("Cliente atualizado com sucesso!");
             }  
         
         }
-        */
-        /*
+     
+        
         public void Alterar(string ItemSelect){
 
-            DadosClientes objDados = new DadosClientes();
+            DadosProdutos objDados = new DadosProdutos();
             objDados.Consulta(ItemSelect);
 
-//            DataTable mDataTable = new DataTable();
-
-            DataRow linha = objDados.dt.Rows[0];        
-            
-            
-                LabNumID.Text = linha["IdCliente"].ToString();                
-                MaskCPF_CNPJ.Text = linha["CpfCnpj"].ToString();
-                int IdentPessoa = Convert.ToInt32(linha["Pessoa"].ToString());
-                if (IdentPessoa == 1)
-                {
-                    RadButFis.Checked = true;
-                    TxtBxRS.Text = linha["Nome"].ToString();
-                }
-                if (IdentPessoa == 2)
-                {
-                    RadButJur.Checked = true;
-                    TxtBxRS.Text = linha["RS"].ToString();
-                }
-                if (Convert.ToBoolean(linha["Estrangeiro"].ToString()) == true)
-                {
-                    ChBxEntrangeiro.Checked = true;
-                    TxtBoxIdentEstrang.Text = linha["IdentEstrangeiro"].ToString();
-                 }                
-                TxtBxNomFant.Text = linha["NomeFant"].ToString();
-                TxtBxEndereco.Text = linha["Endereco"].ToString();
-                TxtBxNum.Text = linha["Num"].ToString();
-                MaskCep.Text = linha["Cep"].ToString();
-                MaskFoneRes.Text = linha["FoneRes"].ToString();
-                MaskFonComer.Text = linha["FoneCom"].ToString();
-                MaskCel.Text = linha["Cel"].ToString();
-                TxtBxOutContatos.Text = linha["OutrosCont"].ToString();
-                TxtBxEmail.Text = linha["Email"].ToString();
-                int IdentFiscal = Convert.ToInt32(linha["IdentFiscal"].ToString());
-                if (IdentFiscal == 1)
-                    {
-                            RadButContICMS.Checked = true;
-                    }
-                if (IdentFiscal == 2)
-                    {
-                           RadButContIsento.Checked = true;
-                    }
-                if (IdentFiscal == 3)
-                    {
-                        RadButConsFinal.Checked = true;
-                    }
-                TxtBoxIE.Text = linha["InscEst"].ToString();
-                TxtBxIM.Text = linha["InscMun"].ToString();
-          
+            DataRow linha = objDados.dt.Rows[0];
+           
+            TxtNome.Text = linha["Nome"].ToString();
+            TxtDescDet.Text = linha["DescDet"].ToString();
+            TxtCodBarras.Text = linha["CodBarras"].ToString();
+            TxtNcm.Text = linha["Ncm"].ToString();
+            TxtUnMed.Text = linha["UnMed"].ToString();
+            TxtTipTribIcms.Text = linha["TipTribIcms"].ToString();
+            TxtAliqIcms.Text = linha["AliqIcms"].ToString();
+            TxtAliqIcmsSubst.Text = linha["AliqIcmsSubst"].ToString();
+            TxtTipTribIpi.Text = linha["TipTribIpi"].ToString();
+            TxtAliqIpi.Text = linha["AliqIpi"].ToString();
+            TxtCstPis.Text = linha["CstPis"].ToString();
+            TxtAliqPis.Text = linha["AliqPis"].ToString();
+            TxtCstCofins.Text = linha["CstCofins"].ToString();
+            TxtAliqCofins.Text = linha["AliqCofins"].ToString();
+            TxtDeposito.Text = linha["Deposito"].ToString();
+            TxtLocDepos.Text = linha["LocDepos"].ToString();
+            TxtSubLocDepos.Text = linha["SubLocDepos"].ToString();
+            TxtFornecedor.Text = linha["Fornecedor"].ToString();
+            TxtGrupItens.Text = linha["GrupItens"].ToString();
+            TxtNatureza.Text = linha["Natureza"].ToString();
+            TxtCustoCompra.Text = linha["CustoCompra"].ToString();
+            TxtCustoMedio.Text = linha["CustoMedio"].ToString();
+            TxtCustoPersonalizado.Text = linha["CustoPersonalizado"].ToString();
+            RadButCompSusp.Checked = Convert.ToBoolean(linha["CompSusp"].ToString());
+            RadButVendSusp.Checked = Convert.ToBoolean(linha["VendSusp"].ToString());
+            RadButControlEstoq.Checked = Convert.ToBoolean(linha["ControlEstoq"].ToString());
                       
         }
-         */ 
+  
          
          public bool ValidaCampos() { 
             bool retorno = true;
