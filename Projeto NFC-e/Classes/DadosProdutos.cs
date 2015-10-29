@@ -85,7 +85,7 @@ namespace Projeto_NFC_e
                 string SqlInsert = "insert into t0025 values(@Nome, @DescDet, @CodBarras, @Ncm, @UnMed, ";
                 SqlInsert += "@TipTribIcms, @AliqIcms, @AliqIcmsSubst, @TipTribIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
                 SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @GrupItens, @Natureza,";
-                SqlInsert +=  "@CustoCompra, @CustoMedio, @CustoPersonalizado, @CompSusp,@VendSusp,@ControlEstoq)";
+                SqlInsert +=  "@CustoCompra, @CustoMedio, @CustoPersonalizado, @CompSusp, @VendSusp, @ControlEstoq)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
@@ -129,26 +129,30 @@ namespace Projeto_NFC_e
                 string SqlUpdate = "update t0025 set ";
                 
                 SqlUpdate += "Nome = @Nome, ";
-                SqlUpdate += "DescDet = @Desc, ";
+                SqlUpdate += "DescDet = @DescDet, ";
                 SqlUpdate += "CodBarras = @CodBarras, ";
-                SqlUpdate += "Ncm = @Pessoa, ";
-                SqlUpdate += "UnMed = @Ncm, ";
-                SqlUpdate += "TipTribIcms = @UnMed, ";
-                SqlUpdate += "AliqIcms = CstIcms,";
-                SqlUpdate += "AliqIcmsSubst = @TipTribIcms, ";
-                SqlUpdate += "TipTribIpi = @AliqIcms, ";
-                SqlUpdate += "AliqIpi = @CstIpi, ";
-                SqlUpdate += "CstPis = @AliqIpi, ";
-                SqlUpdate += "FoneCom = @CstPis, ";
-                SqlUpdate += "Cel = @AliqPis, ";
-                SqlUpdate += "OutrosCont = @CstCofins, ";
-                SqlUpdate += "Email = @AliqCofins, ";
-                SqlUpdate += "IdentFiscal = @Deposito, ";
-                SqlUpdate += "InscEst = @LocDepos, ";
+                SqlUpdate += "Ncm = @Ncm, ";
+                SqlUpdate += "UnMed = @UnMed, ";
+                SqlUpdate += "TipTribIcms = @TipTribIcms, ";
+                SqlUpdate += "AliqIcms = @AliqIcms,";
+                SqlUpdate += "AliqIcmsSubst = @AliqIcmsSubst, ";
+                SqlUpdate += "TipTribIpi = @TipTribIpi, ";
+                SqlUpdate += "AliqIpi = @AliqIpi, ";
+                SqlUpdate += "CstPis = @CstPis, ";
+                SqlUpdate += "AliqPis = @AliqPis, ";
+                SqlUpdate += "CstCofins = @CstCofins, ";
+                SqlUpdate += "AliqCofins = @AliqCofins, ";
+                SqlUpdate += "Deposito = @Deposito, ";
+                SqlUpdate += "LocDepos = @LocDepos, "; 
+                SqlUpdate += "SubLocDepos = @SubLocDepos, "; 
                 SqlUpdate += "Fornecedor = @Fornecedor, "; 
-                SqlUpdate += "Vendedor = @Vendedor, "; 
-                SqlUpdate += "GrupItens = @GrupItens, "; 
-                SqlUpdate += "Natureza = @Natureza "; 
+                SqlUpdate += "GrupItens = @GrupItens "; 
+                SqlUpdate += "Natureza = @Natureza ";
+                SqlUpdate += "CustoCompra = @CustoCompra ";
+                SqlUpdate += "CustoMedio = @CustoMedio ";
+                SqlUpdate += "CustoPersonalizado = @CustoPersonalizado ";
+                SqlUpdate += "CompSusp = @CompSusp ";
+                SqlUpdate += "VendSusp = @VendSusp ";
                 
                 SqlUpdate += "where IdProd = @IdProd";
                 
