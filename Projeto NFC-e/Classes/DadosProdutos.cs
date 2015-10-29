@@ -12,32 +12,32 @@ namespace Projeto_NFC_e
     {
        public class ProdObj 
        {
-        public string Nome;
-        public string DescDet;
-        public string CodBarras;
-        public string Ncm;
-        public string UnMed;
-        public string TipTribIcms;
-        public string AliqIcms;
-        public string AliqIcmsSubst;
-        public string TipTribIpi;
-        public string AliqIpi;
-        public string CstPis;
-        public string AliqPis;
-        public string CstCofins;
-        public string AliqCofins;
-        public string Deposito;
-        public string LocDepos;
-        public string SubLocDepos;
-        public string Fornecedor;
-        public string GrupItens;
-        public string Natureza;
-        public string CustoCompra;
-        public string CustoMedio;
-        public string CustoPersonalizado;
-        public bool CompSusp;
-        public bool VendSusp;
-        public bool ControlEstoq;
+        public string Nome = "";
+        public string DescDet = "";
+        public string CodBarras = "";
+        public string Ncm = "";
+        public string UnMed = "";
+        public string TipTribIcms = "";
+        public string AliqIcms = "";
+        public string AliqIcmsSubst = "";
+        public string TipTribIpi = "";
+        public string AliqIpi = "";
+        public string CstPis = "";
+        public string AliqPis = "";
+        public string CstCofins = "";
+        public string AliqCofins = "";
+        public string Deposito = "";
+        public string LocDepos = "";
+        public string SubLocDepos = "";
+        public string Fornecedor = "";
+        public string GrupItens = "";
+        public string Natureza = "";
+        public string CustoCompra = "";
+        public string CustoMedio = "";
+        public string CustoPersonalizado = "";
+        public bool CompSusp = false;
+        public bool VendSusp = false;
+        public bool ControlEstoq = false;
 
        }
         
