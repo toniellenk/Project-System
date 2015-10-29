@@ -15,10 +15,17 @@ namespace Projeto_NFC_e
 
         private int Operacao;
         private string IdProduto; 
-        public FormProduto()
+        
+        public FormProduto(int Op, string ItemSelect)
         {
             
             InitializeComponent();
+            IdProduto = ItemSelect;
+            Operacao = Op;
+            if (Op == 2)
+            {
+                Alterar(ItemSelect);
+            }
 
 
         }
@@ -44,7 +51,7 @@ namespace Projeto_NFC_e
         {
             if (ValidaCampos())
             {
-                AdcAtua(Operacao);
+                AdcAtua();
                 Close();
                // MessageBox.Show("Validoooou!");
             }
@@ -72,7 +79,7 @@ namespace Projeto_NFC_e
         
         #region Métodos
         
-        public void AdcAtua(int Op){
+        public void AdcAtua(){
 
             DadosProdutos.ProdObj ObjProduto = new DadosProdutos.ProdObj();
             
@@ -103,15 +110,15 @@ namespace Projeto_NFC_e
             ObjProduto.VendSusp = RadButVendSusp.Checked;
             ObjProduto.ControlEstoq = RadButContEst.Checked;
 
-            DadosClientes ObjDadosProdutos = new DadosClientes();
+            DadosProdutos ObjDadosProdutos = new DadosProdutos();
 
-            if (Op == 1){ 
+            if (Operacao == 1){ 
                 ObjDadosProdutos.inserir(ObjProduto);
-                MessageBox.Show("Cliente inserido com sucesso!");
+                MessageBox.Show("Produto inserido com sucesso!");
             }
-            if (Op == 2) {
+            if (Operacao == 2) {
                 ObjDadosProdutos.atualizar(ObjProduto, IdProduto);
-                MessageBox.Show("Cliente atualizado com sucesso!");
+                MessageBox.Show("O Produto "+ItemSelect+" foi atualizado com sucesso!");
             }  
         
         }
