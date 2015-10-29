@@ -42,58 +42,75 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-         //   if (ValidaCampos()){
-          //      AdcAtua(Operacao);
-          //      Close();
+            if (ValidaCampos())
+            {
+                //      AdcAtua(Operacao);
+                //      Close();
+                MessageBox.Show("Validoooou!");
             }
-
+        }
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox26_Enter(object sender, EventArgs e)
+        {
+
+        }
         
-        /*
+        
         #region Métodos
-        
+        /*
         public void AdcAtua(int Op){
-            
-            DadosClientes.ClientesObj ObjCliente = new DadosClientes.ClientesObj();
+
+            DadosProdutos.ProdObj ObjProduto = new DadosProdutos.ProdObj();
             
             if (RadButJur.Checked == true)         
             {
-                ObjCliente.CpfCnpj = MaskCPF_CNPJ.Text;
-                ObjCliente.RS = TxtBxRS.Text;
-                ObjCliente.NomeFant = TxtBxNomFant.Text;
+                ObjProduto.CpfCnpj = MaskCPF_CNPJ.Text;
+                ObjProduto.RS = TxtBxRS.Text;
+                ObjProduto.NomeFant = TxtBxNomFant.Text;
 
             }
             else
             {
-                ObjCliente.CpfCnpj = MaskCPF_CNPJ.Text;
-                ObjCliente.Nome  = TxtBxRS.Text;
+                ObjProduto.CpfCnpj = MaskCPF_CNPJ.Text;
+                ObjProduto.Nome  = TxtBxRS.Text;
             }  
-            ObjCliente.Estrangeiro = ChBxEntrangeiro.Checked;
-            ObjCliente.IdentEstrangeiro = TxtBoxIdentEstrang.Text;                     
-            ObjCliente.Endereco = TxtBxEndereco.Text ;
-            ObjCliente.Num = TxtBxNum.Text;
-            ObjCliente.Cep = MaskCep.Text;
-            ObjCliente.FoneRes = MaskFoneRes.Text;
-            ObjCliente.FoneCom = MaskFonComer.Text;
-            ObjCliente.Cel = MaskCel.Text;
-            ObjCliente.OutrosCont = TxtBxOutContatos.Text;
-            ObjCliente.Email = TxtBxEmail.Text; 
+            ObjProduto.Estrangeiro = ChBxEntrangeiro.Checked;
+            ObjProduto.IdentEstrangeiro = TxtBoxIdentEstrang.Text;                     
+            ObjProduto.Endereco = TxtBxEndereco.Text ;
+            ObjProduto.Num = TxtBxNum.Text;
+            ObjProduto.Cep = MaskCep.Text;
+            ObjProduto.FoneRes = MaskFoneRes.Text;
+            ObjProduto.FoneCom = MaskFonComer.Text;
+            ObjProduto.Cel = MaskCel.Text;
+            ObjProduto.OutrosCont = TxtBxOutContatos.Text;
+            ObjProduto.Email = TxtBxEmail.Text; 
 
             if (RadButConsFinal.Checked) {
-                 ObjCliente.IdentFiscal = 3;
-                 ObjCliente.InscMun =  TxtBxIM.Text;
+                 ObjProduto.IdentFiscal = 3;
+                 ObjProduto.InscMun =  TxtBxIM.Text;
             }
             if (RadButContICMS.Checked){             
-                ObjCliente.IdentFiscal = 1;
-                ObjCliente.InscEst = TxtBoxIE.Text;
-                ObjCliente.InscMun = TxtBxIM.Text;
+                ObjProduto.IdentFiscal = 1;
+                ObjProduto.InscEst = TxtBoxIE.Text;
+                ObjProduto.InscMun = TxtBxIM.Text;
             }
             else  {
-                ObjCliente.IdentFiscal = 2;
-                ObjCliente.InscMun = TxtBoxIE.Text;
+                ObjProduto.IdentFiscal = 2;
+                ObjProduto.InscMun = TxtBoxIE.Text;
             }
 
 
@@ -101,15 +118,17 @@ namespace Projeto_NFC_e
             DadosClientes ObjDadosClientes = new DadosClientes();
 
             if (Op == 1 && ValidaCampos()){ 
-                ObjDadosClientes.inserir(ObjCliente);
+                ObjDadosClientes.inserir(ObjProduto);
                 MessageBox.Show("Cliente inserido com sucesso!");
             }
             if (Op == 2) {
-                ObjDadosClientes.atualizar(ObjCliente, IdCliente);
+                ObjDadosClientes.atualizar(ObjProduto, IdCliente);
                 MessageBox.Show("Cliente atualizado com sucesso!");
             }  
         
         }
+        */
+        /*
         public void Alterar(string ItemSelect){
 
             DadosClientes objDados = new DadosClientes();
@@ -165,23 +184,116 @@ namespace Projeto_NFC_e
           
                       
         }
+         */ 
+         
          public bool ValidaCampos() { 
             bool retorno = true;
             string CapInvalid = "";
 
 
-            if (string.IsNullOrEmpty(MaskCPF_CNPJ.Text))
+            if (string.IsNullOrEmpty(TxtNome.Text))
                         {
                 retorno = false;
-                CapInvalid += "* CPF/CNPJ \n";
-                epErro.SetError(MaskCPF_CNPJ, "O campo CPF/CNPJ não pode ficar em branco."); 
+                CapInvalid += "* Nome \n";
+                epErro.SetError(GrpNome, "O campo Nome não pode ficar em branco."); 
 
                         }
-            if (string.IsNullOrEmpty(TxtBxRS.Text))
+            if (string.IsNullOrEmpty(TxtNcm.Text))
             {
                 retorno = false;
-                CapInvalid += "* Nome/Rasão Social \n";
-                epErro.SetError(TxtBxRS, "Preencha a Rasão Social.");
+                CapInvalid += "* NCM \n";
+                epErro.SetError(TxtNcm, "Preencha o código de NCM do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtNat.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Natureza \n";
+                epErro.SetError(TxtNat, "Preencha o código da Natureza do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtGrupItens.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Grupo de Itens \n";
+                epErro.SetError(TxtGrupItens, "Preencha o código de Grupo de Itens do produto.");
+
+            }
+            if (RadButContEst.Checked == true && (string.IsNullOrEmpty(TxtDep.Text)))
+            {
+                retorno = false;
+                CapInvalid += "* Depósito \n";
+                epErro.SetError(TxtDep, "Preencha o código de Depósito do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtUnMed.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Unidade de Medida \n";
+                epErro.SetError(GrpUnMed, "Preencha com a sigla da Unidade de Medida do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtTipTribIcms.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Tipo de Tributação de ICMS \n";
+                epErro.SetError(TxtTipTribIcms, "Preencha o Tipo de Tributação de ICMS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtTipTribIpi.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Tipo de Tributação de IPI \n";
+                epErro.SetError(TxtTipTribIpi, "Preencha o Tipo de Tributação de ICMS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtCstCofins.Text))
+            {
+                retorno = false;
+                CapInvalid += "* CST de COFINS \n";
+                epErro.SetError(TxtCstCofins, "Preencha o CST de COFINS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtCstPis.Text))
+            {
+                retorno = false;
+                CapInvalid += "* CST de PIS \n";
+                epErro.SetError(TxtCstPis, "Preencha o CST de PIS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtAliqIcms.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Alíquota de ICMS \n";
+                epErro.SetError(TxtAliqIcms, "Preencha a Alíquota de ICMS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtAliqIcmsSubst.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Alíquota de ICMS Substituição \n";
+                epErro.SetError(TxtAliqIcmsSubst, "Preencha a  Alíquota de ICMS Substituição do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtAliqIpi.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Alíquota de IPI \n";
+                epErro.SetError(TxtAliqIpi, "Preencha a Alíquota de IPI do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtAliqPis.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Alíquota de PIS \n";
+                epErro.SetError(TxtAliqPis, "Preencha a Alíquota de PIS do produto.");
+
+            }
+            if (string.IsNullOrEmpty(TxtAliqCofins.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Alíquota de COFINS \n";
+                epErro.SetError(TxtAliqCofins, "Preencha a Alíquota de COFINS do produto.");
 
             }
             if (retorno == false)
@@ -195,8 +307,8 @@ namespace Projeto_NFC_e
             return retorno;
         }
         
-        
-    #endregion */
+    
+        #endregion
 
     }
 }

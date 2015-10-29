@@ -13,14 +13,14 @@ namespace Projeto_NFC_e
        public class ProdObj 
        {
         public string Nome;
-        public string Desc;
+        public string DescDet;
         public string CodBarras;
         public string Ncm;
-        public string  UnMed;
-        public string CstIcms;
+        public string UnMed;
         public string TipTribIcms;
         public string AliqIcms;
-        public string CstIpi;
+        public string AliqIcmsSubst;
+        public string TipTribIpi;
         public string AliqIpi;
         public string CstPis;
         public string AliqPis;
@@ -30,9 +30,15 @@ namespace Projeto_NFC_e
         public string LocDepos;
         public string SubLocDepos;
         public string Fornecedor;
-        public string Vendedor;
         public string GrupItens;
         public string Natureza;
+        public string CustoCompra;
+        public string CustoMedio;
+        public string CustoPersonalizado;
+        public bool CompSusp;
+        public bool VendSusp;
+        public bool ControlEstoq;
+
        }
         
         string SrtCon = ConfigurationManager.ConnectionStrings["root"].ConnectionString;
@@ -76,21 +82,23 @@ namespace Projeto_NFC_e
         
         public void inserir(ProdObj Prod)
             {
-                string SqlInsert = "insert into t0025 values(Nome@, @DescDet, @CodBarras, @Ncm, @UnMed, ";
-                SqlInsert += "@CstIcms, TipTribIcms, @AliqIcms, @CstIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
-                SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @Vendedor, @GrupItens, @Natureza)";
+                string SqlInsert = "insert into t0025 values(@Nome, @DescDet, @CodBarras, @Ncm, @UnMed, ";
+                SqlInsert += "@TipTribIcms, @AliqIcms, @AliqIcmsSubst, @TipTribIpi, @AliqIpi, @CstPis, @AliqPis, @CstCofins, @AliqCofins, ";
+                SqlInsert += "@Deposito, @LocDepos, @SubLocDepos, @Fornecedor, @GrupItens, @Natureza,";
+                SqlInsert +=  "@CustoCompra, @CustoMedio, @CustoPersonalizado, @CompSusp,@VendSusp,@ControlEstoq)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
-                ObjCmd.Parameters.AddWithValue("Nome@", Prod.Nome);
-                ObjCmd.Parameters.AddWithValue("@Desc", Prod.Desc);
+                ObjCmd.Parameters.AddWithValue("@Nome", Prod.Nome);
+                ObjCmd.Parameters.AddWithValue("@DescDet", Prod.DescDet);
                 ObjCmd.Parameters.AddWithValue("@CodBarras", Prod.CodBarras);
                 ObjCmd.Parameters.AddWithValue("@Ncm", Prod.Ncm);
                 ObjCmd.Parameters.AddWithValue("@UnMed", Prod.UnMed);
-                ObjCmd.Parameters.AddWithValue("@CstIcms", Prod.CstIcms);
+                ObjCmd.Parameters.AddWithValue("@CstIcms", Prod.AliqIcmsSubst);
                 ObjCmd.Parameters.AddWithValue("@TipTribIcms", Prod.TipTribIcms);
                 ObjCmd.Parameters.AddWithValue("@AliqIcms", Prod.AliqIcms);
-                ObjCmd.Parameters.AddWithValue("@CstIpi", Prod.CstIpi);
+                ObjCmd.Parameters.AddWithValue("@AliqIcmsSubst", Prod.AliqIcmsSubst);
+                ObjCmd.Parameters.AddWithValue("@TipTribIpi", Prod.TipTribIpi);
                 ObjCmd.Parameters.AddWithValue("@AliqIpi", Prod.AliqIpi);
                 ObjCmd.Parameters.AddWithValue("@CstPis", Prod.CstPis);
                 ObjCmd.Parameters.AddWithValue("@AliqPis", Prod.AliqPis);
@@ -100,9 +108,14 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@LocDepos", Prod.LocDepos);
                 ObjCmd.Parameters.AddWithValue("@SubLocDepos", Prod.SubLocDepos);
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
-                ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
-                ObjCmd.Parameters.AddWithValue("Natureza", Prod.Natureza);
+                ObjCmd.Parameters.AddWithValue("@Natureza", Prod.Natureza);
+                ObjCmd.Parameters.AddWithValue("@CustoCompra", Prod.CustoCompra);
+                ObjCmd.Parameters.AddWithValue("@CustoMedio", Prod.CustoMedio);
+                ObjCmd.Parameters.AddWithValue("@CustoPersonalizado", Prod.CustoPersonalizado);
+                ObjCmd.Parameters.AddWithValue("@CompSusp", Prod.CompSusp);
+                ObjCmd.Parameters.AddWithValue("@VendSusp", Prod.VendSusp);
+                ObjCmd.Parameters.AddWithValue("ControlEstoq", Prod.ControlEstoq);
                 
                 ObjConn.Open();
                 
@@ -116,16 +129,16 @@ namespace Projeto_NFC_e
                 string SqlUpdate = "update t0025 set ";
                 
                 SqlUpdate += "Nome = @Nome, ";
-                SqlUpdate += "Nome = @Desc, ";
-                SqlUpdate += "CpfCnpj = @CodBarras, ";
-                SqlUpdate += "Pessoa = @Pessoa, "; 
-                SqlUpdate += "Estrangeiro = @Ncm, ";
-                SqlUpdate += "RS = @UnMed, ";
-                SqlUpdate += "NomeFant = CstIcms,"; 
-                SqlUpdate += "Endereco = @TipTribIcms, ";
-                SqlUpdate += "Num = @AliqIcms, ";
-                SqlUpdate += "Cep = @CstIpi, ";
-                SqlUpdate += "FoneRes = @AliqIpi, ";
+                SqlUpdate += "DescDet = @Desc, ";
+                SqlUpdate += "CodBarras = @CodBarras, ";
+                SqlUpdate += "Ncm = @Pessoa, ";
+                SqlUpdate += "UnMed = @Ncm, ";
+                SqlUpdate += "TipTribIcms = @UnMed, ";
+                SqlUpdate += "AliqIcms = CstIcms,";
+                SqlUpdate += "AliqIcmsSubst = @TipTribIcms, ";
+                SqlUpdate += "TipTribIpi = @AliqIcms, ";
+                SqlUpdate += "AliqIpi = @CstIpi, ";
+                SqlUpdate += "CstPis = @AliqIpi, ";
                 SqlUpdate += "FoneCom = @CstPis, ";
                 SqlUpdate += "Cel = @AliqPis, ";
                 SqlUpdate += "OutrosCont = @CstCofins, ";
@@ -143,14 +156,14 @@ namespace Projeto_NFC_e
                 SqlCommand ObjCmd = new SqlCommand(SqlUpdate, ObjConn);
 
                 ObjCmd.Parameters.AddWithValue("@Nome", Prod.Nome);
-                ObjCmd.Parameters.AddWithValue("@Desc", Prod.Desc);
+                ObjCmd.Parameters.AddWithValue("@DescDet", Prod.DescDet);
                 ObjCmd.Parameters.AddWithValue("@CodBarras", Prod.CodBarras);
                 ObjCmd.Parameters.AddWithValue("@Ncm", Prod.Ncm);
                 ObjCmd.Parameters.AddWithValue("@UnMed", Prod.UnMed);
-                ObjCmd.Parameters.AddWithValue("@CstIcms", Prod.CstIcms);
                 ObjCmd.Parameters.AddWithValue("@TipTribIcms", Prod.TipTribIcms);
                 ObjCmd.Parameters.AddWithValue("@AliqIcms", Prod.AliqIcms);
-                ObjCmd.Parameters.AddWithValue("@CstIpi", Prod.CstIpi);
+                ObjCmd.Parameters.AddWithValue("@AliqIcmsSubst", Prod.AliqIcmsSubst);
+                ObjCmd.Parameters.AddWithValue("@TipTribIpi", Prod.TipTribIpi);
                 ObjCmd.Parameters.AddWithValue("@AliqIpi", Prod.AliqIpi);
                 ObjCmd.Parameters.AddWithValue("@CstPis", Prod.CstPis);
                 ObjCmd.Parameters.AddWithValue("@AliqPis", Prod.AliqPis);
@@ -160,9 +173,13 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@LocDepos", Prod.LocDepos);
                 ObjCmd.Parameters.AddWithValue("@SubLocDepos", Prod.SubLocDepos);
                 ObjCmd.Parameters.AddWithValue("@Fornecedor", Prod.Fornecedor);
-                ObjCmd.Parameters.AddWithValue("@Vendedor", Prod.Vendedor);
                 ObjCmd.Parameters.AddWithValue("@GrupItens", Prod.GrupItens);
-                ObjCmd.Parameters.AddWithValue("Natureza", Prod.Natureza);
+                ObjCmd.Parameters.AddWithValue("@Natureza", Prod.Natureza);
+                ObjCmd.Parameters.AddWithValue("@CustoCompra", Prod.CustoCompra);
+                ObjCmd.Parameters.AddWithValue("@CustoMedio", Prod.CustoMedio);
+                ObjCmd.Parameters.AddWithValue("@CustoPersonalizado", Prod.CustoPersonalizado);
+                ObjCmd.Parameters.AddWithValue("@CompSusp", Prod.CompSusp);
+                ObjCmd.Parameters.AddWithValue("@VendSusp", Prod.VendSusp);
                 ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
                 
                 ObjConn.Open();
