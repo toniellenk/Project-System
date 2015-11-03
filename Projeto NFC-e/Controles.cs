@@ -92,7 +92,7 @@ namespace Projeto_NFC_e
                     }
                 case 2:
                     {
-                        FormProduto NovoProduto = new FormProduto();
+                        FormProduto NovoProduto = new FormProduto(1, "1");
                         NovoProduto.Show();  
                         break;
                     } 
@@ -111,8 +111,8 @@ namespace Projeto_NFC_e
                         break;
                     }
                 case 2:
-                    {               
-                        FormProduto AlterarProduto = new FormProduto();
+                    {
+                        FormProduto AlterarProduto = new FormProduto(2, ItemSelect);
                         AlterarProduto.Show(); 
                         break;
                     } 
@@ -139,18 +139,13 @@ namespace Projeto_NFC_e
             }
         }
 
-        public static DataTable CarregarGradeClientes(string ItemSelect)
+        public static DataTable CarregarGradeClientes(string Condicoes)
         {
 
-            DataTable mDataTable = new DataTable();
+                        DataTable mDataTable = new DataTable();
 
-        /*   switch (Filtros.Nome)
-            {
-
-                case true:
-                    { */
                         DadosClientes objDados = new DadosClientes();
-                        objDados.Consulta(ItemSelect);
+                        objDados.Consulta(Condicoes);
                                                
 
                         DataColumn mDataColumn;
@@ -189,12 +184,6 @@ namespace Projeto_NFC_e
                         mDataTable.Columns.Add(mDataColumn);
                       
 
-            /*
-                        mDataColumn = new DataColumn();
-                        mDataColumn.DataType = Type.GetType("System.String");
-                        mDataColumn.ColumnName = "tamanho";
-                        mDataTable.Columns.Add(mDataColumn); */
-
                         DataRow linha;
 
 
@@ -213,7 +202,6 @@ namespace Projeto_NFC_e
                             {
                                 CpfCnpj = CpfCnpj.Substring(0, 3) + "." + CpfCnpj.Substring(3, 3) + "." + CpfCnpj.Substring(6, 3) + "-" + CpfCnpj.Substring(9, 2);
                             }
-                           // MessageBox.Show(Convert.ToString(CpfCnpj.Length));
 
                             
 
@@ -223,31 +211,97 @@ namespace Projeto_NFC_e
                             linha["CPF / CNPJ"] = CpfCnpj;
                             linha["TELEFONE"] = dr["FoneRes"].ToString();
                             linha["CELULAR"] = dr["Cel"].ToString();
-                            linha["E-MAIL"] = dr["Email"].ToString();
-                        //    linha["tamanho"] = Convert.ToString(CpfCnpj.Length);                            
+                            linha["E-MAIL"] = dr["Email"].ToString();                      
 
                             mDataTable.Rows.Add(linha);
                         }
 
 
                         return mDataTable;   
-                        
-             /*       }
-                default: {
-                    return mDataTable;
-                    
-                }
-           } */
+
         }
 
-        public static DataTable CarregarGradeProdutos(string ItemSelect)
+        public static DataTable CarregarGradeRapida(string Condicoes, string Tabela)
+        {
+
+            DataTable mDataTable = new DataTable();         
+            
+
+
+            DataColumn mDataColumn;
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "ID";
+            mDataTable.Columns.Add(mDataColumn);
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "DESCRIÇÃO";
+            mDataTable.Columns.Add(mDataColumn);
+
+            DataRow linha;
+
+            switch (Tabela)
+            {
+                case "Cidade":
+                    {
+                        DadosCidadesBairros objDados = new DadosCidadesBairros();
+
+                        objDados.ConsultaCidade(Condicoes);
+
+                        foreach (DataRow dr in objDados.dt.Rows)
+                        {
+
+                            linha = mDataTable.NewRow();
+
+                            linha["ID"] = dr["IdCidade"].ToString().Trim();
+                            linha["DESCRIÇÃO"] = dr["Nome"].ToString();
+
+                            mDataTable.Rows.Add(linha);
+                        }
+
+                        break;
+                    }
+                case "Bairro":
+                    {
+                        DadosCidadesBairros objDados = new DadosCidadesBairros();
+
+                        objDados.ConsultaBairro(Condicoes);
+
+                        foreach (DataRow dr in objDados.dt.Rows)
+                        {
+
+                            linha = mDataTable.NewRow();
+
+                            linha["ID"] = dr["IdBairro"].ToString().Trim();
+                            linha["DESCRIÇÃO"] = dr["Nome"].ToString();
+
+                            mDataTable.Rows.Add(linha);
+                        }
+
+                        break;
+                    }
+            }
+
+
+            
+
+
+
+
+
+            return mDataTable;
+
+        }
+
+        public static DataTable CarregarGradeProdutos(string Condicoes)
                 {
 
                         DataTable mDataTable = new DataTable();
 
 
                         DadosProdutos objDados = new DadosProdutos();
-                        objDados.Consulta(ItemSelect);
+                        objDados.Consulta(Condicoes);
                                                
 
                         DataColumn mDataColumn;

@@ -284,17 +284,14 @@ namespace Projeto_NFC_e
              TipoButDel = Controles.BotaoDel.DelCliente();
              TipoButAlt = Controles.BotaoAlt.AltCliente();
              TipoFilt = Controles.BotaoFiltro.FiltCliente;
-             // Controles Grade = new Controles();
+
              LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
              LsVyPrinc.Columns[0].Width = 30;
              LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
-
-
-
              LsVyPrinc.Visible = true;
              PanFiltros.Visible = true;
-             //    CombBxFilt.Visible = true;
+   
 
 
          }

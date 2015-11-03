@@ -67,7 +67,7 @@ namespace Projeto_NFC_e
         {
 
             /*Query SQL*/
-                string SqlSelect = "select * from t0025" + Condicoes;
+                string SqlSelect = "select * from t0025 " + Condicoes;
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
@@ -115,7 +115,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@CustoPersonalizado", Prod.CustoPersonalizado);
                 ObjCmd.Parameters.AddWithValue("@CompSusp", Prod.CompSusp);
                 ObjCmd.Parameters.AddWithValue("@VendSusp", Prod.VendSusp);
-                ObjCmd.Parameters.AddWithValue("ControlEstoq", Prod.ControlEstoq);
+                ObjCmd.Parameters.AddWithValue("@ControlEstoq", Prod.ControlEstoq);
                 
                 ObjConn.Open();
                 
@@ -146,13 +146,14 @@ namespace Projeto_NFC_e
                 SqlUpdate += "LocDepos = @LocDepos, "; 
                 SqlUpdate += "SubLocDepos = @SubLocDepos, "; 
                 SqlUpdate += "Fornecedor = @Fornecedor, "; 
-                SqlUpdate += "GrupItens = @GrupItens "; 
-                SqlUpdate += "Natureza = @Natureza ";
-                SqlUpdate += "CustoCompra = @CustoCompra ";
-                SqlUpdate += "CustoMedio = @CustoMedio ";
-                SqlUpdate += "CustoPersonalizado = @CustoPersonalizado ";
-                SqlUpdate += "CompSusp = @CompSusp ";
-                SqlUpdate += "VendSusp = @VendSusp ";
+                SqlUpdate += "GrupItens = @GrupItens, "; 
+                SqlUpdate += "Natureza = @Natureza, ";
+                SqlUpdate += "CustoCompra = @CustoCompra, ";
+                SqlUpdate += "CustoMedio = @CustoMedio, ";
+                SqlUpdate += "CustoPersonalizado = @CustoPersonalizado, ";
+                SqlUpdate += "CompSusp = @CompSusp, ";
+                SqlUpdate += "VendSusp = @VendSusp, ";
+                SqlUpdate += "ControlEstoq = @ControlEstoq ";
                 
                 SqlUpdate += "where IdProd = @IdProd";
                 
@@ -184,7 +185,8 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@CustoPersonalizado", Prod.CustoPersonalizado);
                 ObjCmd.Parameters.AddWithValue("@CompSusp", Prod.CompSusp);
                 ObjCmd.Parameters.AddWithValue("@VendSusp", Prod.VendSusp);
-                ObjCmd.Parameters.AddWithValue("IdProd@", IdProd);
+                ObjCmd.Parameters.AddWithValue("@ControlEstoq", Prod.ControlEstoq);
+                ObjCmd.Parameters.AddWithValue("@IdProd", IdProd);
                 
                 ObjConn.Open();
                 

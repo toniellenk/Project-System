@@ -55,9 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ConDados.cs" />
+    <Compile Include="Classes\DadosCidadesBairros.cs" />
     <Compile Include="Classes\DadosClientes.cs" />
     <Compile Include="Classes\DadosProdutos.cs" />
     <Compile Include="Controles.cs" />
+    <Compile Include="Telas\FormPesquisaSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\FormPesquisaSimples.Designer.cs">
+      <DependentUpon>FormPesquisaSimples.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\FormProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +119,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Classes\WSmt.cs" />
+    <EmbeddedResource Include="Telas\FormPesquisaSimples.resx">
+      <DependentUpon>FormPesquisaSimples.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\FormProduto.resx">
       <DependentUpon>FormProduto.cs</DependentUpon>
     </EmbeddedResource>

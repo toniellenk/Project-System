@@ -127,6 +127,7 @@ namespace Projeto_NFC_e
                 SqlUpdate += "CpfCnpj = @CpfCnpj, ";
                 SqlUpdate += "Pessoa = @Pessoa, "; 
                 SqlUpdate += "Estrangeiro = @Estrangeiro, ";
+                SqlUpdate += "IdentEstrangeiro = @IdentEstrangeiro, ";
                 SqlUpdate += "RS = @RS, ";
                 SqlUpdate += "NomeFant = NomeFant,"; 
                 SqlUpdate += "Endereco = @Endereco, ";

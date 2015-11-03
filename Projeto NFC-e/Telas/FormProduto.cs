@@ -92,7 +92,7 @@ namespace Projeto_NFC_e
             ObjProduto.AliqIcms = TxtAliqIcms.Text;
             ObjProduto.AliqIcmsSubst = TxtAliqIcmsSubst.Text;
             ObjProduto.TipTribIpi = TxtTipTribIpi.Text;
-            ObjProduto.AliqIpi = TxtAliqIpit.Text;
+            ObjProduto.AliqIpi = TxtAliqIpi.Text;
             ObjProduto.CstPis = TxtCstPis.Text;
             ObjProduto.AliqPis = TxtAliqPis.Text;
             ObjProduto.CstCofins = TxtCstCofins.Text;
@@ -106,9 +106,9 @@ namespace Projeto_NFC_e
             ObjProduto.CustoCompra = TxtCustoCompra.Text;
             ObjProduto.CustoMedio = TxtCustoMedio.Text;
             ObjProduto.CustoPersonalizado = TxtCustoPersonalizado.Text;
-            ObjProduto.CompSusp = RadButVendSusp.Checked;
+            ObjProduto.CompSusp = RadButCompSusp.Checked;
             ObjProduto.VendSusp = RadButVendSusp.Checked;
-            ObjProduto.ControlEstoq = RadButContEst.Checked;
+            ObjProduto.ControlEstoq = RadButControlEstoq.Checked;
 
             DadosProdutos ObjDadosProdutos = new DadosProdutos();
 
@@ -118,7 +118,7 @@ namespace Projeto_NFC_e
             }
             if (Operacao == 2) {
                 ObjDadosProdutos.atualizar(ObjProduto, IdProduto);
-                MessageBox.Show("O Produto "+ItemSelect+" foi atualizado com sucesso!");
+                MessageBox.Show("O Produto foi atualizado com sucesso!");
             }  
         
         }
@@ -127,36 +127,79 @@ namespace Projeto_NFC_e
         public void Alterar(string ItemSelect){
 
             DadosProdutos objDados = new DadosProdutos();
-            objDados.Consulta(ItemSelect);
+            objDados.Consulta("where IdProd="+ItemSelect);
 
             DataRow linha = objDados.dt.Rows[0];
-           
-            TxtNome.Text = linha["Nome"].ToString();
-            TxtDescDet.Text = linha["DescDet"].ToString();
-            TxtCodBarras.Text = linha["CodBarras"].ToString();
-            TxtNcm.Text = linha["Ncm"].ToString();
+
+            TxtNome.Text = linha["Nome"].ToString().Trim();
+            TxtDescDet.Text = linha["DescDet"].ToString().Trim();
+            TxtCodBarras.Text = linha["CodBarras"].ToString().Trim();
+            TxtNcm.Text = linha["Ncm"].ToString().Trim();
             TxtUnMed.Text = linha["UnMed"].ToString();
-            TxtTipTribIcms.Text = linha["TipTribIcms"].ToString();
-            TxtAliqIcms.Text = linha["AliqIcms"].ToString();
-            TxtAliqIcmsSubst.Text = linha["AliqIcmsSubst"].ToString();
-            TxtTipTribIpi.Text = linha["TipTribIpi"].ToString();
-            TxtAliqIpi.Text = linha["AliqIpi"].ToString();
-            TxtCstPis.Text = linha["CstPis"].ToString();
+            TxtTipTribIcms.Text = linha["TipTribIcms"].ToString().Trim();
+            TxtAliqIcms.Text = linha["AliqIcms"].ToString().Trim();
+            TxtAliqIcmsSubst.Text = linha["AliqIcmsSubst"].ToString().Trim();
+            TxtTipTribIpi.Text = linha["TipTribIpi"].ToString().Trim();
+            TxtAliqIpi.Text = linha["AliqIpi"].ToString().Trim();
+            TxtCstPis.Text = linha["CstPis"].ToString().Trim();
             TxtAliqPis.Text = linha["AliqPis"].ToString();
-            TxtCstCofins.Text = linha["CstCofins"].ToString();
-            TxtAliqCofins.Text = linha["AliqCofins"].ToString();
-            TxtDeposito.Text = linha["Deposito"].ToString();
-            TxtLocDepos.Text = linha["LocDepos"].ToString();
-            TxtSubLocDepos.Text = linha["SubLocDepos"].ToString();
-            TxtFornecedor.Text = linha["Fornecedor"].ToString();
-            TxtGrupItens.Text = linha["GrupItens"].ToString();
-            TxtNatureza.Text = linha["Natureza"].ToString();
-            TxtCustoCompra.Text = linha["CustoCompra"].ToString();
-            TxtCustoMedio.Text = linha["CustoMedio"].ToString();
-            TxtCustoPersonalizado.Text = linha["CustoPersonalizado"].ToString();
-            RadButCompSusp.Checked = Convert.ToBoolean(linha["CompSusp"].ToString());
-            RadButVendSusp.Checked = Convert.ToBoolean(linha["VendSusp"].ToString());
-            RadButControlEstoq.Checked = Convert.ToBoolean(linha["ControlEstoq"].ToString());
+            TxtCstCofins.Text = linha["CstCofins"].ToString().Trim();
+            TxtAliqCofins.Text = linha["AliqCofins"].ToString().Trim();
+            TxtDeposito.Text = linha["Deposito"].ToString().Trim();
+            TxtLocDepos.Text = linha["LocDepos"].ToString().Trim();
+            TxtSubLocDepos.Text = linha["SubLocDepos"].ToString().Trim();
+            TxtFornecedor.Text = linha["Fornecedor"].ToString().Trim();
+            TxtGrupItens.Text = linha["GrupItens"].ToString().Trim();
+            TxtNatureza.Text = linha["Natureza"].ToString().Trim();
+            TxtCustoCompra.Text = linha["CustoCompra"].ToString().Trim();
+            TxtCustoMedio.Text = linha["CustoMedio"].ToString().Trim();
+            TxtCustoPersonalizado.Text = linha["CustoPersonalizado"].ToString().Trim();
+            switch (linha["CompSusp"].ToString())
+            {
+                case "":
+                case "NULL":
+                    {
+                        RadButCompSusp.Checked = false;
+                        break;
+                    }
+                default:
+                    {
+                        RadButCompSusp.Checked = Convert.ToBoolean(linha["CompSusp"].ToString());
+                        break;
+                    }
+            }
+            switch (linha["VendSusp"].ToString())
+            {
+                case "":
+                case "NULL":
+                    {
+                        RadButVendSusp.Checked = false;
+                        break;
+                    }
+                default:
+                    {
+                        RadButVendSusp.Checked = Convert.ToBoolean(linha["VendSusp"].ToString());
+                        break;
+                    }
+            }
+            switch (linha["ControlEstoq"].ToString())
+            {
+                case "":
+                    {
+                        RadButControlEstoq.Checked = false;
+                        break;
+                    }
+                case "NULL":
+                    {
+                        RadButControlEstoq.Checked = false;
+                        break;
+                    }
+                default:
+                    {
+                        RadButControlEstoq.Checked = Convert.ToBoolean(linha["ControlEstoq"].ToString());
+                        break;
+                    }
+            }
                       
         }
   
@@ -180,11 +223,11 @@ namespace Projeto_NFC_e
                 epErro.SetError(TxtNcm, "Preencha o código de NCM do produto.");
 
             }
-            if (string.IsNullOrEmpty(TxtNat.Text))
+            if (string.IsNullOrEmpty(TxtNatureza.Text))
             {
                 retorno = false;
                 CapInvalid += "* Natureza \n";
-                epErro.SetError(TxtNat, "Preencha o código da Natureza do produto.");
+                epErro.SetError(TxtNatureza, "Preencha o código da Natureza do produto.");
 
             }
             if (string.IsNullOrEmpty(TxtGrupItens.Text))
@@ -194,11 +237,11 @@ namespace Projeto_NFC_e
                 epErro.SetError(TxtGrupItens, "Preencha o código de Grupo de Itens do produto.");
 
             }
-            if (RadButContEst.Checked == true && (string.IsNullOrEmpty(TxtDep.Text)))
+            if (RadButControlEstoq.Checked == true && (string.IsNullOrEmpty(TxtDeposito.Text)))
             {
                 retorno = false;
                 CapInvalid += "* Depósito \n";
-                epErro.SetError(TxtDep, "Preencha o código de Depósito do produto.");
+                epErro.SetError(TxtDeposito, "Preencha o código de Depósito do produto.");
 
             }
             if (string.IsNullOrEmpty(TxtUnMed.Text))
@@ -284,6 +327,12 @@ namespace Projeto_NFC_e
         
     
         #endregion
+
+         private void button2_Click_1(object sender, EventArgs e)
+         {
+             FormPesquisaSimples TelaPesquisa = new FormPesquisaSimples();
+             TelaPesquisa.Show();
+         }
 
     }
 }
