@@ -12,12 +12,12 @@ namespace Projeto_NFC_e
 {
     public partial class FormPesquisaSimples : Form
     {
+        string Tipo;
 
-        int TipoButNv, TipoButAlt, TipoButDel, TipoFilt;
-   //     string[] Filtros;
-        public FormPesquisaSimples()
+        public FormPesquisaSimples(string Tipo)
         {
             InitializeComponent();
+            this.Tipo = Tipo;
         }
 
         private void FormPesquisaSimples_Load(object sender, EventArgs e)
@@ -46,10 +46,18 @@ namespace Projeto_NFC_e
             ButNovo.Visible = true;
             ButAlterar.Visible = true;
             ButExcluir.Visible = true;
-
-            TipoFilt = Controles.BotaoFiltro.FiltCliente;
-
-            LsVyPrinc.DataSource = Controles.CarregarGradeRapida("","Cidade");
+            
+            LsVyPrinc.DataSource = Controles.CarregarGradeRapida("",Tipo);
+            /*
+            switch (Tipo){
+                case "Cidade": {
+                        LsVyPrinc.DataSource = Controles.CarregarGradeRapida("","Cidade");
+                }
+                case "Bairro": {
+                        LsVyPrinc.DataSource = Controles.CarregarGradeRapida("","Bairro");
+                }  
+            }
+            */
             LsVyPrinc.Columns[0].Width = 30;
             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
