@@ -243,7 +243,7 @@ namespace Projeto_NFC_e
 
             switch (Tabela)
             {
-                case "Cidade":
+                case default:
                     {
                         DadosCidadesBairros objDados = new DadosCidadesBairros();
 
@@ -253,16 +253,17 @@ namespace Projeto_NFC_e
                         {
 
                             linha = mDataTable.NewRow();
-
-                            linha["ID"] = dr["IdCidade"].ToString().Trim();
-                            linha["DESCRIÇÃO"] = dr["Nome"].ToString();
+                            
+                            if (Tabela == "Cidade") {linha["ID"] = dr["IdCidade"].ToString().Trim();}
+                            if (Tabela == "Bairro")  {linha["ID"] = dr["IdBairro"].ToString().Trim();}
+                            linha["DESCRIÇÃO"] = dr["Nome"].ToString().Trim();
 
                             mDataTable.Rows.Add(linha);
                         }
 
                         break;
                     }
-                case "Bairro":
+         /*       case "Bairro":
                     {
                         DadosCidadesBairros objDados = new DadosCidadesBairros();
 
@@ -280,19 +281,15 @@ namespace Projeto_NFC_e
                         }
 
                         break;
-                    }
+                    } */
             }
-
-
-            
-
-
-
-
 
             return mDataTable;
 
         }
+        
+        
+        
 
         public static DataTable CarregarGradeProdutos(string Condicoes)
                 {
