@@ -65,23 +65,23 @@ namespace Projeto_NFC_e
             PanFiltros.Visible = true;
         }
         
-                 public void CarregarFiltros()
+      public void CarregarFiltros()
          {
              
-             try
-             {
+ //            try
+  //           {
                  string key = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Key;
                  string value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
                  string where = null;
-                 switch (TipoFilt)
+                 switch (Tipo)
                  {
-                     case 1:
+                     case "Cidade":
                          {
                              switch (Convert.ToInt32(key))
                              {
                                  case 0:
                                      {
-                                         where = "IdCliente";
+                                         where = "IdCidade";
                                          RadButContendo.Enabled = false;
                                          RadButIgual.Checked = true;
                                          break;
@@ -90,46 +90,18 @@ namespace Projeto_NFC_e
                                      {
                                          where = "Nome";
                                          break;
-                                     }
-                                 case 2:
-                                     {
-                                         where = "CpfCnpj";
-                                         break;
-                                     }
-                                 case 3:
-                                     {
-                                         where = "FoneRes";
-                                         break;
-                                     }
-                                 case 4:
-                                     {
-                                         where = "Cel";
-                                         break;
-                                     }
-                                 case 5:
-                                     {
-                                         where = "Email";
-                                         break;
-                                     }
+                                     }                                
 
                              }
-                             if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'");
-
-                             if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes(" where " + where + " = '" + TxtBoxProcurar.Text + "'");
-
-                             if (TxtBoxProcurar.Text == "")
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
-                        break;
+                             break;
                          }
-                     case 2:
+                     case "Bairro":
                          {
                              switch (Convert.ToInt32(key))
                              {
                                  case 0:
                                      {
-                                         where = "IdProd";
+                                         where = "IdBairro";
                                          RadButContendo.Enabled = false;
                                          RadButIgual.Checked = true;
                                          break;
@@ -139,47 +111,33 @@ namespace Projeto_NFC_e
                                          where = "Nome";
                                          break;
                                      }
-                                 case 2:
-                                     {
-                                         where = "[Desc]";
-                                         break;
-                                     }
-                                 case 3:
-                                     {
-                                         where = "GrupItens";
-                                         break;
-                                     }
-                                 case 4:
-                                     {
-                                         where = "UnMed";
-                                         break;
-                                     }
-                                 case 5:
-                                     {
-                                         where = "Natureza";
-                                         break;
-                                     }
 
                              }
-                             if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'");
-
-                             if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos(" where " + where + " = '" + TxtBoxProcurar.Text + "'");
-
-                             if (TxtBoxProcurar.Text == "")
-                                 LsVyPrinc.DataSource = Controles.CarregarGradeProdutos("");
                              break;
                          }
                  }
 
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Ao filtrar dados dados: " + ex.Message.ToString(), "Erro ao Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
+                     LsVyPrinc.DataSource = Controles.CarregarGradeRapida(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'", Tipo);
 
-             }
+                 if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
+                     LsVyPrinc.DataSource = Controles.CarregarGradeRapida(" where " + where + " = '" + TxtBoxProcurar.Text + "'", Tipo);
+
+                 if (TxtBoxProcurar.Text == "")
+                     LsVyPrinc.DataSource = Controles.CarregarGradeRapida("", Tipo);
+
+        //     }
+       //      catch (Exception ex)
+        //     {
+        //         MessageBox.Show("Ao filtrar dados dados: " + ex.Message.ToString(), "Erro ao Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+       //      }
          }
+
+      private void ButProcurar_Click(object sender, EventArgs e)
+      {
+          CarregarFiltros();
+      }
         
     }
 }

@@ -222,7 +222,7 @@ namespace Projeto_NFC_e
         }
 
         public static DataTable CarregarGradeRapida(string Condicoes, string Tabela)
-        {
+            {
 
             DataTable mDataTable = new DataTable();         
             
@@ -243,7 +243,7 @@ namespace Projeto_NFC_e
 
             switch (Tabela)
             {
-                case default:
+                default:
                     {
                         DadosCidadesBairros objDados = new DadosCidadesBairros();
 
@@ -263,25 +263,6 @@ namespace Projeto_NFC_e
 
                         break;
                     }
-         /*       case "Bairro":
-                    {
-                        DadosCidadesBairros objDados = new DadosCidadesBairros();
-
-                        objDados.ConsultaBairro(Condicoes);
-
-                        foreach (DataRow dr in objDados.dt.Rows)
-                        {
-
-                            linha = mDataTable.NewRow();
-
-                            linha["ID"] = dr["IdBairro"].ToString().Trim();
-                            linha["DESCRIÇÃO"] = dr["Nome"].ToString();
-
-                            mDataTable.Rows.Add(linha);
-                        }
-
-                        break;
-                    } */
             }
 
             return mDataTable;

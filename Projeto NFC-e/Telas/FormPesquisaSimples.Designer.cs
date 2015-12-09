@@ -157,6 +157,7 @@
             this.ButProcurar.TabIndex = 1;
             this.ButProcurar.Text = "Procurar";
             this.ButProcurar.UseVisualStyleBackColor = true;
+            this.ButProcurar.Click += new System.EventHandler(this.ButProcurar_Click);
             // 
             // CombBxFilt
             // 
