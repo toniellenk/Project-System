@@ -79,7 +79,20 @@ namespace Projeto_NFC_e
         */
         private void FormInicial_Load(object sender, EventArgs e)
         {
+            this.FormClosing += new FormClosingEventHandler(FormInicial_Closing);
+        }
 
+        private void FormInicial_Closing(object sender, FormClosingEventArgs e)
+        {
+            // Display a MsgBox asking the user to save changes or abort.
+            //e.Cancel = false;
+            if (MessageBox.Show("Você têm certeza que quer sair do Sistema?", "My Application",
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // Cancel the Closing event from closing the form.
+                e.Cancel = true;
+                // Call method to save file...
+            }
         }
 
         private void nFeToolStripMenuItem_Click(object sender, EventArgs e)

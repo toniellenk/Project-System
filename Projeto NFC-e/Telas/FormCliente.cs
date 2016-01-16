@@ -303,6 +303,14 @@ namespace Projeto_NFC_e
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormPesquisaSimples TelaPesquisa = new FormPesquisaSimples(this,"Cidade");
+            TelaPesquisa.Show();    
+            
+            
+        }
+
         
     }
 }

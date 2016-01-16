@@ -224,10 +224,10 @@ namespace Projeto_NFC_e
         public static DataTable CarregarGradeRapida(string Condicoes, string Tabela)
             {
 
-            DataTable mDataTable = new DataTable();         
+            DataTable mDataTable = new DataTable();
+
+
             
-
-
             DataColumn mDataColumn;
             mDataColumn = new DataColumn();
             mDataColumn.DataType = Type.GetType("System.String");
@@ -245,9 +245,12 @@ namespace Projeto_NFC_e
             {
                 default:
                     {
+
+                        string Colunas = "IdCidade, t0030.Nome + ' - ' + t0029.Sigla As Nome";
+
                         DadosCidadesBairros objDados = new DadosCidadesBairros();
 
-                        objDados.ConsultaCidade(Condicoes);
+                        objDados.ConsultaCidade(Colunas,Condicoes);
 
                         foreach (DataRow dr in objDados.dt.Rows)
                         {

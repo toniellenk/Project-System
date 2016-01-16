@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAwtJREFUOE9joDVg
+        zs7Odp84a07P8o1b1i1Zv2nd5Fnz+ipKC72AcqwQJUQCJUFB/r7JU3s2HT754MyDp89PP3l95/DDF1e3
+        Xb17bcGuA1cnTJ3eb6MrJwhVThCwdk2c3LP17KVnV959vXzh3bfjx1992bf36fvtWx6/W7/g+tO1E3Yc
+        Ot87acoEoFp2iBY8ICst2WPJzoO3jr38dOzA84/b1z94tW7p7efL5t94vnD61afzJl19OrPmxK1ZHas2
+        n6ooyveDasMNWvsm9K45d+3Sticf1i6982LRrGtPZ066/GRS07mHncn7b9SG7L5SGb7vZnXWmn1rW/sm
+        TgRqYYboxA4YG6fMWFq//9yK5fdez5138/n0aVef9lacvFfrseNypsH60ynaa0+nyK88m6Q3e2tzw+QZ
+        K4UZGHiherECxqreSUsMZ25uiDp0J6/45J3ynGN3CyP33UwP33c9LWTf9XSvnVfSrbddTdabua2utn/K
+        cqAevAYyVLe09IXP3TDDbvfNuOiDt1PSj99LLTxxL73k9MP0HCCdcPhOuuf+O4nBczdMrW7p6ANqYYLo
+        xAHyMhJ9yqfN2xe4/WJ25eVXya2XnqX3Xn8BxiB2NVDMZ+uFjOLJs/flZ6VHQrXhBWzVNXX9VQtWbS4/
+        dTd79qPviatefE8B4dlPvieWAV1ZNHvp6h07d/4oKy6MgOrBD3Tl5AQra6r7W2bP3zth696ZK85eb1x5
+        +mrj5O0HpzZMm71vydKl/29ev/Z/2owZ84HK+SG6CAOWhMhI34rq6r7mzu6lLR1dy4DsnsToiMjsjNT4
+        iZOnrL9y/dbfrZPCzoTpMcRB9RANeKAYGYif3Nhz9/+dmv8H64S/B+sxJEHFyQcToriSn23P/fn/Usn/
+        Qw0i30IMGJKhUuSD5iCBTLChV0r/H24UpY6hLcF8Gc+2AQ29XPb/SJPY9whDsPcZIbJkgkagoU+3Zv/8
+        f7Xk/+FO7S+BHiamUCnyQWsgT/qDLQUfLxxc9T+zoMINKkwZiHbRsMgtqQcaJs4NAAOrhSehgqPRAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
   <metadata name="epErro.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

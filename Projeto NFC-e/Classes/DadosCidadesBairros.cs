@@ -49,11 +49,11 @@ namespace Projeto_NFC_e
         }
 
 
-        public void ConsultaCidade(string Condicoes)
+        public void ConsultaCidade(string Colunas, string Condicoes)
         { 
                     
                 /*Query SQL*/
-                string SqlSelect = "select top 100 * from t0030 " + Condicoes;
+                string SqlSelect = "select top 100 "+Colunas+" from t0030 inner join t0029 on t0030.IdEstado = t0029.Idestado " + Condicoes;
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);

@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.TabContCliente = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.LabNumID = new System.Windows.Forms.Label();
+            this.LabNomID = new System.Windows.Forms.Label();
             this.TxtBxCidade = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.MaskCep = new System.Windows.Forms.MaskedTextBox();
@@ -79,8 +82,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ButListClient = new System.Windows.Forms.Button();
             this.epErro = new System.Windows.Forms.ErrorProvider(this.components);
-            this.LabNomID = new System.Windows.Forms.Label();
-            this.LabNumID = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.TabContCliente.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,6 +104,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.LabNumID);
             this.tabPage1.Controls.Add(this.LabNomID);
             this.tabPage1.Controls.Add(this.TxtBxCidade);
@@ -144,6 +147,27 @@
             this.tabPage1.Text = "Dados Pessoais";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // LabNumID
+            // 
+            this.LabNumID.AutoSize = true;
+            this.LabNumID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabNumID.Location = new System.Drawing.Point(144, 19);
+            this.LabNumID.Name = "LabNumID";
+            this.LabNumID.Size = new System.Drawing.Size(54, 17);
+            this.LabNumID.TabIndex = 40;
+            this.LabNumID.Text = "Num ID";
+            // 
+            // LabNomID
+            // 
+            this.LabNomID.AutoSize = true;
+            this.LabNomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabNomID.Location = new System.Drawing.Point(116, 19);
+            this.LabNomID.Name = "LabNomID";
+            this.LabNomID.Size = new System.Drawing.Size(29, 17);
+            this.LabNomID.TabIndex = 39;
+            this.LabNomID.Text = "ID: ";
+            this.LabNomID.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // TxtBxCidade
             // 
@@ -604,28 +628,21 @@
             // 
             this.epErro.ContainerControl = this;
             // 
-            // LabNomID
+            // button2
             // 
-            this.LabNomID.AutoSize = true;
-            this.LabNomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabNomID.Location = new System.Drawing.Point(116, 19);
-            this.LabNomID.Name = "LabNomID";
-            this.LabNomID.Size = new System.Drawing.Size(29, 17);
-            this.LabNomID.TabIndex = 39;
-            this.LabNomID.Text = "ID: ";
-            this.LabNomID.Click += new System.EventHandler(this.label1_Click_1);
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(345, 220);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(5);
+            this.button2.Size = new System.Drawing.Size(21, 20);
+            this.button2.TabIndex = 41;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // LabNumID
-            // 
-            this.LabNumID.AutoSize = true;
-            this.LabNumID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabNumID.Location = new System.Drawing.Point(144, 19);
-            this.LabNumID.Name = "LabNumID";
-            this.LabNumID.Size = new System.Drawing.Size(54, 17);
-            this.LabNumID.TabIndex = 40;
-            this.LabNumID.Text = "Num ID";
-            // 
-            // FormNvCliente
+            // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -637,7 +654,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormNvCliente";
+            this.Name = "FormCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.FormCadClientes_Load);
@@ -671,7 +688,7 @@
         private System.Windows.Forms.TextBox TxtBoxIE;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox TxtBxCidade;
+        public System.Windows.Forms.TextBox TxtBxCidade;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.MaskedTextBox MaskCep;
         private System.Windows.Forms.Label LabCEP;
@@ -709,6 +726,7 @@
         private System.Windows.Forms.ErrorProvider epErro;
         private System.Windows.Forms.Label LabNomID;
         private System.Windows.Forms.Label LabNumID;
+        private System.Windows.Forms.Button button2;
 
 
     }
