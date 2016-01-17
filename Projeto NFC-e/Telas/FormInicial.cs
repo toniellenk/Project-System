@@ -22,9 +22,9 @@ namespace Projeto_NFC_e
             InitializeComponent();
             PanCentral.Visible = false;
             LsVyPrinc.Visible = false;
-            BuNvCliente.Visible = false;
-            ButAltCliente.Visible = false;
-            ButDelCliente.Visible = false;
+            ButNovo.Visible = false;
+            ButAlterar.Visible = false;
+            ButExcluir.Visible = false;
             NomRotina.Visible = false;
         }
 
@@ -149,7 +149,6 @@ namespace Projeto_NFC_e
 
             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Nome");
             
-          //  TipoGrade = Controles.TipoGrade.GradeCliente(); 
 
         }
 
@@ -290,9 +289,9 @@ namespace Projeto_NFC_e
          #region Métodos
          public void CarregarListViewClientes()
          {
-             BuNvCliente.Visible = true;
-             ButAltCliente.Visible = true;
-             ButDelCliente.Visible = true;
+             ButNovo.Visible = true;
+             ButAlterar.Visible = true;
+             ButExcluir.Visible = true;
              TipoButNv = Controles.BotaoNv.NvCliente;
              TipoButDel = Controles.BotaoDel.DelCliente();
              TipoButAlt = Controles.BotaoAlt.AltCliente();
@@ -309,12 +308,32 @@ namespace Projeto_NFC_e
 
          }
 
+         public void CarregarListViewPdVenda()
+         {
+             ButNovo.Visible = true;
+             ButAlterar.Visible = true;
+             ButExcluir.Visible = true;
+             TipoButNv = Controles.BotaoNv.NvCliente;
+             TipoButDel = Controles.BotaoDel.DelCliente();
+             TipoButAlt = Controles.BotaoAlt.AltCliente();
+             TipoFilt = Controles.BotaoFiltro.FiltCliente;
+
+             LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
+             LsVyPrinc.Columns[0].Width = 30;
+             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+
+             LsVyPrinc.Visible = true;
+             PanFiltros.Visible = true;
+
+
+
+         }
          public void CarregarListViewProdutos()
          {
 
-             BuNvCliente.Visible = true;
-             ButAltCliente.Visible = true;
-             ButDelCliente.Visible = true;
+             ButNovo.Visible = true;
+             ButAlterar.Visible = true;
+             ButExcluir.Visible = true;
              TipoButNv = Controles.BotaoNv.NvProduto;
              TipoButDel = Controles.BotaoDel.DelProd();
              TipoButAlt = Controles.BotaoAlt.AltProduto();
@@ -458,5 +477,27 @@ namespace Projeto_NFC_e
              }
          }
          #endregion
+
+         private void NomRotina_Click(object sender, EventArgs e)
+         {
+
+         }
+
+         private void orçamentosToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             PanCentral.Visible = true;
+             NomRotina.Text = "Manutenção de Pedidos de Venda";
+             NomRotina.Visible = true;
+           //  LsVyPrinc.Rows.Clear();
+             //CarregarListViewClientes();
+
+             Filtros = new string[] { "ID PEDIDO", "CLIENTE", "DATA DE EMISSÃO", "ULTIMA ALTERAÇÃO", "VALOR","PENDÊNCIAS", "STATUS" };
+
+             CombBxFilt.DataSource = new BindingSource(FiltrosGrade(Filtros), null);
+             CombBxFilt.DisplayMember = "Value";
+             CombBxFilt.ValueMember = "Key";
+
+             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("CLIENTE");
+         }
     }
 }

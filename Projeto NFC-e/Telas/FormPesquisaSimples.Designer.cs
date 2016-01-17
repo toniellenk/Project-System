@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisaSimples));
             this.LsVyPrinc = new System.Windows.Forms.DataGridView();
             this.PanFiltros = new System.Windows.Forms.Panel();
             this.TxtBoxProcurar = new System.Windows.Forms.TextBox();
@@ -43,6 +44,8 @@
             this.ButNovo = new System.Windows.Forms.Button();
             this.ButExcluir = new System.Windows.Forms.Button();
             this.ButAlterar = new System.Windows.Forms.Button();
+            this.ButSelect = new System.Windows.Forms.Button();
+            this.ButCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
             this.PanFiltros.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -54,8 +57,8 @@
             this.LsVyPrinc.AllowUserToDeleteRows = false;
             this.LsVyPrinc.AllowUserToResizeColumns = false;
             this.LsVyPrinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
@@ -63,19 +66,19 @@
             this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.LsVyPrinc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle3;
             this.LsVyPrinc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.LsVyPrinc.GridColor = System.Drawing.Color.Aqua;
             this.LsVyPrinc.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
@@ -84,11 +87,11 @@
             this.LsVyPrinc.MultiSelect = false;
             this.LsVyPrinc.Name = "LsVyPrinc";
             this.LsVyPrinc.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.LsVyPrinc.RowHeadersVisible = false;
             this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.LsVyPrinc.Size = new System.Drawing.Size(611, 208);
@@ -171,7 +174,7 @@
             // 
             // ButNovo
             // 
-            this.ButNovo.Location = new System.Drawing.Point(12, 321);
+            this.ButNovo.Location = new System.Drawing.Point(284, 321);
             this.ButNovo.Name = "ButNovo";
             this.ButNovo.Size = new System.Drawing.Size(75, 26);
             this.ButNovo.TabIndex = 7;
@@ -180,7 +183,7 @@
             // 
             // ButExcluir
             // 
-            this.ButExcluir.Location = new System.Drawing.Point(225, 321);
+            this.ButExcluir.Location = new System.Drawing.Point(453, 321);
             this.ButExcluir.Name = "ButExcluir";
             this.ButExcluir.Size = new System.Drawing.Size(75, 26);
             this.ButExcluir.TabIndex = 9;
@@ -189,29 +192,50 @@
             // 
             // ButAlterar
             // 
-            this.ButAlterar.Location = new System.Drawing.Point(120, 321);
+            this.ButAlterar.Location = new System.Drawing.Point(370, 321);
             this.ButAlterar.Name = "ButAlterar";
             this.ButAlterar.Size = new System.Drawing.Size(75, 26);
             this.ButAlterar.TabIndex = 8;
             this.ButAlterar.Text = "Alterar";
             this.ButAlterar.UseVisualStyleBackColor = true;
             // 
+            // ButSelect
+            // 
+            this.ButSelect.Location = new System.Drawing.Point(61, 321);
+            this.ButSelect.Name = "ButSelect";
+            this.ButSelect.Size = new System.Drawing.Size(75, 26);
+            this.ButSelect.TabIndex = 10;
+            this.ButSelect.Text = "Selecionar";
+            this.ButSelect.UseVisualStyleBackColor = true;
+            this.ButSelect.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ButCancelar
+            // 
+            this.ButCancelar.Location = new System.Drawing.Point(146, 321);
+            this.ButCancelar.Name = "ButCancelar";
+            this.ButCancelar.Size = new System.Drawing.Size(75, 26);
+            this.ButCancelar.TabIndex = 11;
+            this.ButCancelar.Text = "Cancelar";
+            this.ButCancelar.UseVisualStyleBackColor = true;
+            this.ButCancelar.Click += new System.EventHandler(this.ButCancelar_Click);
+            // 
             // FormPesquisaSimples
             // 
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 359);
+            this.Controls.Add(this.ButCancelar);
+            this.Controls.Add(this.ButSelect);
             this.Controls.Add(this.ButNovo);
             this.Controls.Add(this.ButExcluir);
             this.Controls.Add(this.ButAlterar);
             this.Controls.Add(this.PanFiltros);
             this.Controls.Add(this.LsVyPrinc);
-            this.MinimizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormPesquisaSimples";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisa Simples";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.FormPesquisaSimples_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
             this.PanFiltros.ResumeLayout(false);
@@ -235,5 +259,7 @@
         private System.Windows.Forms.Button ButNovo;
         private System.Windows.Forms.Button ButExcluir;
         private System.Windows.Forms.Button ButAlterar;
+        private System.Windows.Forms.Button ButSelect;
+        private System.Windows.Forms.Button ButCancelar;
     }
 }

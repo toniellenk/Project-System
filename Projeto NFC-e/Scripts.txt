@@ -1,0 +1,56 @@
+USE [Farm]
+GO
+
+/****** Object:  Table [dbo].[t0060]    Script Date: 01/17/2016 03:40:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t0060](
+	[IdPdVenda] [numeric](38, 0) IDENTITY(1,1) NOT NULL,
+	[IdCliente] [numeric](38, 0) NOT NULL,
+	[DescDet] [varchar](100) NULL,
+	[CodBarras] [varchar](100) NULL,
+	[Ncm] [nchar](100) NULL,
+	[UnMed] [varchar](50) NULL,
+	[TipTribIcms] [varchar](10) NULL,
+	[AliqIcms] [nchar](10) NULL,
+	[AliqIcmsSubst] [nchar](10) NULL,
+	[TipTribIpi] [varchar](10) NULL,
+	[AliqIpi] [nchar](10) NULL,
+	[CstPis] [nchar](10) NULL,
+	[AliqPis] [nchar](10) NULL,
+	[CstCofins] [nchar](10) NULL,
+	[AliqCofins] [nchar](10) NULL,
+	[Deposito] [nchar](10) NULL,
+	[LocDepos] [varchar](100) NULL,
+	[SubLocDepos] [varchar](100) NULL,
+	[Fornecedor] [nchar](10) NULL,
+	[GrupItens] [nchar](10) NULL,
+	[Natureza] [nchar](10) NULL,
+	[CustoCompra] [nchar](10) NULL,
+	[CustoMedio] [nchar](10) NULL,
+	[CustoPersonalizado] [nchar](10) NULL,
+	[CompSusp] [bit] NULL,
+	[VendSusp] [bit] NULL,
+	[ControlEstoq] [bit] NULL,
+ CONSTRAINT [PK_t0060] PRIMARY KEY CLUSTERED 
+(
+	[IdPdVenda] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Tabela de Pedidos de Venda' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't0060'
+GO
+
+

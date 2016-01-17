@@ -12,13 +12,13 @@ namespace Projeto_NFC_e
 {
     public partial class FormPesquisaSimples : Form
     {
-        string Tipo, ItemSelect;
-        FormCliente Teste1;
+        string Tipo;
+        FormCliente SecaoFormCliente;
 
-        public FormPesquisaSimples(FormCliente Form1, string Tipo)
+        public FormPesquisaSimples(FormCliente Form, string Tipo)
         {
             InitializeComponent();
-            Teste1 = Form1;
+            SecaoFormCliente = Form;
             this.Tipo = Tipo;
         }
 
@@ -26,7 +26,9 @@ namespace Projeto_NFC_e
         {
             CarregarListView();
 
-            this.FormClosing += new FormClosingEventHandler(FormPesquisaSimples_Closing);
+          //  this.FormClosing += new FormClosingEventHandler(FormPesquisaSimples_Closing);
+            this.LsVyPrinc.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomDataGridView_CellContentDoubleClick); 
+
           //  this.FormClosed += new FormClosedEventHandler(Inicio_FormClosed_1);
 
             Dictionary<string, string> comboSource = new Dictionary<string, string>();
@@ -41,20 +43,28 @@ namespace Projeto_NFC_e
             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("DESCRIÇÃO");
         }
 
-
-        public void FormPesquisaSimples_Closing(object sender, FormClosingEventArgs e)
+        private void roomDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Teste1.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
+            InserirCidadeCliente();
+            this.Close();
         }
 
-        public string RetornarSelecao() {
-            
-            return ItemSelect; 
+    /*    public void FormPesquisaSimples_Closing(object sender, FormClosingEventArgs e)
+        {
+            SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
+            SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
         }
+        */
 
         private void PanFiltros_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void InserirCidadeCliente()
+        {
+            SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
+            SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
         }
 
         public void CarregarListView()
@@ -177,6 +187,17 @@ namespace Projeto_NFC_e
                                            }              
                                   }
         
-          } 
+          }
+
+           private void button1_Click(object sender, EventArgs e)
+           {
+               InserirCidadeCliente();
+               this.Close();
+           }
+
+           private void ButCancelar_Click(object sender, EventArgs e)
+           {
+               this.Close();
+           } 
     }
 }

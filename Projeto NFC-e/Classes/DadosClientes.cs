@@ -10,15 +10,16 @@ namespace Projeto_NFC_e
 {
     public class DadosClientes
     {
-       public class ClientesObj {
-       public string Nome = "";
-           public string CpfCnpj = "";
+        public class ClientesObj {
+        public string Nome = "";
+        public string CpfCnpj = "";
         public int Pessoa = 1;
         public bool Estrangeiro = false;
         public string IdentEstrangeiro = "";
         public string RS = "";
         public string NomeFant = "";
         public string Endereco = "";
+        public string IdCidade = "";
         public string Num = "";
         public string Cep = "";
         public string FoneRes = "";
@@ -86,7 +87,7 @@ namespace Projeto_NFC_e
 
 
                 string SqlInsert = "insert into t0050 values(@Nome, @CpfCnpj, @Pessoa, @Estrangeiro, ";
-                SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, ";
+                SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, @IdCidade,";
                 SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
                 SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
                 SqlInsert += "@InscEst, @InscMun)";
@@ -101,6 +102,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@RS", clientes.RS);
                 ObjCmd.Parameters.AddWithValue("@NomeFant", clientes.NomeFant);
                 ObjCmd.Parameters.AddWithValue("@Endereco", clientes.Endereco);
+                ObjCmd.Parameters.AddWithValue("@IdCidade", clientes.IdCidade);
                 ObjCmd.Parameters.AddWithValue("@Num", clientes.Num);
                 ObjCmd.Parameters.AddWithValue("@Cep", clientes.Cep);
                 ObjCmd.Parameters.AddWithValue("@FoneRes", clientes.FoneRes);
@@ -131,6 +133,7 @@ namespace Projeto_NFC_e
                 SqlUpdate += "RS = @RS, ";
                 SqlUpdate += "NomeFant = NomeFant,"; 
                 SqlUpdate += "Endereco = @Endereco, ";
+                SqlUpdate += "IdCidade = @IdCidade, ";
                 SqlUpdate += "Num = @Num, ";
                 SqlUpdate += "Cep = @Cep, ";
                 SqlUpdate += "FoneRes = @FoneRes, ";
@@ -155,6 +158,7 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@RS", clientes.RS);
                 ObjCmd.Parameters.AddWithValue("@NomeFant", clientes.NomeFant);
                 ObjCmd.Parameters.AddWithValue("@Endereco", clientes.Endereco);
+                ObjCmd.Parameters.AddWithValue("@IdCidade", clientes.IdCidade);
                 ObjCmd.Parameters.AddWithValue("@Num", clientes.Num);
                 ObjCmd.Parameters.AddWithValue("@Cep", clientes.Cep);
                 ObjCmd.Parameters.AddWithValue("@FoneRes", clientes.FoneRes);

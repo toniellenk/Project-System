@@ -22,6 +22,11 @@ namespace Projeto_NFC_e
             public static int NvProduto
             {
                 get { return 2; }
+            }
+
+            public static int NvPdVenda
+            {
+                get { return 3; }
             } 
 
         };
@@ -36,6 +41,11 @@ namespace Projeto_NFC_e
             public static int FiltProduto
             {
                 get { return 2; }
+            }
+
+            public static int FiltPdVenda
+            {
+                get { return 3; }
             } 
 
         };
@@ -53,6 +63,11 @@ namespace Projeto_NFC_e
                 return 2;
             }
 
+            public static int AltPdVenda()
+            {
+                return 3;
+            }
+
         };
 
         public class BotaoDel
@@ -67,6 +82,10 @@ namespace Projeto_NFC_e
                 return 2;
             }
 
+            public static int DelPdVenda()
+            {
+                return 3;
+            }
         };
 
     /*    public Dictionary<string, string> FiltrosGrade()
@@ -87,13 +106,19 @@ namespace Projeto_NFC_e
                 case 1:
                     {
                         FormCliente NovoCliente = new FormCliente(1, "1");
-                        NovoCliente.Show();  
+                        NovoCliente.ShowDialog();  
                         break;
                     }
                 case 2:
                     {
                         FormProduto NovoProduto = new FormProduto(1, "1");
-                        NovoProduto.Show();  
+                        NovoProduto.ShowDialog();  
+                        break;
+                    }
+                case 3:
+                    {
+                        FormPdVenda NovoPdVenda = new FormPdVenda(1, "1");
+                        NovoPdVenda.ShowDialog();
                         break;
                     } 
             }
@@ -107,13 +132,19 @@ namespace Projeto_NFC_e
                 case 1:
                     {
                         FormCliente ALterarCliente = new FormCliente(2, ItemSelect);
-                        ALterarCliente.Show();
+                        ALterarCliente.ShowDialog();
                         break;
                     }
                 case 2:
                     {
                         FormProduto AlterarProduto = new FormProduto(2, ItemSelect);
-                        AlterarProduto.Show(); 
+                        AlterarProduto.ShowDialog(); 
+                        break;
+                    }
+                case 3:
+                    {
+                        FormPdVenda AlterarPdVenda = new FormPdVenda(2, ItemSelect);
+                        AlterarPdVenda.ShowDialog();
                         break;
                     } 
             }
@@ -135,6 +166,14 @@ namespace Projeto_NFC_e
                         DelProduto.remover(ItemSelect);
                         break;
                     }
+
+                case 3:
+                    {
+                        DadosPdVenda DelPdVenda = new DadosPdVenda();
+                        DelPdVenda.remover(ItemSelect);
+                        break;
+                    }
+                    
                     
             }
         }

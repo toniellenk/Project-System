@@ -28,7 +28,7 @@ namespace Projeto_NFC_e
             Operacao = Op;
             if (Op == 2)
             {
-                Alterar(ItemSelect);
+                CarregarDadosAlterar(ItemSelect);
             }
 
         }
@@ -142,8 +142,9 @@ namespace Projeto_NFC_e
                 ObjCliente.Nome  = TxtBxRS.Text;
             }  
             ObjCliente.Estrangeiro = ChBxEntrangeiro.Checked;
-            ObjCliente.IdentEstrangeiro = TxtBoxIdentEstrang.Text;                     
-            ObjCliente.Endereco = TxtBxEndereco.Text ;
+            ObjCliente.IdentEstrangeiro = TxtBoxIdentEstrang.Text;
+            ObjCliente.Endereco = TxtBxEndereco.Text;       
+            ObjCliente.IdCidade = TxtBxCidade.Text;
             ObjCliente.Num = TxtBxNum.Text;
             ObjCliente.Cep = MaskCep.Text;
             ObjCliente.FoneRes = MaskFoneRes.Text;
@@ -180,7 +181,7 @@ namespace Projeto_NFC_e
             }  
         
         }
-        public void Alterar(string ItemSelect){
+        public void CarregarDadosAlterar(string ItemSelect){
 
             DadosClientes objDados = new DadosClientes();
             objDados.Consulta(" where IdCliente = " + ItemSelect);
@@ -210,6 +211,7 @@ namespace Projeto_NFC_e
                  }                
                 TxtBxNomFant.Text = linha["NomeFant"].ToString();
                 TxtBxEndereco.Text = linha["Endereco"].ToString();
+                TxtBxCidade.Text = linha["IdCidade"].ToString();
                 TxtBxNum.Text = linha["Num"].ToString();
                 MaskCep.Text = linha["Cep"].ToString();
                 MaskFoneRes.Text = linha["FoneRes"].ToString();
@@ -252,6 +254,13 @@ namespace Projeto_NFC_e
                 retorno = false;
                 CapInvalid += "* Nome/Rasão Social \n";
                 epErro.SetError(TxtBxRS, "Preencha a Rasão Social.");
+
+            }
+            if (string.IsNullOrEmpty(TxtBxCidade.Text))
+            {
+                retorno = false;
+                CapInvalid += "* Cidade-UF \n";
+                epErro.SetError(TxtBxCidade, "Preencha a Cidade-UF.");
 
             }
             if (retorno == false)
@@ -306,9 +315,14 @@ namespace Projeto_NFC_e
         private void button2_Click(object sender, EventArgs e)
         {
             FormPesquisaSimples TelaPesquisa = new FormPesquisaSimples(this,"Cidade");
-            TelaPesquisa.Show();    
-            
-            
+            TelaPesquisa.ShowDialog();
+
+
+        }
+
+        private void ButListClient_Click(object sender, EventArgs e)
+        {
+
         }
 
         

@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.TabContCliente = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.LabDescCidade = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.LabNumID = new System.Windows.Forms.Label();
             this.LabNomID = new System.Windows.Forms.Label();
             this.TxtBxCidade = new System.Windows.Forms.TextBox();
@@ -82,7 +84,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ButListClient = new System.Windows.Forms.Button();
             this.epErro = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.TabContCliente.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.LabDescCidade);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.LabNumID);
             this.tabPage1.Controls.Add(this.LabNomID);
@@ -148,6 +150,29 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // LabDescCidade
+            // 
+            this.LabDescCidade.AutoSize = true;
+            this.LabDescCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabDescCidade.Location = new System.Drawing.Point(286, 221);
+            this.LabDescCidade.Name = "LabDescCidade";
+            this.LabDescCidade.Size = new System.Drawing.Size(0, 16);
+            this.LabDescCidade.TabIndex = 42;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(260, 220);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(5);
+            this.button2.Size = new System.Drawing.Size(21, 20);
+            this.button2.TabIndex = 41;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // LabNumID
             // 
             this.LabNumID.AutoSize = true;
@@ -171,9 +196,9 @@
             // 
             // TxtBxCidade
             // 
-            this.TxtBxCidade.Location = new System.Drawing.Point(205, 220);
+            this.TxtBxCidade.Location = new System.Drawing.Point(207, 220);
             this.TxtBxCidade.Name = "TxtBxCidade";
-            this.TxtBxCidade.Size = new System.Drawing.Size(132, 20);
+            this.TxtBxCidade.Size = new System.Drawing.Size(48, 20);
             this.TxtBxCidade.TabIndex = 38;
             // 
             // label20
@@ -623,24 +648,11 @@
             this.ButListClient.TabIndex = 2;
             this.ButListClient.Text = "Listar Clientes";
             this.ButListClient.UseVisualStyleBackColor = true;
+            this.ButListClient.Click += new System.EventHandler(this.ButListClient_Click);
             // 
             // epErro
             // 
             this.epErro.ContainerControl = this;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(345, 220);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5);
-            this.button2.Size = new System.Drawing.Size(21, 20);
-            this.button2.TabIndex = 41;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormCliente
             // 
@@ -727,6 +739,7 @@
         private System.Windows.Forms.Label LabNomID;
         private System.Windows.Forms.Label LabNumID;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Label LabDescCidade;
 
 
     }

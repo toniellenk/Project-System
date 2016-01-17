@@ -41,7 +41,7 @@
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estabelecimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenVend = new System.Windows.Forms.ToolStripMenuItem();
-            this.orçamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PdVendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentosDeSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nFeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenFinan = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +61,9 @@
             this.RadButIgual = new System.Windows.Forms.RadioButton();
             this.ButProcurar = new System.Windows.Forms.Button();
             this.CombBxFilt = new System.Windows.Forms.ComboBox();
-            this.BuNvCliente = new System.Windows.Forms.Button();
-            this.ButDelCliente = new System.Windows.Forms.Button();
-            this.ButAltCliente = new System.Windows.Forms.Button();
+            this.ButNovo = new System.Windows.Forms.Button();
+            this.ButExcluir = new System.Windows.Forms.Button();
+            this.ButAlterar = new System.Windows.Forms.Button();
             this.MenuInicial.SuspendLayout();
             this.PanCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
@@ -76,7 +76,8 @@
             this.MenuInicial.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.MenuInicial.AutoSize = false;
             this.MenuInicial.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.MenuInicial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.MenuInicial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuInicial.BackgroundImage")));
+            this.MenuInicial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MenuInicial.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.MenuInicial.GripMargin = new System.Windows.Forms.Padding(2);
             this.MenuInicial.ImageScalingSize = new System.Drawing.Size(25, 25);
@@ -112,42 +113,44 @@
             // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(227, 32);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(227, 32);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
+            this.produtosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("produtosToolStripMenuItem.Image")));
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(227, 32);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(227, 32);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             // 
             // estabelecimentosToolStripMenuItem
             // 
             this.estabelecimentosToolStripMenuItem.Name = "estabelecimentosToolStripMenuItem";
-            this.estabelecimentosToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.estabelecimentosToolStripMenuItem.Size = new System.Drawing.Size(227, 32);
             this.estabelecimentosToolStripMenuItem.Text = "Estabelecimentos";
             // 
             // MenVend
             // 
             this.MenVend.BackColor = System.Drawing.Color.Transparent;
             this.MenVend.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orçamentosToolStripMenuItem,
+            this.PdVendaToolStripMenuItem,
             this.documentosDeSaídaToolStripMenuItem});
             this.MenVend.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.MenVend.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -157,11 +160,13 @@
             this.MenVend.Text = "Vendas";
             this.MenVend.Click += new System.EventHandler(this.nFeToolStripMenuItem_Click);
             // 
-            // orçamentosToolStripMenuItem
+            // PdVendaToolStripMenuItem
             // 
-            this.orçamentosToolStripMenuItem.Name = "orçamentosToolStripMenuItem";
-            this.orçamentosToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
-            this.orçamentosToolStripMenuItem.Text = "Orçamentos";
+            this.PdVendaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("PdVendaToolStripMenuItem.Image")));
+            this.PdVendaToolStripMenuItem.Name = "PdVendaToolStripMenuItem";
+            this.PdVendaToolStripMenuItem.Size = new System.Drawing.Size(260, 32);
+            this.PdVendaToolStripMenuItem.Text = "Pedidos de Venda";
+            this.PdVendaToolStripMenuItem.Click += new System.EventHandler(this.orçamentosToolStripMenuItem_Click);
             // 
             // documentosDeSaídaToolStripMenuItem
             // 
@@ -169,7 +174,7 @@
             this.nFeToolStripMenuItem1});
             this.documentosDeSaídaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("documentosDeSaídaToolStripMenuItem.Image")));
             this.documentosDeSaídaToolStripMenuItem.Name = "documentosDeSaídaToolStripMenuItem";
-            this.documentosDeSaídaToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
+            this.documentosDeSaídaToolStripMenuItem.Size = new System.Drawing.Size(260, 32);
             this.documentosDeSaídaToolStripMenuItem.Text = "Documentos de Saída";
             // 
             // nFeToolStripMenuItem1
@@ -179,7 +184,7 @@
             this.nFeToolStripMenuItem1.Image = global::Projeto_NFC_e.Properties.Resources.Word_html_doc;
             this.nFeToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.nFeToolStripMenuItem1.Name = "nFeToolStripMenuItem1";
-            this.nFeToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
+            this.nFeToolStripMenuItem1.Size = new System.Drawing.Size(161, 32);
             this.nFeToolStripMenuItem1.Text = "NFe";
             this.nFeToolStripMenuItem1.Click += new System.EventHandler(this.nFeToolStripMenuItem1_Click);
             // 
@@ -228,7 +233,7 @@
             // saldoProdutosToolStripMenuItem
             // 
             this.saldoProdutosToolStripMenuItem.Name = "saldoProdutosToolStripMenuItem";
-            this.saldoProdutosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.saldoProdutosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.saldoProdutosToolStripMenuItem.Text = "Produtos";
             this.saldoProdutosToolStripMenuItem.Click += new System.EventHandler(this.saldoProdutosToolStripMenuItem_Click);
             // 
@@ -244,30 +249,34 @@
             // PanCentral
             // 
             this.PanCentral.AutoScroll = true;
-            this.PanCentral.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.PanCentral.BackColor = System.Drawing.SystemColors.Control;
+            this.PanCentral.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanCentral.BackgroundImage")));
+            this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanCentral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanCentral.Controls.Add(this.NomRotina);
             this.PanCentral.Controls.Add(this.LsVyPrinc);
             this.PanCentral.Controls.Add(this.PanFiltros);
-            this.PanCentral.Controls.Add(this.BuNvCliente);
-            this.PanCentral.Controls.Add(this.ButDelCliente);
-            this.PanCentral.Controls.Add(this.ButAltCliente);
+            this.PanCentral.Controls.Add(this.ButNovo);
+            this.PanCentral.Controls.Add(this.ButExcluir);
+            this.PanCentral.Controls.Add(this.ButAlterar);
             this.PanCentral.Location = new System.Drawing.Point(158, 55);
             this.PanCentral.Margin = new System.Windows.Forms.Padding(5);
             this.PanCentral.Name = "PanCentral";
-            this.PanCentral.Size = new System.Drawing.Size(1078, 860);
+            this.PanCentral.Size = new System.Drawing.Size(1079, 891);
             this.PanCentral.TabIndex = 1;
             this.PanCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanCentral_Paint);
             // 
             // NomRotina
             // 
             this.NomRotina.AutoSize = true;
-            this.NomRotina.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NomRotina.Location = new System.Drawing.Point(17, 12);
+            this.NomRotina.BackColor = System.Drawing.Color.Transparent;
+            this.NomRotina.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomRotina.Location = new System.Drawing.Point(3, 52);
             this.NomRotina.Name = "NomRotina";
-            this.NomRotina.Size = new System.Drawing.Size(262, 55);
+            this.NomRotina.Size = new System.Drawing.Size(174, 36);
             this.NomRotina.TabIndex = 6;
             this.NomRotina.Text = "NomRotina";
+            this.NomRotina.Click += new System.EventHandler(this.NomRotina_Click);
             // 
             // LsVyPrinc
             // 
@@ -279,7 +288,7 @@
             this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.LsVyPrinc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.LsVyPrinc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -312,32 +321,30 @@
             this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.LsVyPrinc.RowHeadersVisible = false;
             this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LsVyPrinc.Size = new System.Drawing.Size(1071, 506);
+            this.LsVyPrinc.Size = new System.Drawing.Size(1071, 548);
             this.LsVyPrinc.StandardTab = true;
             this.LsVyPrinc.TabIndex = 2;
             this.LsVyPrinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LsVyPrinc_CellContentClick);
-           /* this.LsVyPrinc.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter);
-            this.LsVyPrinc.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseLeave);
-           */ this.LsVyPrinc.GotFocus += new System.EventHandler(this.Foco);
+            this.LsVyPrinc.GotFocus += new System.EventHandler(this.Foco);
             // 
             // PanFiltros
             // 
-            this.PanFiltros.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.PanFiltros.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PanFiltros.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PanFiltros.Controls.Add(this.TxtBoxProcurar);
             this.PanFiltros.Controls.Add(this.groupBox1);
             this.PanFiltros.Controls.Add(this.ButProcurar);
             this.PanFiltros.Controls.Add(this.CombBxFilt);
-            this.PanFiltros.Location = new System.Drawing.Point(4, 101);
+            this.PanFiltros.Location = new System.Drawing.Point(4, 139);
             this.PanFiltros.Name = "PanFiltros";
-            this.PanFiltros.Size = new System.Drawing.Size(1066, 122);
+            this.PanFiltros.Size = new System.Drawing.Size(1066, 84);
             this.PanFiltros.TabIndex = 5;
             this.PanFiltros.Visible = false;
             this.PanFiltros.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TxtBoxProcurar
             // 
-            this.TxtBoxProcurar.Location = new System.Drawing.Point(391, 59);
+            this.TxtBoxProcurar.Location = new System.Drawing.Point(396, 37);
             this.TxtBoxProcurar.Name = "TxtBoxProcurar";
             this.TxtBoxProcurar.Size = new System.Drawing.Size(202, 20);
             this.TxtBoxProcurar.TabIndex = 8;
@@ -346,7 +353,7 @@
             // 
             this.groupBox1.Controls.Add(this.RadButContendo);
             this.groupBox1.Controls.Add(this.RadButIgual);
-            this.groupBox1.Location = new System.Drawing.Point(191, 41);
+            this.groupBox1.Location = new System.Drawing.Point(196, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(182, 39);
             this.groupBox1.TabIndex = 7;
@@ -378,7 +385,7 @@
             // 
             // ButProcurar
             // 
-            this.ButProcurar.Location = new System.Drawing.Point(619, 58);
+            this.ButProcurar.Location = new System.Drawing.Point(624, 36);
             this.ButProcurar.Name = "ButProcurar";
             this.ButProcurar.Size = new System.Drawing.Size(75, 23);
             this.ButProcurar.TabIndex = 1;
@@ -389,49 +396,50 @@
             // CombBxFilt
             // 
             this.CombBxFilt.FormattingEnabled = true;
-            this.CombBxFilt.Location = new System.Drawing.Point(41, 58);
+            this.CombBxFilt.Location = new System.Drawing.Point(46, 36);
             this.CombBxFilt.Name = "CombBxFilt";
             this.CombBxFilt.Size = new System.Drawing.Size(131, 21);
             this.CombBxFilt.TabIndex = 0;
             this.CombBxFilt.SelectedIndexChanged += new System.EventHandler(this.CombBxFilt_SelectedIndexChanged);
             // 
-            // BuNvCliente
+            // ButNovo
             // 
-            this.BuNvCliente.Location = new System.Drawing.Point(64, 810);
-            this.BuNvCliente.Name = "BuNvCliente";
-            this.BuNvCliente.Size = new System.Drawing.Size(75, 26);
-            this.BuNvCliente.TabIndex = 1;
-            this.BuNvCliente.Text = "Novo";
-            this.BuNvCliente.UseVisualStyleBackColor = true;
-            this.BuNvCliente.Click += new System.EventHandler(this.ButNovo_Click);
+            this.ButNovo.Location = new System.Drawing.Point(60, 837);
+            this.ButNovo.Name = "ButNovo";
+            this.ButNovo.Size = new System.Drawing.Size(75, 26);
+            this.ButNovo.TabIndex = 1;
+            this.ButNovo.Text = "Novo";
+            this.ButNovo.UseVisualStyleBackColor = true;
+            this.ButNovo.Click += new System.EventHandler(this.ButNovo_Click);
             // 
-            // ButDelCliente
+            // ButExcluir
             // 
-            this.ButDelCliente.Location = new System.Drawing.Point(277, 810);
-            this.ButDelCliente.Name = "ButDelCliente";
-            this.ButDelCliente.Size = new System.Drawing.Size(75, 26);
-            this.ButDelCliente.TabIndex = 4;
-            this.ButDelCliente.Text = "Excluir";
-            this.ButDelCliente.UseVisualStyleBackColor = true;
-            this.ButDelCliente.Click += new System.EventHandler(this.ButDelCliente_Click);
+            this.ButExcluir.Location = new System.Drawing.Point(273, 837);
+            this.ButExcluir.Name = "ButExcluir";
+            this.ButExcluir.Size = new System.Drawing.Size(75, 26);
+            this.ButExcluir.TabIndex = 4;
+            this.ButExcluir.Text = "Excluir";
+            this.ButExcluir.UseVisualStyleBackColor = true;
+            this.ButExcluir.Click += new System.EventHandler(this.ButDelCliente_Click);
             // 
-            // ButAltCliente
+            // ButAlterar
             // 
-            this.ButAltCliente.Location = new System.Drawing.Point(172, 810);
-            this.ButAltCliente.Name = "ButAltCliente";
-            this.ButAltCliente.Size = new System.Drawing.Size(75, 26);
-            this.ButAltCliente.TabIndex = 3;
-            this.ButAltCliente.Text = "Alterar";
-            this.ButAltCliente.UseVisualStyleBackColor = true;
-            this.ButAltCliente.Click += new System.EventHandler(this.ButAltCliente_Click);
+            this.ButAlterar.Location = new System.Drawing.Point(168, 837);
+            this.ButAlterar.Name = "ButAlterar";
+            this.ButAlterar.Size = new System.Drawing.Size(75, 26);
+            this.ButAlterar.TabIndex = 3;
+            this.ButAlterar.Text = "Alterar";
+            this.ButAlterar.UseVisualStyleBackColor = true;
+            this.ButAlterar.Click += new System.EventHandler(this.ButAltCliente_Click);
             // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1237, 1006);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1237, 960);
             this.Controls.Add(this.PanCentral);
             this.Controls.Add(this.MenuInicial);
             this.MainMenuStrip = this.MenuInicial;
@@ -469,16 +477,16 @@
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estabelecimentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem orçamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PdVendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contasAPagarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contasAReceberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saldoProdutosToolStripMenuItem;
         private System.Windows.Forms.Panel PanCentral;
-        private System.Windows.Forms.Button BuNvCliente;
+        private System.Windows.Forms.Button ButNovo;
         private System.Windows.Forms.DataGridView LsVyPrinc;
-        private System.Windows.Forms.Button ButAltCliente;
-        private System.Windows.Forms.Button ButDelCliente;
+        private System.Windows.Forms.Button ButAlterar;
+        private System.Windows.Forms.Button ButExcluir;
         private System.Windows.Forms.Panel PanFiltros;
         private System.Windows.Forms.ComboBox CombBxFilt;
         private System.Windows.Forms.Button ButProcurar;
