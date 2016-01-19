@@ -13,8 +13,13 @@ GO
 
 CREATE TABLE [dbo].[t0060](
 	[IdPdVenda] [numeric](38, 0) IDENTITY(1,1) NOT NULL,
+	[IdLoja] [numeric](38, 0) NOT NULL,
 	[IdCliente] [numeric](38, 0) NOT NULL,
-	[DescDet] [varchar](100) NULL,
+	[IdNatOperacao] [numeric](38, 0) NOT NULL,
+	[IdSerie] [numeric](38, 0) NOT NULL,
+	[DataEmissao] [datetime] NOT NULL,
+	[DataUltAlter] [datetime] NOT NULL,
+	[DataVenc] [datetime] NULL,
 	[CodBarras] [varchar](100) NULL,
 	[Ncm] [nchar](100) NULL,
 	[UnMed] [varchar](50) NULL,
