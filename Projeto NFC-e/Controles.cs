@@ -170,7 +170,7 @@ namespace Projeto_NFC_e
                 case 3:
                     {
                         DadosPdVenda DelPdVenda = new DadosPdVenda();
-                        DelPdVenda.remover(ItemSelect);
+                        DelPdVenda.remover(ItemSelect, "1");
                         break;
                     }
                     
@@ -257,6 +257,80 @@ namespace Projeto_NFC_e
 
 
                         return mDataTable;   
+
+        }
+
+        public static DataTable CarregarGradePdVenda(string Condicoes)
+        {
+
+            DataTable mDataTable = new DataTable();
+
+            DadosPdVenda objDados = new DadosPdVenda();
+            objDados.Consulta("t0060.IdPdVenda, t0060.DataEmissao, t0060.IdCliente, t0050.Nome, t0060.ValorTotalLiq, t0060.Status, t0060.DataUltAlter", Condicoes);
+
+
+            DataColumn mDataColumn;
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "ID";
+            mDataTable.Columns.Add(mDataColumn);
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "Data Emissão";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "ID Cliente";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "Nome Cliente";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "Valor";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "Status";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            mDataColumn = new DataColumn();
+            mDataColumn.DataType = Type.GetType("System.String");
+            mDataColumn.ColumnName = "Ult. Alteração";
+            mDataTable.Columns.Add(mDataColumn);
+
+
+            DataRow linha;
+
+
+
+            foreach (DataRow dr in objDados.dt.Rows)
+            {
+                linha = mDataTable.NewRow();
+                linha["ID"] = dr["IdPdVenda"].ToString();
+                linha["Data Emissão"] = dr["DataEmissao"].ToString();
+                linha["ID Cliente"] = dr["IdCliente"].ToString();
+                linha["Nome Cliente"] = dr["Nome"].ToString();
+                linha["Valor"] = dr["ValorTotalLiq"].ToString();
+                linha["Status"] = dr["Status"].ToString();
+                linha["Ult. Alteração"] = dr["DataUltAlter"].ToString();
+
+                mDataTable.Rows.Add(linha);
+            }
+
+
+            return mDataTable;
 
         }
 

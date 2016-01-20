@@ -87,7 +87,7 @@ namespace Projeto_NFC_e
             // Display a MsgBox asking the user to save changes or abort.
             //e.Cancel = false;
             if (MessageBox.Show("Você têm certeza que quer sair do Sistema?", "My Application",
-               MessageBoxButtons.YesNo) == DialogResult.Yes)
+               MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 // Cancel the Closing event from closing the form.
                 e.Cancel = true;
@@ -313,12 +313,12 @@ namespace Projeto_NFC_e
              ButNovo.Visible = true;
              ButAlterar.Visible = true;
              ButExcluir.Visible = true;
-             TipoButNv = Controles.BotaoNv.NvCliente;
-             TipoButDel = Controles.BotaoDel.DelCliente();
-             TipoButAlt = Controles.BotaoAlt.AltCliente();
-             TipoFilt = Controles.BotaoFiltro.FiltCliente;
+             TipoButNv = Controles.BotaoNv.NvPdVenda;
+             TipoButDel = Controles.BotaoDel.DelPdVenda();
+             TipoButAlt = Controles.BotaoAlt.AltPdVenda();
+             TipoFilt = Controles.BotaoFiltro.FiltPdVenda;
 
-             LsVyPrinc.DataSource = Controles.CarregarGradeClientes("");
+             LsVyPrinc.DataSource = Controles.CarregarGradePdVenda("");
              LsVyPrinc.Columns[0].Width = 30;
              LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
@@ -467,6 +467,60 @@ namespace Projeto_NFC_e
                                  LsVyPrinc.DataSource = Controles.CarregarGradeProdutos("");
                              break;
                          }
+
+                     case 3:
+                         {
+                             switch (Convert.ToInt32(key))
+                             {
+                                 case 0:
+                                     {
+                                         where = "IdPdVenda";
+                                         RadButContendo.Enabled = false;
+                                         RadButIgual.Checked = true;
+                                         break;
+                                     }
+                                 case 1:
+                                     {
+                                         where = "DataEmissao";
+                                         break;
+                                     }
+                                 case 2:
+                                     {
+                                         where = "IdCliente";
+                                         break;
+                                     }
+                                 case 3:
+                                     {
+                                         where = "Nome";
+                                         break;
+                                     }
+                                 case 4:
+                                     {
+                                         where = "ValorTotalLiq";
+                                         break;
+                                     }
+                                 case 5:
+                                     {
+                                         where = "Status";
+                                         break;
+                                     }
+                                 case 6:
+                                     {
+                                         where = "DataUltAlter";
+                                         break;
+                                     }
+
+                             }
+                             if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradePdVenda(" where " + where + " like '%" + TxtBoxProcurar.Text + "%'");
+
+                             if ((RadButIgual.Checked) && (TxtBoxProcurar.Text != ""))
+                                 LsVyPrinc.DataSource = Controles.CarregarGradePdVenda(" where " + where + " = '" + TxtBoxProcurar.Text + "'");
+
+                             if (TxtBoxProcurar.Text == "")
+                                 LsVyPrinc.DataSource = Controles.CarregarGradePdVenda("");
+                             break;
+                         }
                  }
 
              }
@@ -488,16 +542,16 @@ namespace Projeto_NFC_e
              PanCentral.Visible = true;
              NomRotina.Text = "Manutenção de Pedidos de Venda";
              NomRotina.Visible = true;
-           //  LsVyPrinc.Rows.Clear();
-             //CarregarListViewClientes();
+            // LsVyPrinc.Rows.Clear();
+             CarregarListViewPdVenda();
 
-             Filtros = new string[] { "ID PEDIDO", "CLIENTE", "DATA DE EMISSÃO", "ULTIMA ALTERAÇÃO", "VALOR","PENDÊNCIAS", "STATUS" };
+             Filtros = new string[] { "ID", "Data Emissão", "ID Cliente", "Nome Cliente", "Valor", "Status", "Ult. Alteração" };
 
              CombBxFilt.DataSource = new BindingSource(FiltrosGrade(Filtros), null);
              CombBxFilt.DisplayMember = "Value";
              CombBxFilt.ValueMember = "Key";
 
-             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("CLIENTE");
+             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Data Emissão");
          }
     }
 }
