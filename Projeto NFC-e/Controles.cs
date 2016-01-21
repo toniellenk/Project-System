@@ -379,6 +379,29 @@ namespace Projeto_NFC_e
 
                         break;
                     }
+                case "Cliente":
+                    {
+
+                        string Colunas = "IdCliente, Nome";
+
+                        DadosClientes objDados = new DadosClientes();
+
+                        objDados.Consulta(Colunas, Condicoes);
+
+                        foreach (DataRow dr in objDados.dt.Rows)
+                        {
+
+                            linha = mDataTable.NewRow();
+
+                            linha["ID"] = dr["IdCliente"].ToString().Trim(); 
+                            linha["DESCRIÇÃO"] = dr["Nome"].ToString().Trim();
+
+                            mDataTable.Rows.Add(linha);
+                        }
+
+                        break;
+                    }
+
             }
 
             return mDataTable;

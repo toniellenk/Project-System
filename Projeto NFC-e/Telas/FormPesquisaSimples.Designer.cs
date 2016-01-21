@@ -180,6 +180,7 @@
             this.ButNovo.TabIndex = 7;
             this.ButNovo.Text = "Novo";
             this.ButNovo.UseVisualStyleBackColor = true;
+            this.ButNovo.Click += new System.EventHandler(this.ButNovo_Click);
             // 
             // ButExcluir
             // 
@@ -248,7 +249,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView LsVyPrinc;
+        public System.Windows.Forms.DataGridView LsVyPrinc;
         private System.Windows.Forms.Panel PanFiltros;
         private System.Windows.Forms.TextBox TxtBoxProcurar;
         private System.Windows.Forms.GroupBox groupBox1;

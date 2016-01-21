@@ -34,7 +34,7 @@ namespace Projeto_NFC_e
        }
         
         string SrtCon = ConfigurationManager.ConnectionStrings["root"].ConnectionString;
-        public DataSet ds = new DataSet();
+        private DataSet ds = new DataSet();
         public DataTable dt = new DataTable();
 
         public void Consulta() {
@@ -67,7 +67,7 @@ namespace Projeto_NFC_e
         { 
                     
                 /*Query SQL*/
-                string SqlSelect = "select * from t0050" + Condicoes;
+                string SqlSelect = "select * from t0050 " + Condicoes;
                
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
@@ -81,7 +81,26 @@ namespace Projeto_NFC_e
                 dt = ds.Tables[0];
                 ObjConn.Close();
         }
-        
+
+
+        public void Consulta(string Colunas,string Condicoes)
+        {
+
+            /*Query SQL*/
+            string SqlSelect = "select "+Colunas+" from t0050 " + Condicoes;
+
+            SqlConnection ObjConn = new SqlConnection(SrtCon);
+            SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
+
+            /*Definição de parãmetros da Query */
+            //   ObjCmd.Parameters.AddWithValue("@Condicoes", Condicoes);
+
+            ObjConn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(ObjCmd);
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            ObjConn.Close();
+        }
         public void inserir(ClientesObj clientes)
             {
 

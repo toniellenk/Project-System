@@ -26,5 +26,11 @@ namespace Projeto_NFC_e
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+         //   CarregaPesquisaClienteOrcamento TelaPesquisa = new CarregaPesquisaClienteOrcamento(this,"Cidade");
+         //   TelaPesquisa.ShowDialog();
+        }
     }
 }

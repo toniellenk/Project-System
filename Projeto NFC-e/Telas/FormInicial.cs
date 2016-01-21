@@ -167,6 +167,11 @@ namespace Projeto_NFC_e
                         CarregarListViewProdutos();
                         break;
                     }
+                case 3:
+                    {
+                        CarregarListViewPdVenda();
+                        break;
+                    }
             }
         }
 
@@ -320,7 +325,8 @@ namespace Projeto_NFC_e
 
              LsVyPrinc.DataSource = Controles.CarregarGradePdVenda("");
              LsVyPrinc.Columns[0].Width = 30;
-             LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+             LsVyPrinc.Columns[2].Width = 30;
+             LsVyPrinc.Columns[3].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
              LsVyPrinc.Visible = true;
              PanFiltros.Visible = true;
@@ -552,6 +558,11 @@ namespace Projeto_NFC_e
              CombBxFilt.ValueMember = "Key";
 
              CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("Data Emissão");
+         }
+
+         private void pictureBox1_Click(object sender, EventArgs e)
+         {
+
          }
     }
 }

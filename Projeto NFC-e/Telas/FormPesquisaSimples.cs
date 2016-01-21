@@ -13,12 +13,20 @@ namespace Projeto_NFC_e
     public partial class FormPesquisaSimples : Form
     {
         string Tipo;
-        FormCliente SecaoFormCliente;
+        public FormCliente SecaoFormCliente;
+        public FormPdVenda SecaoFormPdVenda;
 
         public FormPesquisaSimples(FormCliente Form, string Tipo)
         {
             InitializeComponent();
             SecaoFormCliente = Form;
+            this.Tipo = Tipo;
+        }
+
+        public FormPesquisaSimples(FormPdVenda Form, string Tipo)
+        {
+            InitializeComponent();
+            SecaoFormPdVenda = Form;
             this.Tipo = Tipo;
         }
 
@@ -45,7 +53,7 @@ namespace Projeto_NFC_e
 
         private void roomDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            InserirCidadeCliente();
+            CarregarCidadeFormCliente();
             this.Close();
         }
 
@@ -61,7 +69,7 @@ namespace Projeto_NFC_e
 
         }
 
-        public void InserirCidadeCliente()
+        public void CarregarCidadeFormCliente()
         {
             SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
             SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
@@ -139,6 +147,26 @@ namespace Projeto_NFC_e
                             }
                             break;
                         }
+                    case "Cliente":
+                        {
+                            switch (Convert.ToInt32(key))
+                            {
+                                case 1:
+                                    {
+                                        where = "IdCliente";
+                                        RadButContendo.Enabled = false;
+                                        RadButIgual.Checked = true;
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        where = "Nome";
+                                        break;
+                                    }
+
+                            }
+                            break;
+                        }
                 }
 
                 if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
@@ -191,13 +219,18 @@ namespace Projeto_NFC_e
 
            private void button1_Click(object sender, EventArgs e)
            {
-               InserirCidadeCliente();
+               CarregarCidadeFormCliente();
                this.Close();
            }
 
            private void ButCancelar_Click(object sender, EventArgs e)
            {
                this.Close();
+           }
+
+           private void ButNovo_Click(object sender, EventArgs e)
+           {
+
            } 
     }
 }
