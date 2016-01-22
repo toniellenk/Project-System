@@ -29,8 +29,13 @@ namespace Projeto_NFC_e
 
         private void button5_Click(object sender, EventArgs e)
         {
-         //   CarregaPesquisaClienteOrcamento TelaPesquisa = new CarregaPesquisaClienteOrcamento(this,"Cidade");
-         //   TelaPesquisa.ShowDialog();
+            PesqSimplClientePdVenda TelaPesquisa = new PesqSimplClientePdVenda(this, "Cliente");
+           TelaPesquisa.ShowDialog();
+        }
+
+        private void TxtDeposito_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

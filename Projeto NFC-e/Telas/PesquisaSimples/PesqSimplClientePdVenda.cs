@@ -3,32 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_NFC_e
 {
-    public class CarregaPesquisaClienteOrcamento : FormPesquisaSimples
+    public partial class PesqSimplClientePdVenda : Projeto_NFC_e.FormPesquisaSimples
     {
-
-       public void FormPesquisaSimples()
+        public PesqSimplClientePdVenda(FormPdVenda Form, string Tipo)
+            : base(Form, Tipo)
         {
-        }
-        private override void roomDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            CarregarCidadeFormCliente();
-            this.Close();
+            //  InitializeComponent();
         }
 
-        public override void CarregarCidadeFormCliente()
+        public override void CarregarFormBase()
         {
-                     
-            
+
+
             DadosClientes Cliente = new DadosClientes();
             Cliente.Consulta("where IdCliente = " + LsVyPrinc.CurrentRow.Cells[0].Value.ToString());
-            foreach (DataRow dr in Cliente.dt.Rows) {
+            foreach (DataRow dr in Cliente.dt.Rows)
+            {
 
                 string CpfCnpj = dr["CpfCnpj"].ToString();
 
@@ -45,8 +40,9 @@ namespace Projeto_NFC_e
 
                 SecaoFormPdVenda.LabNomeCliente.Text = dr["Nome"].ToString();
                 SecaoFormPdVenda.LabCpfCnpjCliente.Text = CpfCnpj;
-                    
-            
+                SecaoFormPdVenda.LabEnderCliente.Text = dr["Endereco"].ToString();
+
+
             }
 
         }

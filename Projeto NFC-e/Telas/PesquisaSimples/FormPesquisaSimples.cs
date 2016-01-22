@@ -51,9 +51,9 @@ namespace Projeto_NFC_e
             CombBxFilt.SelectedIndex = CombBxFilt.FindStringExact("DESCRIÇÃO");
         }
 
-        private void roomDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        public void roomDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            CarregarCidadeFormCliente();
+            CarregarFormBase();
             this.Close();
         }
 
@@ -69,7 +69,7 @@ namespace Projeto_NFC_e
 
         }
 
-        public void CarregarCidadeFormCliente()
+        public virtual void CarregarFormBase()
         {
             SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
             SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
@@ -219,7 +219,7 @@ namespace Projeto_NFC_e
 
            private void button1_Click(object sender, EventArgs e)
            {
-               CarregarCidadeFormCliente();
+               CarregarFormBase();
                this.Close();
            }
 

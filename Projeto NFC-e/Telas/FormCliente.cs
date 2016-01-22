@@ -117,7 +117,7 @@ namespace Projeto_NFC_e
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidaCampos()){
+            if (ValidaCampos() == true){
                 AdcAtua(Operacao);
                 Close();
             }
