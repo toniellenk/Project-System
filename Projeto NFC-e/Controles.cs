@@ -359,7 +359,7 @@ namespace Projeto_NFC_e
                 default:
                     {
 
-                        string Colunas = "IdCidade, t0030.Nome + ' - ' + t0029.Sigla As Nome";
+                        string Colunas = "t0030.IdCidade, t0030.Nome + ' - ' + t0029.Sigla As Nome";
 
                         DadosCidadesBairros objDados = new DadosCidadesBairros();
 
@@ -382,11 +382,11 @@ namespace Projeto_NFC_e
                 case "Cliente":
                     {
 
-                        string Colunas = "IdCliente, Nome";
+                        //string Colunas = "IdCliente, Nome";
 
                         DadosClientes objDados = new DadosClientes();
 
-                        objDados.Consulta(Colunas, Condicoes);
+                        objDados.Consulta(Condicoes);
 
                         foreach (DataRow dr in objDados.dt.Rows)
                         {

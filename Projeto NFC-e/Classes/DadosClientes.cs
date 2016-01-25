@@ -30,6 +30,10 @@ namespace Projeto_NFC_e
         public int IdentFiscal = 1;
         public string InscEst = "";
         public string InscMun = "";
+        public bool SimpNacional = false;
+        public bool SubstIcms = false;
+        public string SitCredito = "";
+        public int GrupoCliente = 0;
 
        }
         
@@ -83,11 +87,15 @@ namespace Projeto_NFC_e
         }
 
 
-        public void Consulta(string Colunas,string Condicoes)
+        public void Consulta(string Colunas, string Condicoes)
         {
 
             /*Query SQL*/
-            string SqlSelect = "select "+Colunas+" from t0050 " + Condicoes;
+            string SqlSelect = "select top 100 " + Colunas + " from t0050 ";
+            SqlSelect += "inner join t0030 on t0050.Idcidade = t0030.Idcidade ";
+            SqlSelect += "inner join t0029 on t0030.IdEstado = t0029.IdEstado ";
+            SqlSelect += "left join t0031 on t0030.Idcidade = t0031.Idcidade ";
+            SqlSelect += Condicoes;
 
             SqlConnection ObjConn = new SqlConnection(SrtCon);
             SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
@@ -109,7 +117,7 @@ namespace Projeto_NFC_e
                 SqlInsert += "@IdentEstrangeiro, @RS, @NomeFant, @Endereco, @IdCidade,";
                 SqlInsert += "@Num, @Cep, @FoneRes, @FoneCom, ";
                 SqlInsert += "@Cel, @OutrosCont, @Email, @IdentFiscal, ";
-                SqlInsert += "@InscEst, @InscMun)";
+                SqlInsert += "@InscEst, @InscMun, @SimpNacional, @SubstIcms, @SitCredito, @GrupoCliente)";
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlInsert, ObjConn);
 
@@ -132,6 +140,10 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@IdentFiscal", clientes.IdentFiscal);
                 ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
                 ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
+                ObjCmd.Parameters.AddWithValue("@SimpNacional", clientes.SimpNacional);
+                ObjCmd.Parameters.AddWithValue("@SubstIcms", clientes.SubstIcms);
+                ObjCmd.Parameters.AddWithValue("@SitCredito", clientes.SitCredito);
+                ObjCmd.Parameters.AddWithValue("@GrupoCliente", clientes.GrupoCliente);
                 
                 ObjConn.Open();
                 
@@ -162,9 +174,13 @@ namespace Projeto_NFC_e
                 SqlUpdate += "Email = @Email, ";
                 SqlUpdate += "IdentFiscal = @IdentFiscal, ";
                 SqlUpdate += "InscEst = @InscEst, ";
-                SqlUpdate += "InscMun = @InscMun "; 
+                SqlUpdate += "InscMun = @InscMun, ";
+                SqlUpdate += "SimpNacional = @SimpNacional, ";
+                SqlUpdate += "SubstIcms = @SubstIcms, ";
+                SqlUpdate += "SitCredito = @SitCredito, ";
+                SqlUpdate += "GrupoCliente = @GrupoCliente"; 
                 
-                SqlUpdate += "where IdCliente = @IdCliente";
+                SqlUpdate += " where IdCliente = @IdCliente";
                 
                 SqlConnection ObjConn = new SqlConnection(SrtCon);
                 SqlCommand ObjCmd = new SqlCommand(SqlUpdate, ObjConn);
@@ -188,6 +204,10 @@ namespace Projeto_NFC_e
                 ObjCmd.Parameters.AddWithValue("@IdentFiscal", clientes.IdentFiscal);
                 ObjCmd.Parameters.AddWithValue("@InscEst", clientes.InscEst);
                 ObjCmd.Parameters.AddWithValue("@InscMun", clientes.InscMun);
+                ObjCmd.Parameters.AddWithValue("@SimpNacional", clientes.SimpNacional);
+                ObjCmd.Parameters.AddWithValue("@SubstIcms", clientes.SubstIcms);
+                ObjCmd.Parameters.AddWithValue("@SitCredito", clientes.SitCredito);
+                ObjCmd.Parameters.AddWithValue("@GrupoCliente", clientes.GrupoCliente);
                 ObjCmd.Parameters.AddWithValue("@IdCliente", IdCliente);
                 
                 ObjConn.Open();

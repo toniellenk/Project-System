@@ -29,24 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPdVenda));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.ImgBloq = new System.Windows.Forms.PictureBox();
+            this.ImgAlert = new System.Windows.Forms.PictureBox();
+            this.ImgOk = new System.Windows.Forms.PictureBox();
+            this.LabSitCred = new System.Windows.Forms.Label();
+            this.LabUf = new System.Windows.Forms.Label();
+            this.LabCidade = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.LabCpfCnpjCliente = new System.Windows.Forms.Label();
+            this.RadButNomeCliente = new System.Windows.Forms.RadioButton();
+            this.LabEnderCliente = new System.Windows.Forms.Label();
+            this.RadButIDCliente = new System.Windows.Forms.RadioButton();
             this.LabNomeCliente = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtBoxCliente = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LabSalvarProduto = new System.Windows.Forms.Label();
             this.LsVyPrinc = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.LabSaldoEstoque = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.TxtBoxQuantUnit = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -55,30 +69,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.LabNomeItem = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
-            this.TxtDeposito = new System.Windows.Forms.TextBox();
+            this.TxtBoxProduto = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.LabEnderCliente = new System.Windows.Forms.Label();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.LabCidade = new System.Windows.Forms.Label();
-            this.LabUf = new System.Windows.Forms.Label();
-            this.LabSitCred = new System.Windows.Forms.Label();
-            this.LabNomeItem = new System.Windows.Forms.Label();
-            this.LabSaldoEstoque = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgBloq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgAlert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgOk)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
             this.groupBox9.SuspendLayout();
@@ -87,7 +94,6 @@
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -107,12 +113,12 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.groupBox15);
             this.groupBox2.Controls.Add(this.LabCpfCnpjCliente);
-            this.groupBox2.Controls.Add(this.radioButton3);
+            this.groupBox2.Controls.Add(this.RadButNomeCliente);
             this.groupBox2.Controls.Add(this.LabEnderCliente);
-            this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Controls.Add(this.RadButIDCliente);
             this.groupBox2.Controls.Add(this.LabNomeCliente);
             this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.TxtBoxCliente);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox2.Location = new System.Drawing.Point(53, 93);
@@ -121,6 +127,139 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label3.Location = new System.Drawing.Point(321, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 15);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "CPF/CNPJ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label4.Location = new System.Drawing.Point(321, 63);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 15);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Endereço:";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.ImgBloq);
+            this.groupBox15.Controls.Add(this.ImgAlert);
+            this.groupBox15.Controls.Add(this.ImgOk);
+            this.groupBox15.Controls.Add(this.LabSitCred);
+            this.groupBox15.Controls.Add(this.LabUf);
+            this.groupBox15.Controls.Add(this.LabCidade);
+            this.groupBox15.Controls.Add(this.label7);
+            this.groupBox15.Controls.Add(this.label6);
+            this.groupBox15.Controls.Add(this.label5);
+            this.groupBox15.Location = new System.Drawing.Point(591, 0);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(210, 89);
+            this.groupBox15.TabIndex = 17;
+            this.groupBox15.TabStop = false;
+            // 
+            // ImgBloq
+            // 
+            this.ImgBloq.Image = ((System.Drawing.Image)(resources.GetObject("ImgBloq.Image")));
+            this.ImgBloq.Location = new System.Drawing.Point(96, 62);
+            this.ImgBloq.Name = "ImgBloq";
+            this.ImgBloq.Size = new System.Drawing.Size(16, 16);
+            this.ImgBloq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgBloq.TabIndex = 25;
+            this.ImgBloq.TabStop = false;
+            // 
+            // ImgAlert
+            // 
+            this.ImgAlert.Image = ((System.Drawing.Image)(resources.GetObject("ImgAlert.Image")));
+            this.ImgAlert.Location = new System.Drawing.Point(96, 62);
+            this.ImgAlert.Name = "ImgAlert";
+            this.ImgAlert.Size = new System.Drawing.Size(16, 16);
+            this.ImgAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgAlert.TabIndex = 26;
+            this.ImgAlert.TabStop = false;
+            // 
+            // ImgOk
+            // 
+            this.ImgOk.Image = ((System.Drawing.Image)(resources.GetObject("ImgOk.Image")));
+            this.ImgOk.Location = new System.Drawing.Point(96, 62);
+            this.ImgOk.Name = "ImgOk";
+            this.ImgOk.Size = new System.Drawing.Size(16, 16);
+            this.ImgOk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgOk.TabIndex = 27;
+            this.ImgOk.TabStop = false;
+            this.ImgOk.Click += new System.EventHandler(this.ImgOk_Click);
+            // 
+            // LabSitCred
+            // 
+            this.LabSitCred.AutoSize = true;
+            this.LabSitCred.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabSitCred.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LabSitCred.Location = new System.Drawing.Point(118, 63);
+            this.LabSitCred.Name = "LabSitCred";
+            this.LabSitCred.Size = new System.Drawing.Size(0, 15);
+            this.LabSitCred.TabIndex = 24;
+            // 
+            // LabUf
+            // 
+            this.LabUf.AutoSize = true;
+            this.LabUf.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabUf.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LabUf.Location = new System.Drawing.Point(29, 37);
+            this.LabUf.Name = "LabUf";
+            this.LabUf.Size = new System.Drawing.Size(0, 15);
+            this.LabUf.TabIndex = 23;
+            // 
+            // LabCidade
+            // 
+            this.LabCidade.AutoSize = true;
+            this.LabCidade.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabCidade.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LabCidade.Location = new System.Drawing.Point(52, 19);
+            this.LabCidade.Name = "LabCidade";
+            this.LabCidade.Size = new System.Drawing.Size(0, 15);
+            this.LabCidade.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label7.Location = new System.Drawing.Point(7, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 15);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Sit. de Crédito:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label6.Location = new System.Drawing.Point(7, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 15);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "UF:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label5.Location = new System.Drawing.Point(7, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 15);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Cidade:";
             // 
             // LabCpfCnpjCliente
             // 
@@ -131,6 +270,39 @@
             this.LabCpfCnpjCliente.Size = new System.Drawing.Size(0, 15);
             this.LabCpfCnpjCliente.TabIndex = 15;
             // 
+            // RadButNomeCliente
+            // 
+            this.RadButNomeCliente.AutoSize = true;
+            this.RadButNomeCliente.Checked = true;
+            this.RadButNomeCliente.ForeColor = System.Drawing.Color.Blue;
+            this.RadButNomeCliente.Location = new System.Drawing.Point(54, 37);
+            this.RadButNomeCliente.Name = "RadButNomeCliente";
+            this.RadButNomeCliente.Size = new System.Drawing.Size(67, 23);
+            this.RadButNomeCliente.TabIndex = 13;
+            this.RadButNomeCliente.TabStop = true;
+            this.RadButNomeCliente.Text = "Nome";
+            this.RadButNomeCliente.UseVisualStyleBackColor = true;
+            // 
+            // LabEnderCliente
+            // 
+            this.LabEnderCliente.AutoSize = true;
+            this.LabEnderCliente.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabEnderCliente.Location = new System.Drawing.Point(394, 63);
+            this.LabEnderCliente.Name = "LabEnderCliente";
+            this.LabEnderCliente.Size = new System.Drawing.Size(0, 15);
+            this.LabEnderCliente.TabIndex = 16;
+            // 
+            // RadButIDCliente
+            // 
+            this.RadButIDCliente.AutoSize = true;
+            this.RadButIDCliente.ForeColor = System.Drawing.Color.Blue;
+            this.RadButIDCliente.Location = new System.Drawing.Point(10, 37);
+            this.RadButIDCliente.Name = "RadButIDCliente";
+            this.RadButIDCliente.Size = new System.Drawing.Size(45, 23);
+            this.RadButIDCliente.TabIndex = 12;
+            this.RadButIDCliente.Text = "ID";
+            this.RadButIDCliente.UseVisualStyleBackColor = true;
+            // 
             // LabNomeCliente
             // 
             this.LabNomeCliente.AutoSize = true;
@@ -140,30 +312,6 @@
             this.LabNomeCliente.Name = "LabNomeCliente";
             this.LabNomeCliente.Size = new System.Drawing.Size(0, 15);
             this.LabNomeCliente.TabIndex = 14;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton3.Location = new System.Drawing.Point(54, 37);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(67, 23);
-            this.radioButton3.TabIndex = 13;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Nome";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton4.Location = new System.Drawing.Point(10, 37);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 23);
-            this.radioButton4.TabIndex = 12;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "ID";
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -179,15 +327,15 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox3
+            // TxtBoxCliente
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox3.Location = new System.Drawing.Point(118, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(147, 20);
-            this.textBox3.TabIndex = 11;
+            this.TxtBoxCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtBoxCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxCliente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtBoxCliente.Location = new System.Drawing.Point(118, 40);
+            this.TxtBoxCliente.Name = "TxtBoxCliente";
+            this.TxtBoxCliente.Size = new System.Drawing.Size(147, 20);
+            this.TxtBoxCliente.TabIndex = 11;
             // 
             // groupBox3
             // 
@@ -250,8 +398,8 @@
             this.LsVyPrinc.AllowUserToDeleteRows = false;
             this.LsVyPrinc.AllowUserToResizeColumns = false;
             this.LsVyPrinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ControlLight;
@@ -259,19 +407,19 @@
             this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.LsVyPrinc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle7;
             this.LsVyPrinc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.LsVyPrinc.GridColor = System.Drawing.Color.Aqua;
             this.LsVyPrinc.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
@@ -280,11 +428,11 @@
             this.LsVyPrinc.MultiSelect = false;
             this.LsVyPrinc.Name = "LsVyPrinc";
             this.LsVyPrinc.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.LsVyPrinc.RowHeadersVisible = false;
             this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.LsVyPrinc.Size = new System.Drawing.Size(656, 303);
@@ -302,6 +450,16 @@
             this.groupBox9.TabIndex = 12;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Saldo em Estoque";
+            // 
+            // LabSaldoEstoque
+            // 
+            this.LabSaldoEstoque.AutoSize = true;
+            this.LabSaldoEstoque.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabSaldoEstoque.ForeColor = System.Drawing.Color.Blue;
+            this.LabSaldoEstoque.Location = new System.Drawing.Point(48, 18);
+            this.LabSaldoEstoque.Name = "LabSaldoEstoque";
+            this.LabSaldoEstoque.Size = new System.Drawing.Size(0, 15);
+            this.LabSaldoEstoque.TabIndex = 20;
             // 
             // groupBox8
             // 
@@ -400,12 +558,22 @@
             this.groupBox5.Text = "Descrição";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
+            // LabNomeItem
+            // 
+            this.LabNomeItem.AutoSize = true;
+            this.LabNomeItem.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LabNomeItem.ForeColor = System.Drawing.Color.Blue;
+            this.LabNomeItem.Location = new System.Drawing.Point(20, 17);
+            this.LabNomeItem.Name = "LabNomeItem";
+            this.LabNomeItem.Size = new System.Drawing.Size(0, 15);
+            this.LabNomeItem.TabIndex = 19;
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.radioButton2);
             this.groupBox7.Controls.Add(this.radioButton1);
             this.groupBox7.Controls.Add(this.button3);
-            this.groupBox7.Controls.Add(this.TxtDeposito);
+            this.groupBox7.Controls.Add(this.TxtBoxProduto);
             this.groupBox7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.Color.Black;
             this.groupBox7.Location = new System.Drawing.Point(6, 15);
@@ -452,16 +620,16 @@
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // TxtDeposito
+            // TxtBoxProduto
             // 
-            this.TxtDeposito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDeposito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDeposito.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TxtDeposito.Location = new System.Drawing.Point(134, 13);
-            this.TxtDeposito.Name = "TxtDeposito";
-            this.TxtDeposito.Size = new System.Drawing.Size(67, 20);
-            this.TxtDeposito.TabIndex = 7;
-            this.TxtDeposito.TextChanged += new System.EventHandler(this.TxtDeposito_TextChanged);
+            this.TxtBoxProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtBoxProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtBoxProduto.Location = new System.Drawing.Point(134, 13);
+            this.TxtBoxProduto.Name = "TxtBoxProduto";
+            this.TxtBoxProduto.Size = new System.Drawing.Size(67, 20);
+            this.TxtBoxProduto.TabIndex = 7;
+            this.TxtBoxProduto.TextChanged += new System.EventHandler(this.TxtDeposito_TextChanged);
             // 
             // groupBox4
             // 
@@ -533,134 +701,6 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Data de Emissão";
             // 
-            // LabEnderCliente
-            // 
-            this.LabEnderCliente.AutoSize = true;
-            this.LabEnderCliente.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabEnderCliente.Location = new System.Drawing.Point(394, 63);
-            this.LabEnderCliente.Name = "LabEnderCliente";
-            this.LabEnderCliente.Size = new System.Drawing.Size(0, 15);
-            this.LabEnderCliente.TabIndex = 16;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.LabSitCred);
-            this.groupBox15.Controls.Add(this.LabUf);
-            this.groupBox15.Controls.Add(this.LabCidade);
-            this.groupBox15.Controls.Add(this.label7);
-            this.groupBox15.Controls.Add(this.label6);
-            this.groupBox15.Controls.Add(this.label5);
-            this.groupBox15.Location = new System.Drawing.Point(591, 0);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(210, 89);
-            this.groupBox15.TabIndex = 17;
-            this.groupBox15.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label3.Location = new System.Drawing.Point(321, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "CPF/CNPJ:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label4.Location = new System.Drawing.Point(321, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 15);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Endereço:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label5.Location = new System.Drawing.Point(7, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 15);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Cidade:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label6.Location = new System.Drawing.Point(7, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 15);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "UF:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label7.Location = new System.Drawing.Point(7, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 15);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Situação de Crédito:";
-            // 
-            // LabCidade
-            // 
-            this.LabCidade.AutoSize = true;
-            this.LabCidade.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabCidade.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.LabCidade.Location = new System.Drawing.Point(52, 19);
-            this.LabCidade.Name = "LabCidade";
-            this.LabCidade.Size = new System.Drawing.Size(0, 15);
-            this.LabCidade.TabIndex = 22;
-            // 
-            // LabUf
-            // 
-            this.LabUf.AutoSize = true;
-            this.LabUf.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabUf.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.LabUf.Location = new System.Drawing.Point(29, 37);
-            this.LabUf.Name = "LabUf";
-            this.LabUf.Size = new System.Drawing.Size(0, 15);
-            this.LabUf.TabIndex = 23;
-            // 
-            // LabSitCred
-            // 
-            this.LabSitCred.AutoSize = true;
-            this.LabSitCred.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabSitCred.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.LabSitCred.Location = new System.Drawing.Point(121, 63);
-            this.LabSitCred.Name = "LabSitCred";
-            this.LabSitCred.Size = new System.Drawing.Size(0, 15);
-            this.LabSitCred.TabIndex = 24;
-            // 
-            // LabNomeItem
-            // 
-            this.LabNomeItem.AutoSize = true;
-            this.LabNomeItem.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabNomeItem.ForeColor = System.Drawing.Color.Blue;
-            this.LabNomeItem.Location = new System.Drawing.Point(20, 17);
-            this.LabNomeItem.Name = "LabNomeItem";
-            this.LabNomeItem.Size = new System.Drawing.Size(0, 15);
-            this.LabNomeItem.TabIndex = 19;
-            // 
-            // LabSaldoEstoque
-            // 
-            this.LabSaldoEstoque.AutoSize = true;
-            this.LabSaldoEstoque.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabSaldoEstoque.ForeColor = System.Drawing.Color.Blue;
-            this.LabSaldoEstoque.Location = new System.Drawing.Point(48, 18);
-            this.LabSaldoEstoque.Name = "LabSaldoEstoque";
-            this.LabSaldoEstoque.Size = new System.Drawing.Size(0, 15);
-            this.LabSaldoEstoque.TabIndex = 20;
-            // 
             // FormPdVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,6 +715,11 @@
             this.Text = "Pedido de Venda";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgBloq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgAlert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgOk)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
@@ -689,8 +734,6 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox10.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -704,7 +747,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox TxtDeposito;
+        private System.Windows.Forms.TextBox TxtBoxProduto;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
@@ -724,10 +767,10 @@
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton RadButNomeCliente;
+        private System.Windows.Forms.RadioButton RadButIDCliente;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtBoxCliente;
         public System.Windows.Forms.Label LabCpfCnpjCliente;
         public System.Windows.Forms.Label LabNomeCliente;
         public System.Windows.Forms.Label LabEnderCliente;
@@ -742,5 +785,8 @@
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label LabSaldoEstoque;
         public System.Windows.Forms.Label LabNomeItem;
+        public System.Windows.Forms.PictureBox ImgOk;
+        public System.Windows.Forms.PictureBox ImgAlert;
+        public System.Windows.Forms.PictureBox ImgBloq;
     }
 }
