@@ -20,6 +20,15 @@ namespace Projeto_NFC_e
             ImgAlert.Visible = false;
         }
 
+        public FormPdVenda()
+        {
+            InitializeComponent();
+            ImgBloq.Visible = false;
+            ImgAlert.Visible = false;
+            ImgAlert.Visible = false;
+        }
+
+
         private void groupBox6_Enter(object sender, EventArgs e)
         {
 
@@ -33,10 +42,9 @@ namespace Projeto_NFC_e
         private void button5_Click(object sender, EventArgs e)
         {
             try {
-                PesqSimplClientePdVenda TelaPesquisa = new PesqSimplClientePdVenda(this, "Cliente");
+                PesqSimplClientePdVenda TelaPesquisa = new PesqSimplClientePdVenda(this);
                 if (RadButIDCliente.Checked) TelaPesquisa.TipoProcura = 1;
                 if (RadButNomeCliente.Checked) TelaPesquisa.TipoProcura = 2; 
-                TelaPesquisa.Procura = TxtBoxCliente.Text;
                 TelaPesquisa.ShowDialog();
                 }
             catch (Exception ex)
@@ -53,6 +61,22 @@ namespace Projeto_NFC_e
 
         private void ImgOk_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PesquisaProdutoPdVenda TelaPesquisa = new PesquisaProdutoPdVenda(this);
+                if (RadButIdProd.Checked) TelaPesquisa.TipoProcura = 1;
+                if (RadButNomeProd.Checked) TelaPesquisa.TipoProcura = 2;
+                TelaPesquisa.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ao filtrar dados dados: " + ex.Message.ToString(), "Erro ao Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

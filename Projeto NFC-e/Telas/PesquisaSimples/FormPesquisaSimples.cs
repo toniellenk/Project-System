@@ -12,27 +12,30 @@ namespace Projeto_NFC_e
 {
     public partial class FormPesquisaSimples : Form
     {
-        string Tipo;
         public FormCliente SecaoFormCliente;
         public FormPdVenda SecaoFormPdVenda;
-        public string Procura;
+        public string Tipo, Procura, CampoId, CampoDesc;
         string key = "2";
         string value = "";
         bool TemProcura = false;
-        public int TipoProcura;
+        public int TipoProcura = 2;
 
-        public FormPesquisaSimples(FormCliente Form, string Tipo)
+        public FormPesquisaSimples()
+        {
+            InitializeComponent();
+        }
+
+
+        public FormPesquisaSimples(FormCliente Form)
         {
             InitializeComponent();
             SecaoFormCliente = Form;
-            this.Tipo = Tipo;
         }
 
-        public FormPesquisaSimples(FormPdVenda Form, string Tipo)
+        public FormPesquisaSimples(FormPdVenda Form)
         {
             InitializeComponent();
             SecaoFormPdVenda = Form;
-            this.Tipo = Tipo;
         }
 
         private void FormPesquisaSimples_Load(object sender, EventArgs e)
@@ -62,12 +65,6 @@ namespace Projeto_NFC_e
             this.Close();
         }
 
-    /*    public void FormPesquisaSimples_Closing(object sender, FormClosingEventArgs e)
-        {
-            SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
-            SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
-        }
-        */
 
         private void PanFiltros_Paint(object sender, PaintEventArgs e)
         {
@@ -76,8 +73,7 @@ namespace Projeto_NFC_e
 
         public virtual void CarregarFormBase()
         {
-            SecaoFormCliente.TxtBxCidade.Text = LsVyPrinc.CurrentRow.Cells[0].Value.ToString();
-            SecaoFormCliente.LabDescCidade.Text = LsVyPrinc.CurrentRow.Cells[1].Value.ToString();
+
         }
 
         public void CarregarListView()
@@ -93,19 +89,7 @@ namespace Projeto_NFC_e
                 if (Procura != "" && TipoProcura == 2) { TemProcura = true; TxtBoxProcurar.Text = Procura; RadButContendo.Checked = true; key = "2"; CarregarFiltros(); }
                 if (Procura != "" && TipoProcura == 1) { TemProcura = true; TxtBoxProcurar.Text = Procura; RadButIgual.Checked = true; key = "1"; CarregarFiltros(); }
                 if (Procura == "") LsVyPrinc.DataSource = Controles.CarregarGradeRapida("", Tipo);
-                // else { LsVyPrinc.DataSource = Controles.CarregarGradeRapida("", Tipo); }
 
-
-                /*
-                switch (Tipo){
-                    case "Cidade": {
-                            LsVyPrinc.DataSource = Controles.CarregarGradeRapida("","Cidade");
-                    }
-                    case "Bairro": {
-                            LsVyPrinc.DataSource = Controles.CarregarGradeRapida("","Bairro");
-                    }  
-                }
-                */
                 LsVyPrinc.Columns[0].Width = 50;
                 LsVyPrinc.Columns[1].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
@@ -128,68 +112,23 @@ namespace Projeto_NFC_e
                     value = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Value;
                 }
                 string where = null;
-                switch (Tipo)
-                {
-                    case "Cidade":
-                        {
-                            switch (Convert.ToInt32(key))
+                switch (Convert.ToInt32(key))
                             {
                                 case 1:
                                     {
-                                        where = "t0030.IdCidade";
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        where = "t0030.Nome";
-                                        break;
-                                    }
-
-                            }
-                            break;
-                        }
-                    case "Bairro":
-                        {
-                            switch (Convert.ToInt32(key))
-                            {
-                                case 1:
-                                    {
-                                        where = "IdBairro";
+                                        where = CampoId;
                                         RadButContendo.Enabled = false;
                                         RadButIgual.Checked = true;
                                         break;
                                     }
                                 case 2:
                                     {
-                                        where = "Nome";
+                                        where = CampoDesc;
                                         break;
                                     }
-
                             }
-                            break;
-                        }
-                    case "Cliente":
-                        {
-                            switch (Convert.ToInt32(key))
-                            {
-                                case 1:
-                                    {
-                                        where = "IdCliente";
-                                        RadButContendo.Enabled = false;
-                                        RadButIgual.Checked = true;
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        where = "Nome";
-                                        break;
-                                    }
-
-                            }
-                            break;
-                        }
-                }
-
+                            
+                
                 if ((RadButContendo.Checked) && (TxtBoxProcurar.Text != ""))
                     LsVyPrinc.DataSource = Controles.CarregarGradeRapida("where " + where + " like '%" + Procura + "%'", Tipo);
 
@@ -216,7 +155,7 @@ namespace Projeto_NFC_e
            private void CombBxFilt_SelectedIndexChanged(object sender, EventArgs e)
             {
                 string key = ((KeyValuePair<string, string>)CombBxFilt.SelectedItem).Key;
-                      switch (Convert.ToInt32(key))
+                switch (Convert.ToInt32(key))
                                    {
                                        case 1:
                                            {

@@ -9,6 +9,22 @@ namespace Projeto_NFC_e
 {
     class Funcoes
     {
+
+        public static string FormataCpfCnpj(string CpfCnpj)
+        {
+            CpfCnpj = CpfCnpj.Trim();
+
+            if (CpfCnpj.Length == 14)
+            {
+                CpfCnpj = CpfCnpj.Substring(0, 2) + "." + CpfCnpj.Substring(2, 3) + "." + CpfCnpj.Substring(5, 3) + "/" + CpfCnpj.Substring(8, 4) + "-" + CpfCnpj.Substring(12, 2);
+            }
+            if (CpfCnpj.Length == 11)
+            {
+                CpfCnpj = CpfCnpj.Substring(0, 3) + "." + CpfCnpj.Substring(3, 3) + "." + CpfCnpj.Substring(6, 3) + "-" + CpfCnpj.Substring(9, 2);
+            }
+            return CpfCnpj;
+        }
+        
         public static int DigitoModulo11(string intNumero)
         {
             int[] intPesos = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5, 6, 7, 8, 

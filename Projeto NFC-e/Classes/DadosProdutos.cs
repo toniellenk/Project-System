@@ -79,7 +79,27 @@ namespace Projeto_NFC_e
                 ObjConn.Close();
                 return dt;
         }
-        
+
+
+        public void Consulta(string Colunas, string Condicoes)
+        {
+
+            /*Query SQL*/
+            string SqlSelect = "select top 100 " + Colunas + " from t0025 ";
+            SqlSelect += Condicoes;
+
+            SqlConnection ObjConn = new SqlConnection(SrtCon);
+            SqlCommand ObjCmd = new SqlCommand(SqlSelect, ObjConn);
+
+            /*Definição de parãmetros da Query */
+            //   ObjCmd.Parameters.AddWithValue("@Condicoes", Condicoes);
+
+            ObjConn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(ObjCmd);
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            ObjConn.Close();
+        }
         public void inserir(ProdObj Prod)
             {
                 string SqlInsert = "insert into t0025 values(@Nome, @DescDet, @CodBarras, @Ncm, @UnMed, ";

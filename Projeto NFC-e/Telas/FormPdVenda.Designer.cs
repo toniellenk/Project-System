@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPdVenda));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LabSalvarProduto = new System.Windows.Forms.Label();
-            this.LsVyPrinc = new System.Windows.Forms.DataGridView();
+            this.LsVyPdVenda = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.LabSaldoEstoque = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -71,8 +71,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.LabNomeItem = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RadButNomeProd = new System.Windows.Forms.RadioButton();
+            this.RadButIdProd = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.TxtBoxProduto = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -87,7 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImgAlert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgOk)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LsVyPdVenda)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -342,7 +342,7 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.LabSalvarProduto);
-            this.groupBox3.Controls.Add(this.LsVyPrinc);
+            this.groupBox3.Controls.Add(this.LsVyPdVenda);
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox6);
@@ -392,52 +392,52 @@
             this.LabSalvarProduto.TabIndex = 13;
             this.LabSalvarProduto.Text = "Salvar";
             // 
-            // LsVyPrinc
+            // LsVyPdVenda
             // 
-            this.LsVyPrinc.AllowUserToAddRows = false;
-            this.LsVyPrinc.AllowUserToDeleteRows = false;
-            this.LsVyPrinc.AllowUserToResizeColumns = false;
-            this.LsVyPrinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LsVyPrinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.LsVyPrinc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LsVyPrinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.LsVyPrinc.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.LsVyPrinc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LsVyPrinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.LsVyPrinc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.LsVyPrinc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.LsVyPrinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.LsVyPrinc.DefaultCellStyle = dataGridViewCellStyle7;
-            this.LsVyPrinc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.LsVyPrinc.GridColor = System.Drawing.Color.Aqua;
-            this.LsVyPrinc.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.LsVyPrinc.Location = new System.Drawing.Point(8, 58);
-            this.LsVyPrinc.Margin = new System.Windows.Forms.Padding(5);
-            this.LsVyPrinc.MultiSelect = false;
-            this.LsVyPrinc.Name = "LsVyPrinc";
-            this.LsVyPrinc.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LsVyPrinc.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.LsVyPrinc.RowHeadersVisible = false;
-            this.LsVyPrinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LsVyPrinc.Size = new System.Drawing.Size(656, 303);
-            this.LsVyPrinc.StandardTab = true;
-            this.LsVyPrinc.TabIndex = 3;
+            this.LsVyPdVenda.AllowUserToAddRows = false;
+            this.LsVyPdVenda.AllowUserToDeleteRows = false;
+            this.LsVyPdVenda.AllowUserToResizeColumns = false;
+            this.LsVyPdVenda.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.LsVyPdVenda.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.LsVyPdVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LsVyPdVenda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LsVyPdVenda.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.LsVyPdVenda.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LsVyPdVenda.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.LsVyPdVenda.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.LsVyPdVenda.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPdVenda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.LsVyPdVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.LsVyPdVenda.DefaultCellStyle = dataGridViewCellStyle3;
+            this.LsVyPdVenda.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.LsVyPdVenda.GridColor = System.Drawing.Color.Aqua;
+            this.LsVyPdVenda.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.LsVyPdVenda.Location = new System.Drawing.Point(8, 58);
+            this.LsVyPdVenda.Margin = new System.Windows.Forms.Padding(5);
+            this.LsVyPdVenda.MultiSelect = false;
+            this.LsVyPdVenda.Name = "LsVyPdVenda";
+            this.LsVyPdVenda.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LsVyPdVenda.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.LsVyPdVenda.RowHeadersVisible = false;
+            this.LsVyPdVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LsVyPdVenda.Size = new System.Drawing.Size(656, 303);
+            this.LsVyPdVenda.StandardTab = true;
+            this.LsVyPdVenda.TabIndex = 3;
             // 
             // groupBox9
             // 
@@ -570,8 +570,8 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.radioButton2);
-            this.groupBox7.Controls.Add(this.radioButton1);
+            this.groupBox7.Controls.Add(this.RadButNomeProd);
+            this.groupBox7.Controls.Add(this.RadButIdProd);
             this.groupBox7.Controls.Add(this.button3);
             this.groupBox7.Controls.Add(this.TxtBoxProduto);
             this.groupBox7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -583,29 +583,29 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Produto";
             // 
-            // radioButton2
+            // RadButNomeProd
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton2.Location = new System.Drawing.Point(80, 13);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(56, 19);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nome";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RadButNomeProd.AutoSize = true;
+            this.RadButNomeProd.ForeColor = System.Drawing.Color.Blue;
+            this.RadButNomeProd.Location = new System.Drawing.Point(80, 13);
+            this.RadButNomeProd.Name = "RadButNomeProd";
+            this.RadButNomeProd.Size = new System.Drawing.Size(56, 19);
+            this.RadButNomeProd.TabIndex = 9;
+            this.RadButNomeProd.TabStop = true;
+            this.RadButNomeProd.Text = "Nome";
+            this.RadButNomeProd.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // RadButIdProd
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton1.Location = new System.Drawing.Point(41, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(38, 19);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ID";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RadButIdProd.AutoSize = true;
+            this.RadButIdProd.ForeColor = System.Drawing.Color.Blue;
+            this.RadButIdProd.Location = new System.Drawing.Point(41, 13);
+            this.RadButIdProd.Name = "RadButIdProd";
+            this.RadButIdProd.Size = new System.Drawing.Size(38, 19);
+            this.RadButIdProd.TabIndex = 8;
+            this.RadButIdProd.TabStop = true;
+            this.RadButIdProd.Text = "ID";
+            this.RadButIdProd.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -619,6 +619,7 @@
             this.button3.Size = new System.Drawing.Size(21, 20);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // TxtBoxProduto
             // 
@@ -722,7 +723,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImgOk)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LsVyPrinc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LsVyPdVenda)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -747,7 +748,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox TxtBoxProduto;
+        public System.Windows.Forms.TextBox TxtBoxProduto;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
@@ -756,9 +757,9 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.TextBox TxtBoxQuantUnit;
         private System.Windows.Forms.TextBox TxtBoxPreco;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataGridView LsVyPrinc;
+        private System.Windows.Forms.RadioButton RadButNomeProd;
+        private System.Windows.Forms.RadioButton RadButIdProd;
+        public System.Windows.Forms.DataGridView LsVyPdVenda;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -770,7 +771,7 @@
         private System.Windows.Forms.RadioButton RadButNomeCliente;
         private System.Windows.Forms.RadioButton RadButIDCliente;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox TxtBoxCliente;
+        public  System.Windows.Forms.TextBox TxtBoxCliente;
         public System.Windows.Forms.Label LabCpfCnpjCliente;
         public System.Windows.Forms.Label LabNomeCliente;
         public System.Windows.Forms.Label LabEnderCliente;

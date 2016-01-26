@@ -229,22 +229,10 @@ namespace Projeto_NFC_e
 
                         foreach (DataRow dr in objDados.dt.Rows)
                         {
-                            string CpfCnpj = dr["CpfCnpj"].ToString();
-
-                            CpfCnpj = CpfCnpj.Trim();
-
-                            if (CpfCnpj.Length == 14)
-                            {
-                                CpfCnpj = CpfCnpj.Substring(0, 2) + "." + CpfCnpj.Substring(2, 3) + "." + CpfCnpj.Substring(5, 3) + "/" + CpfCnpj.Substring(8, 4) + "-" + CpfCnpj.Substring(12, 2);
-                            }
-                            if (CpfCnpj.Length == 11)
-                            {
-                                CpfCnpj = CpfCnpj.Substring(0, 3) + "." + CpfCnpj.Substring(3, 3) + "." + CpfCnpj.Substring(6, 3) + "-" + CpfCnpj.Substring(9, 2);
-                            }
-
-                            
+                            string CpfCnpj = Funcoes.FormataCpfCnpj(dr["CpfCnpj"].ToString());
 
                             linha = mDataTable.NewRow();
+
                             linha["ID"] = dr["IdCliente"].ToString();
                             linha["NOME"] = dr["Nome"].ToString();
                             linha["CPF / CNPJ"] = CpfCnpj;
@@ -382,8 +370,6 @@ namespace Projeto_NFC_e
                 case "Cliente":
                     {
 
-                        //string Colunas = "IdCliente, Nome";
-
                         DadosClientes objDados = new DadosClientes();
 
                         objDados.Consulta(Condicoes);
@@ -394,6 +380,26 @@ namespace Projeto_NFC_e
                             linha = mDataTable.NewRow();
 
                             linha["ID"] = dr["IdCliente"].ToString().Trim(); 
+                            linha["DESCRIÇÃO"] = dr["Nome"].ToString().Trim();
+
+                            mDataTable.Rows.Add(linha);
+                        }
+
+                        break;
+                    }
+                case "Produto":
+                    {
+
+                        DadosProdutos objDados = new DadosProdutos();
+
+                        objDados.Consulta(Condicoes);
+
+                        foreach (DataRow dr in objDados.dt.Rows)
+                        {
+
+                            linha = mDataTable.NewRow();
+
+                            linha["ID"] = dr["IdProd"].ToString().Trim();
                             linha["DESCRIÇÃO"] = dr["Nome"].ToString().Trim();
 
                             mDataTable.Rows.Add(linha);
@@ -468,8 +474,6 @@ namespace Projeto_NFC_e
                             linha["GRUPO DE ITENS"] = dr["GrupItens"].ToString();
                             linha["UN. MEDIDA"] = dr["UnMed"].ToString();
                             linha["NATUREZA"] = dr["Natureza"].ToString();
-
-                        //    Filtros = new string[] { "ID", "NOME", "DESCRIÇÃO DETALHADA", "GRUPO DE ITENS", "UN. MEDIDA", "NATUREZA" };
 
                             mDataTable.Rows.Add(linha);
                         }

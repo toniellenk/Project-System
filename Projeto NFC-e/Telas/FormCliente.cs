@@ -15,6 +15,16 @@ namespace Projeto_NFC_e
 
         private int Operacao;
         private string IdCliente;
+
+        public FormCliente()
+        {
+            InitializeComponent();
+            LabCNPJ.Visible = false;
+            LabIdExtr.Visible = false;
+            TxtBoxIdentEstrang.Visible = false;
+            LbRS.Visible = false;
+            TxtBxNomFant.Enabled = false;
+        }
         public FormCliente(int Op, string ItemSelect)
         {
             
@@ -314,7 +324,7 @@ namespace Projeto_NFC_e
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormPesquisaSimples TelaPesquisa = new FormPesquisaSimples(this,"Cidade");
+            PesqSimplCidadeCliente TelaPesquisa = new PesqSimplCidadeCliente(this);
             TelaPesquisa.ShowDialog();
 
 
