@@ -85,7 +85,7 @@ namespace Projeto_NFC_e
         {
 
             /*Query SQL*/
-            string SqlSelect = "select top 100 " + Colunas + " from t0025 ";
+            string SqlSelect = "select top 100 " + Colunas + " from t0025 left join t0027 on t0025.IdProd = t0027.IdProd ";
             SqlSelect += Condicoes;
 
             SqlConnection ObjConn = new SqlConnection(SrtCon);

@@ -17,7 +17,9 @@ namespace Projeto_NFC_e
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPdVenda());
+            Application.Run(new FormInicial()
+                
+                );
           
         }
     }
