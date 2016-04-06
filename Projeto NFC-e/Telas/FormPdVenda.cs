@@ -173,25 +173,36 @@ namespace Projeto_NFC_e
                 linha[5] = Convert.ToString(Convert.ToDouble(TxtBoxDescontoUnit.Text) / (Convert.ToDouble(TxtBoxQuantUnit.Text) * Convert.ToDouble(TxtBoxPreco.Text)) * 100) + " %";
                 linha[6] = TxtBoxDescontoUnit.Text;
                 linha[7] = (Convert.ToDouble(TxtBoxQuantUnit.Text) * Convert.ToDouble(TxtBoxPreco.Text)) - Convert.ToDouble(TxtBoxDescontoUnit.Text);
-
-                mDataTable.Rows.Add(linha);
-                LsVyPdVenda.DataSource = mDataTable;
-
-                linha = mDataTable.NewRow();
+                
+                foreach (DataGridViewRow Dr in LsVyPdVenda.Rows)
+                {
+                    if (Dr.Cells[0].Value.ToString() == TxtBoxProduto.Text.Trim())
+                    {
+                        MessageBox.Show("O produto " + TxtBoxProduto.Text.Trim() + " já está na grade.", "Item em Duplicidade", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        mDataTable.Rows.Add(linha);
+                        LsVyPdVenda.DataSource = mDataTable;
+                        linha = mDataTable.NewRow();
+                    }
+                } 
+                  
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Este produto já está na grade: " + ex.Message.ToString(), "Item em Duplicidade", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Não foi possível inserir este produto na grade: " + ex.Message.ToString(), "Produto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButDelProd_Click(object sender, EventArgs e)
         {
             //LsVyPdVenda.Rows.RemoveAt(LsVyPdVenda.CurrentRow.Cells[0].ToString);
 
             foreach (DataGridViewRow r in LsVyPdVenda.SelectedRows)
-               if (MessageBox.Show("Tem certeza que vai esxlui o produto? ", "Item em Duplicidade", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+               if (MessageBox.Show("Tem certeza que vai exluir o produto? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                    LsVyPdVenda.Rows.Remove(r);
         }
     }

@@ -72,6 +72,7 @@ namespace Projeto_NFC_e
             {
 
                 SecaoFormPdVenda.linha["ID"] = dr["IdProd"].ToString();
+                SecaoFormPdVenda.TxtBoxProduto.Text = dr["IdProd"].ToString();
                 SecaoFormPdVenda.linha["Descrição"] = dr["NomeProduto"].ToString();
                 SecaoFormPdVenda.LabDescProd.Text = dr["IdProd"].ToString() + " -" + " " + dr["NomeProduto"].ToString();
                 SecaoFormPdVenda.linha["Unid."] = dr["UnMed"].ToString();
