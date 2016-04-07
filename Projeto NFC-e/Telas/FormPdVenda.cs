@@ -216,8 +216,7 @@ namespace Projeto_NFC_e
                     
             try {
                 PesqSimplClientePdVenda TelaPesquisa = new PesqSimplClientePdVenda(this);
-                if (RadButIDCliente.Checked) TelaPesquisa.TipoProcura = 1;
-                if (RadButNomeCliente.Checked) TelaPesquisa.TipoProcura = 2; 
+                TelaPesquisa.TipoProcura = 1;
                 PesqSimplClientePdVenda.CarregarFormBase(ItemSelect);
                 }
             catch (Exception ex)
