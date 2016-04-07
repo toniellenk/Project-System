@@ -14,6 +14,7 @@ namespace Projeto_NFC_e
     {
         public DataTable mDataTable = new DataTable();
         public DataRow linha;
+        private int Operacao;
 
         public FormPdVenda(int Op, string ItemSelect)
         {
@@ -21,6 +22,11 @@ namespace Projeto_NFC_e
             ImgBloq.Visible = false;
             ImgAlert.Visible = false;
             ImgAlert.Visible = false;
+            Operacao = Op;
+            if (Op == 2)
+            {
+                 CarregarDadosAlterar(ItemSelect);
+            }
         }
 
         public FormPdVenda()
@@ -205,5 +211,20 @@ namespace Projeto_NFC_e
                if (MessageBox.Show("Tem certeza que vai exluir o produto? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                    LsVyPdVenda.Rows.Remove(r);
         }
+        
+        public void CarregarDadosAlterar(string ItemSelect){
+                    
+            try {
+                PesqSimplClientePdVenda TelaPesquisa = new PesqSimplClientePdVenda(this);
+                if (RadButIDCliente.Checked) TelaPesquisa.TipoProcura = 1;
+                if (RadButNomeCliente.Checked) TelaPesquisa.TipoProcura = 2; 
+                PesqSimplClientePdVenda.CarregarFormBase(ItemSelect);
+                }
+            catch (Exception ex)
+            {               
+                MessageBox.Show("Ao filtrar dados dados: " + ex.Message.ToString(), "Erro ao Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Error);           
+            }
+        }
+        
     }
 }
